@@ -1,0 +1,11 @@
+
+.mainStory {
+    margin: 20px 0;
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .author {
+      text-align: right;
+      margin-top: 20px;
+  }

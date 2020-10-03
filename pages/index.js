@@ -1,69 +1,24 @@
 import React, { useState } from "react";
+import { useRouter } from 'next/router'
+import * as lstorage from 'local-storage';
+
 import styles from "../styles/Home.module.css";
+import {plots, STEP_TYPE} from "../constants/story_constants";
+import StoryOptions from '../components/StoryOptions'
+import AboutChildren from '../components/AboutChildren';
 
 export default function Home() {
+  const router = useRouter();
   const [showAll, setShowAll] = useState(false);
-  const [inputValue, setInputValue] = useState('')
-  const colors = ["#000000", "#000000"];
-  const h = {
-    t: "Era uma vez",
-    type: 'o',
-    o: [
-      { t: "uma peúga que nao tinha par." },
-      { t: "uma arvore mágia." },
-      { t: "um pai natal que perdeu a barba." },
-      {
-        t: "um chiclete de cereja.",
-        t2: "O seu nome era",
-        type: 'i',
-        o: {
-          t: "",
-          type: 'o',
-          o: [
-            {
-              t: "Um dia após ser mascado foi atirado ao chão.",
-              t2: " Após andar de um lado para o outro",
-              type: 'o',
-              o: [
-                { t: "ficou preso numa sapatilha.",
-                  type: 'e'
-                },
-                { t: "ficou preso num banco de jardim." },
-                { t: "foi comida por um cão." },
-              ],
-            },
-            { t: "Ele era o chiclete mais bonito da caixa." },
-            { t: "Ele era um chiclete solitário" },
-          ],
-        },
-      },
-    ],
-  };
-
+  
   const [text, setText] = useState("");
-  const [op, setOp] = useState(h);
+  const storyBeginning = plots;
 
-  function selectOption(option, i) {
-    if (!option.type) {
-      return;
-    }
-    let t2 = option.t2 || "";
-
-    if(option.type == 'e') {
-      t2 = `A sapatilha era de um atleta que participava nos jogos olímpicos. A pastilha ${inputValue} tornou-se a primeira pastilha elástica a ganhar uma corrida de 100 metros.`;
-
-    }
-    setText(text + " " + option.t + " " + t2);
-    setOp(option);
-  }
-
-  function selectText(inputtext, option) {
-    if(!inputtext) {
-      return;
-    }
-
-    setText(text + " " + inputtext + '.');
-    setOp(option);
+  function startHistory(option) {
+    lstorage('story', [{type: STEP_TYPE.OPTIONS, value: option.id}]);
+    lstorage('storyAuthor', '');
+    lstorage('storyTitle', '');
+    router.push('/aminhahistoria');
   }
 
   return (
@@ -112,7 +67,6 @@ export default function Home() {
             Esconder História
           </div>
         )}
-        <hr></hr>
 
         <div className={styles.info}>
           Esta não é a única versão da história criada pelas nossas crianças.
@@ -121,54 +75,12 @@ export default function Home() {
 
         <div className={styles.once}>Era uma vez {text}</div>
         <div>
-          {op.type == 'o' &&
-            op.o.map((option, i) => {
-              return (
-                <div
-                  onClick={() => selectOption(option, i)}
-                  className={styles.option}
-                >
-                  {option.t}
-                </div>
-              );
-            })}
-
-          {op.type == 'i' && (
-            <div>
-              <input
-                onChange={event => setInputValue(event.target.value)}
-                className={styles.inputform}
-                placeholder="introduzir nome"
-              ></input>
-              <button
-                className={styles.continuebtn}
-                onClick={() => selectText(inputValue, op.o, 0)}
-              >
-                Continuar
-              </button>
-            </div>
-          )}
-
-        {op.type == 'e' && <div>
-            <h2>Bom trabalho. A tua história está pronta e fantástica.</h2>
-            <div>Partilha a história com todos os teus amigos.</div>
-            <button
-                className={styles.continuebtn}
-              >
-                Partilhar história
-              </button>
-
-            <div>Queres aproveitar para ajudar as crianças que deram vida a esta história?</div>
-            <button
-                className={styles.continuebtn}
-              >
-                Doar
-              </button>
-
-
-            <div className={styles.knowmore}>Saber mais</div>
-
-        </div>}
+          {storyBeginning.type == STEP_TYPE.OPTIONS &&
+            <StoryOptions options={storyBeginning.options} onOptionClick={startHistory}></StoryOptions>
+          }
+        </div>
+        <div className={styles.section}>
+          <AboutChildren></AboutChildren>
         </div>
       </main>
     </div>

@@ -14,3 +14,22 @@ a {
 * {
   box-sizing: border-box;
 }
+
+input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+
+}
+
+.pageWidthAlign {
+  margin: 0 20px;
+}
