@@ -1,9 +1,12 @@
 
-.container {
-  padding: 40px;
+.mainTitle {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 12px;
 }
 
-.intro, .once {
+.intro {
   font-size: 19px;
   display: block;
   line-height: 31px;
@@ -53,50 +56,15 @@
   font-size: 12px;
 }
 
-.message {
-  position: relative;
-}
-
-.user {
-  position: absolute;
-  top: -20px;
-  left: 6px;
-  font-size: 11px;
-  margin-top: -10px;
-  white-space: nowrap;
-}
-
-.insertinput {
-  display: inline;
-  border: 0;
-  border-bottom: 1px solid;
-  height: 40px;
-  font-size: 20px;
-  width: 100%;
-  outline: 0;
-}
-
-.doarbtn {
-  width: 100%;
-  padding: 10px;
-  margin-top: 40px;
-}
-
-.option {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px;
-  margin-top: 10px;
-}
-
 .info {
   margin-top: 40px;
   margin-bottom: 20px;
   font-size: 14px;
 }
 
-.title {
+.mainIntro {
   font-size: 14px;
+  margin-top: 10px;
 }
 
 .userStory {
@@ -108,6 +76,7 @@
   font-size: 11px;
   text-align: center;
   margin-bottom: 8px;
+  margin-top: 40px;
 }
 
 .userStoryAfter {
@@ -126,10 +95,6 @@
   padding: 10px 20px;
   display: block;
   width: 100%;
-}
-
-.mainTitle {
-  margin-top: 100px;
 }
 
 .knowmore {

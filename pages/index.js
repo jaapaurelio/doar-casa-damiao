@@ -11,7 +11,6 @@ export default function Home() {
   const router = useRouter();
   const [showAll, setShowAll] = useState(false);
 
-  const [text, setText] = useState("");
   const storyBeginning = plots;
 
   function startHistory(option) {
@@ -29,11 +28,11 @@ export default function Home() {
   }
 
   return (
-    <div className={styles.container}>
+    <div className="pageWidthAlign">
       <main className={styles.main}>
-        <div className={styles.title}>
-          As crianças da Casa Damião escolheram as personagem, os lugares e as
-          descrições. Você escolhe como tudo se junta.
+        <div className={styles.mainTitle}>Uma história de Natal</div>
+        <div className={styles.mainIntro}>
+          As crianças da Casa Damião precisam da tua ajuda para criar histórias de Natal.
         </div>
 
         <div className={styles.userStory}>
@@ -79,12 +78,10 @@ export default function Home() {
 
 
         <div className={styles.mainStatus}>
-          132 histórias criadas. 57 doações. 398€ angariados.
-          <br />
-          Faça parte desta história deste natal.
+          132 histórias criadas. 57 doações. 1.134€ angariados.
         </div>
 
-        <div className={styles.once}>Era uma vez {text}</div>
+        <div className={styles.once}>Era uma vez</div>
         <div>
           {storyBeginning.type == STEP_TYPE.OPTIONS && (
             <StoryOptions
