@@ -1,11 +1,11 @@
-
 .mainStory {
-    margin: 20px 0;
-    font-size: 20px;
-    line-height: 1.4;
-  }
+  margin: 20px 0;
+  font-size: 20px;
+  line-height: 1.4;
+  font-family: cursive;
+}
 
-  .author {
-      text-align: right;
-      margin-top: 20px;
-  }
+.author {
+  text-align: right;
+  margin-top: 20px;
+}

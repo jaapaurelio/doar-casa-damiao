@@ -11,6 +11,7 @@ export default function StoryOptions({options, onOptionClick}) {
             className={styles.option}
           >
             {option.text}
+            <input type="radio"></input>
           </div>
         );
       })}

@@ -14,6 +14,9 @@ export default function Home() {
   const storyBeginning = plots;
 
   function startHistory(option) {
+    if(option.id != 4) {
+      return;
+    }
     lstorage("story", [{ type: STEP_TYPE.OPTIONS, value: option.id }]);
     lstorage("storyAuthor", "");
     lstorage("storyTitle", "");

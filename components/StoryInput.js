@@ -19,6 +19,7 @@ export default function StoryInput({ step, onButtonClick }) {
           }}
           className={styles.inputform}
           placeholder="introduzir nome"
+          type="text"
         ></input>
         <button
           className={styles.continuebtn}

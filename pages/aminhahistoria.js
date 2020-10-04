@@ -112,6 +112,7 @@ export default function MyStoryPage() {
             <div>
               Título da História: <br />
               <input
+                type="text"
                 value={storyTitle}
                 onChange={(e) => setStoryTitle(e.target.value)}
               />
@@ -120,6 +121,7 @@ export default function MyStoryPage() {
               Autor:
               <br />
               <input
+                type="text"
                 value={authorName}
                 onChange={(e) => setAuthorName(e.target.value)}
               />
