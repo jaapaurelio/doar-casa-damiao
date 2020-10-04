@@ -1,24 +1,31 @@
 import React, { useState } from "react";
-import { useRouter } from 'next/router'
-import * as lstorage from 'local-storage';
+import { useRouter } from "next/router";
+import * as lstorage from "local-storage";
 
 import styles from "../styles/Home.module.css";
-import {plots, STEP_TYPE} from "../constants/story_constants";
-import StoryOptions from '../components/StoryOptions'
-import AboutChildren from '../components/AboutChildren';
+import { plots, STEP_TYPE } from "../constants/story_constants";
+import StoryOptions from "../components/StoryOptions";
+import AboutChildren from "../components/AboutChildren";
 
 export default function Home() {
   const router = useRouter();
   const [showAll, setShowAll] = useState(false);
-  
+
   const [text, setText] = useState("");
   const storyBeginning = plots;
 
   function startHistory(option) {
-    lstorage('story', [{type: STEP_TYPE.OPTIONS, value: option.id}]);
-    lstorage('storyAuthor', '');
-    lstorage('storyTitle', '');
-    router.push('/aminhahistoria');
+    lstorage("story", [{ type: STEP_TYPE.OPTIONS, value: option.id }]);
+    lstorage("storyAuthor", "");
+    lstorage("storyTitle", "");
+    router.push("/aminhahistoria");
+  }
+
+  function hideStory() {
+    setShowAll(false);
+    setTimeout(function(){
+      window.scrollTo(0, 200);
+    }, 200)
   }
 
   return (
@@ -28,8 +35,11 @@ export default function Home() {
           As crianças da Casa Damião escolheram as personagem, os lugares e as
           descrições. Você escolhe como tudo se junta.
         </div>
+
         <div className={styles.userStory}>
-          A aventura da peúga Valentina por Daniel Silva.
+          <div className={styles.userStoryPre}>História em destaque</div>A
+          aventura da peúga Valentina.
+          <div className={styles.userStoryAfter}> José Silva</div>
         </div>
         <p className={`${styles.intro} ${showAll ? styles.showAll : ""}`}>
           Era uma vez uma peúga que não tinha par. O seu nome era Valentina.{" "}
@@ -46,7 +56,6 @@ export default function Home() {
           e por saber que daí a uns dias ele voltaría à sua confortável gaveta.
           <br></br>
         </p>
-
         {!showAll && (
           <div
             onClick={() => {
@@ -57,10 +66,10 @@ export default function Home() {
             Ler História
           </div>
         )}
-        {showAll && (
+         {showAll && (
           <div
             onClick={() => {
-              setShowAll(false);
+              hideStory();
             }}
             className={styles.ler}
           >
@@ -68,16 +77,21 @@ export default function Home() {
           </div>
         )}
 
-        <div className={styles.info}>
-          Esta não é a única versão da história criada pelas nossas crianças.
-          Faça a sua versão.
+
+        <div className={styles.mainStatus}>
+          132 histórias criadas. 57 doações. 398€ angariados.
+          <br />
+          Faça parte desta história deste natal.
         </div>
 
         <div className={styles.once}>Era uma vez {text}</div>
         <div>
-          {storyBeginning.type == STEP_TYPE.OPTIONS &&
-            <StoryOptions options={storyBeginning.options} onOptionClick={startHistory}></StoryOptions>
-          }
+          {storyBeginning.type == STEP_TYPE.OPTIONS && (
+            <StoryOptions
+              options={storyBeginning.options}
+              onOptionClick={startHistory}
+            ></StoryOptions>
+          )}
         </div>
         <div className={styles.section}>
           <AboutChildren></AboutChildren>

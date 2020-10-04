@@ -9,10 +9,13 @@
   line-height: 31px;
   overflow: hidden;
   position: relative;
-  transition:max-height 0.5s ease-out
+  transition:max-height 0.5s ease-out;
+  margin: 0;
+  font-family: cursive;
 }
+
 .intro {
-  max-height: 100px;
+  max-height: 0px;
 
 }
 
@@ -32,7 +35,7 @@
 
 .intro.showAll {
   max-height: 1000px;
-
+  padding: 10px 0;
 }
 
 .intro.showAll:after {
@@ -44,14 +47,10 @@
 }
 
 .ler {
-  border-radius: 4px;
-  border: 1px solid #000;
-  padding: 10px;
-  margin: 0 auto;
-  width: 200px;
-  text-align: center;
+  text-align: right;
   background: #fff;
   margin-bottom: 40px;
+  font-size: 12px;
 }
 
 .message {
@@ -91,8 +90,8 @@
 }
 
 .info {
-  margin-top: 100px;
-  margin-bottom: 40px;
+  margin-top: 40px;
+  margin-bottom: 20px;
   font-size: 14px;
 }
 
@@ -102,9 +101,18 @@
 
 .userStory {
   margin-top: 20px;
-  font-size: 30px;
+  font-size: 20px;
 }
 
+.userStoryPre {
+  font-size: 11px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.userStoryAfter {
+  font-size: 11px;
+}
 
 .continuebtn {
   display: block;
@@ -131,4 +139,10 @@
 
 .section {
   margin-top: 40px;
+}
+
+.mainStatus {
+  margin-top: 20px;
+  font-weight: bold;
+  margin-bottom: 20px
 }
