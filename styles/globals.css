@@ -15,7 +15,7 @@ a {
   box-sizing: border-box;
 }
 
-input[type=text] {
+input[type="text"] {
   display: block;
   width: 100%;
   padding: 10px;
@@ -27,9 +27,23 @@ button {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-
 }
 
 .pageWidthAlign {
   margin: 0 20px;
+}
+
+.btn-doar {
+  width: auto;
+  background: #b61c58;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px 20px;
+  border: 0;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.actionButton {
+  text-align: center;
 }

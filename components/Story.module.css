@@ -1,10 +1,15 @@
 .mainStory {
-  margin: 20px 0;
-  font-size: 20px;
-  line-height: 1.4;
-  font-family: cursive;
+    margin: 20px 0;
+    font-size: 20px;
+    line-height: 1.4;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    padding: 14px;
+    background: #fffbf5;
 }
-
+.mainStory h1 {
+    font-size: 24px;
+}
 .author {
   text-align: right;
   margin-top: 20px;

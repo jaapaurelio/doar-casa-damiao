@@ -13,7 +13,6 @@ export default function StoryInput({ step, onButtonClick }) {
       <div>{step.input.text}</div>
       <div>
         <input
-          autoFocus
           onChange={(event) => {
             setInputValue(event.target.value);
           }}
