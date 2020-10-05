@@ -102,11 +102,14 @@ export default function MyStoryPage() {
 
       {finishedStory && (
         <div>
-          <h2>Está quase perfeito.</h2>
+          <h2>Para finalizar.</h2>
           <div>
-            Para finalizar, dá um título a esta história e partilha o teu nome
-            com as crianças da Casa Damião. Temos a certeza que elas vão adorar
-            saber quem deu vida às suas ideias. <br />
+            Dá um título a esta história e partilha o teu nome com as crianças
+            da Casa Damião.
+            <br />
+            <br />
+            Temos a certeza que elas vão adorar saber quem deu vida às suas
+            ideias. <br />
           </div>
           <div className={styles.storyDetailsContainer}>
             <div>

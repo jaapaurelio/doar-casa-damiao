@@ -19,7 +19,7 @@ const plots = {
               endline:
                 "A sapatilha era de um atleta profissional que estava em corrida. O chiclete de cereja agarrou-se com tudo a essa sapatilha e foi o primeiro chiclete da história a ganhar os jogos olímpicos. Sê como o chiclete de cereja, nunca desistas dos teus sonhos.",
             },
-            { id: 2, text: "ficou preso num banco de jardim." },
+            { id: 2, text: "acabou na lixeira." },
             { id: 3, text: "foi comido por um cão." },
           ],
         },
@@ -27,7 +27,7 @@ const plots = {
         { id: 3, text: "Ele era um chiclete solitário" },
       ],
     },
-    { id: 1, text: "Era uma vez uma peúga que nao tinha par." },
+    { id: 1, text: "Era uma vez uma peúga que não tinha par." },
     { id: 3, text: "Era uma vez um pai natal que perdeu a barba." },
   ],
 };
