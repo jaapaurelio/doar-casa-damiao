@@ -3,8 +3,6 @@ import { useRouter } from "next/router";
 import "../styles/globals.css";
 import PageHeader from "../components/PageHeader";
 import PageFooter from "../components/PageFooter";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
