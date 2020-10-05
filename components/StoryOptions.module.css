@@ -1,12 +1,14 @@
 .caroussel {
+  /* line them up horizontally */
   display: flex;
+
+  /* allow for scrolling */
   overflow-x: auto;
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+
+  /* make it smooth on iOS */
   -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  scroll-snap-type: x mandatory;
+  scroll-snap-points-x: repeat(200px);
+  scroll-snap-type: mandatory;
 }
 .caroussel::-webkit-scrollbar {
   display: none;
