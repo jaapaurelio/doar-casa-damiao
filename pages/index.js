@@ -48,13 +48,14 @@ export default function Home() {
             Todas as crianças merecem uma história de natal
           </div>
           <div className={styles.userStoryPre}>Como começa?</div>
-          {storyBeginning.type == STEP_TYPE.OPTIONS && (
-            <StoryOptions
-              options={storyBeginning.options}
-              onOptionClick={startHistory}
-            ></StoryOptions>
-          )}
-
+        </div>
+        {storyBeginning.type == STEP_TYPE.OPTIONS && (
+          <StoryOptions
+            options={storyBeginning.options}
+            onOptionClick={startHistory}
+          ></StoryOptions>
+        )}
+        <div className="pageWidthAlign">
           <div className={styles.mainStatus}>
             132 histórias criadas. 57 doações. 1.134€ angariados.
           </div>
