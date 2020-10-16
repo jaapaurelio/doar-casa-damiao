@@ -32,7 +32,7 @@ export default function MyStoryEndPage() {
       <br></br>
       <button>Partilhar</button>
 
-      <h1>Aproveita e doa</h1>
+      <h1>Doar</h1>
       <div>As crianças da casa damião precisam da tua ajuda neste natal. <a>Saber mais.</a></div>
       <br></br>
       <button>Doar</button>

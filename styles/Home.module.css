@@ -1,11 +1,32 @@
-
 .mainTitle {
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  font-size: 40px;
+  font-weight: bold;
 }
 
+.mainTitleSub {
+  margin-bottom: 20px;
+  font-size: 40px;
+  color: #636363;
+}
+
+.splitMessageDonate {
+  display: flex;
+  align-items: center;
+}
+
+.splitMessageMessage {
+  margin-right: 10px;
+  color: #636363;
+}
+
+.createYourStory {
+  color: #636363;
+  margin-top: 60px;
+}
+
+.createYourStoryBegin {
+  font-size: 30px;
+}
 
 .intro {
   max-height: 0px;

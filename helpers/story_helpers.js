@@ -40,20 +40,11 @@ function getCurrentStoryStep(selectedStoryPlot, plots) {
 
   if (selectedStoryPlot && selectedStoryPlot.length) {
     const op = selectedStoryPlot.reduce((finalOption, step) => {
-      if (step.type == STEP_TYPE.OPTIONS && currentOption.options) {
-        const option = currentOption.options.find(
-          (option) => option.id === step.value
-        );
-        currentOption = option;
-        return option;
-      }
-
-      if (step.type == STEP_TYPE.INPUT && currentOption.input) {
-        const option = currentOption.input;
-        currentOption = option;
-        return option;
-      }
-
+      const option = currentOption.options.find(
+        (option) => option.id === step.value
+      );
+      currentOption = option;
+      return option;
       return currentOption;
     }, {});
 

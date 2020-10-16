@@ -3,6 +3,10 @@ import { useRouter } from "next/router";
 import "../styles/globals.css";
 import PageHeader from "../components/PageHeader";
 import PageFooter from "../components/PageFooter";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -16,7 +20,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <div style={{ maxWidth: "900px", margin: "0 auto" }}>
       <PageHeader></PageHeader>
-      <Component {...pageProps} />
+      <Elements stripe={stripePromise}>
+        <Component {...pageProps} />
+      </Elements>
       <PageFooter></PageFooter>
     </div>
   );

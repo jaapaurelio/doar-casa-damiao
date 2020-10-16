@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import * as lstorage from "local-storage";
 
 import styles from "../styles/Home.module.css";
@@ -27,9 +28,6 @@ export default function Home() {
   const storyBeginning = plots;
 
   function startHistory(option) {
-    if (option.id != 4) {
-      return;
-    }
     lstorage("story", [{ type: STEP_TYPE.OPTIONS, value: option.id }]);
     lstorage("storyAuthor", "");
     lstorage("storyTitle", "");
@@ -44,23 +42,38 @@ export default function Home() {
     <div>
       <main className={styles.main}>
         <div className="pageWidthAlign">
-          <div className={styles.mainTitle}>
-            Todas as crianças merecem uma história de natal
+          <div className={styles.mainTitle}>Todas as crianças</div>
+          <div className={styles.mainTitleSub}>
+            merecem uma história de Natal
           </div>
-          <div className={styles.userStoryPre}>Como começa?</div>
+          <div className={styles.splitMessageDonate}>
+            <div className={styles.splitMessageMessage}>
+              Ao ajudar está a garantir e a acrescentar longevidade e dignidade
+              à vida humana.
+            </div>
+            <Link href="/doar">
+              <button className="btn-doar">Doar</button>
+            </Link>
+          </div>
+          <div className={styles.createYourStory}>
+            Cria a tua própria história
+          </div>
+          <div className={styles.createYourStoryBegin}>Era uma vez...</div>
         </div>
-        {storyBeginning.type == STEP_TYPE.OPTIONS && (
-          <StoryOptions
-            options={storyBeginning.options}
-            onOptionClick={startHistory}
-          ></StoryOptions>
-        )}
+
+        <StoryOptions
+          showQuestion={false}
+          currenOption={storyBeginning}
+          onOptionClick={startHistory}
+        ></StoryOptions>
         <div className="pageWidthAlign">
           <div className={styles.mainStatus}>
             132 histórias criadas. 57 doações. 1.134€ angariados.
           </div>
           <div className={styles.center}>
-            <button className="btn-doar">Fazer Doação</button>
+            <Link href="/doar">
+              <button className="btn-doar">Fazer Doação</button>
+            </Link>
           </div>
           <div className={styles.userStory}>
             <div className={styles.userStoryPre}>História em destaque</div>A
@@ -91,10 +104,6 @@ export default function Home() {
             </div>
           )}
         </div>
-        <div className={styles.section}>
-          <AboutTheProject></AboutTheProject>
-        </div>
-
         <div className={styles.section}>
           <AboutChildren></AboutChildren>
         </div>

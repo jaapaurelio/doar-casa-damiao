@@ -1,20 +1,30 @@
 import styles from "./StoryOptions.module.css";
-export default function StoryOptions({ options, onOptionClick }) {
+import shuffleArray from "shuffle-array";
+
+export default function StoryOptions({
+  currenOption,
+  onOptionClick,
+  showQuestion = true,
+}) {
   return (
-    <div className={styles.caroussel}>
-        {options.map((option, i) => {
+    <div>
+      {showQuestion && (
+        <div className={styles.question}>{currenOption.question}</div>
+      )}
+      <div className={styles.caroussel}>
+        {currenOption.options.map((option, i) => {
           return (
             <div
               key={i}
               onClick={() => onOptionClick(option, i)}
-              className={styles.option}
+              className={`${styles.option}`}
             >
               <img src="/images/icon-placeholder.png"></img>
               <div>{option.text}</div>
-              <div className={styles.button}>Selecionar</div>
             </div>
           );
         })}
+      </div>
     </div>
   );
 }

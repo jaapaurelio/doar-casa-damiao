@@ -4,35 +4,36 @@ import * as lstorage from "local-storage";
 import { plots, STEP_TYPE } from "../constants/story_constants";
 import styles from "../styles/MyStoryPage.module.css";
 import StoryOptions from "../components/StoryOptions";
-import StoryInput from "../components/StoryInput";
+import StoryResume from "../components/StoryResume";
 import Story from "../components/Story";
 import { createStoryLine, getCurrentStoryStep } from "../helpers/story_helpers";
 
 export default function MyStoryPage() {
+  const defaultStoryTitle = "A Chiclete de Cereja";
   const router = useRouter();
   const [currentStory, setCurrentStory] = useState([]);
   const [authorName, setAuthorName] = useState("");
-  const [storyTitle, setStoryTitle] = useState("");
+  const [authorEmail, setAuthorEmail] = useState("");
+  const [submitStoryStep, setSubmitStoryStep] = useState(false);
+  const [storyTitle, setStoryTitle] = useState(defaultStoryTitle);
 
   useEffect(() => {
     const selectedStoryPlot = lstorage("story");
     const author = lstorage("storyAuthor");
+    const email = lstorage("storyEmail");
     const title = lstorage("storyTitle");
-    setAuthorName(author || "");
-    setStoryTitle(title || "");
+    setAuthorName(author || "Anónimo");
+    setAuthorEmail(email || "");
+    setStoryTitle(title || defaultStoryTitle);
 
     setCurrentStory(selectedStoryPlot || []);
   }, []);
 
   const currentStep = getCurrentStoryStep(currentStory, plots);
   const storyLine = createStoryLine(currentStory, plots);
-  const finishedStory = currentStep && currentStep.endline;
+  const finishedStory = currentStep && !currentStep.options;
 
   function selectOption(option, i) {
-    if (!option.type && !option.endline) {
-      return;
-    }
-
     const newStory = [
       ...currentStory,
       { type: STEP_TYPE.OPTIONS, value: option.id },
@@ -79,37 +80,54 @@ export default function MyStoryPage() {
 
   return (
     <div className="pageWidthAlign">
-      <h2>A tua história</h2>
-      <Story story={storyLine}></Story>
-      {currentStep.type === STEP_TYPE.OPTIONS && (
+      {!submitStoryStep && (
         <div>
-          <StoryOptions
-            options={currentStep.options}
-            onOptionClick={selectOption}
-          ></StoryOptions>
+          <h2>Criar história</h2>
+
+          <StoryResume
+            selectedStoryPlot={currentStory}
+            plots={plots}
+          ></StoryResume>
+
+          {currentStep.options && (
+            <StoryOptions
+              currenOption={currentStep}
+              onOptionClick={selectOption}
+            ></StoryOptions>
+          )}
+
+          {currentStory.length != 0 && !finishedStory && (
+            <div className={styles.editStoryFooter}>
+              <div onClick={goPreviousStep}>Anterior</div>
+              <div onClick={resetStory}>Reiniciar História</div>
+            </div>
+          )}
+
+          {finishedStory && (
+            <div>
+              <div>Fizeste uma ótima escolha.</div>
+              <button onClick={() => setSubmitStoryStep(true)}>
+                Gerar História
+              </button>
+            </div>
+          )}
         </div>
       )}
-      {currentStep.type === STEP_TYPE.INPUT && (
-        <StoryInput step={currentStep} onButtonClick={selectText}></StoryInput>
-      )}
-
-      {currentStory.length != 0 && !finishedStory && (
-        <div className={styles.editStoryFooter}>
-          <div onClick={goPreviousStep}>Anterior</div>
-          <div onClick={resetStory}>Reiniciar História</div>
-        </div>
-      )}
-
-      {finishedStory && (
+      {finishedStory && submitStoryStep && (
         <div>
-          <h2>Para finalizar.</h2>
+          <h1>A tua história foi gerada.</h1>
+          <br />
+          <h2>{storyTitle}</h2>
+          <Story
+            story={storyLine}
+            selectedStoryPlot={currentStory}
+            plots={plots}
+          ></Story>
+          <h1>Gostaste?</h1>
           <div>
             Dá um título a esta história e partilha o teu nome com as crianças
-            da Casa Damião.
+            da Casa Damião. Elas vão adorar saber que as suas personagens ganharam vida.
             <br />
-            <br />
-            Temos a certeza que elas vão adorar saber quem deu vida às suas
-            ideias. <br />
           </div>
           <div className={styles.storyDetailsContainer}>
             <div>
@@ -129,10 +147,17 @@ export default function MyStoryPage() {
                 onChange={(e) => setAuthorName(e.target.value)}
               />
             </div>
+            <div>
+              Email:
+              <br />
+              <input
+                type="text"
+                value={authorEmail}
+                onChange={(e) => setAuthorEmail(e.target.value)}
+              />
+            </div>
           </div>
           <button onClick={saveAuthorAndTitle}>Finalizar</button>
-          <br></br>
-          <br></br>
         </div>
       )}
     </div>
