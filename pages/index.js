@@ -30,7 +30,6 @@ export default function Home() {
   function startHistory(option) {
     lstorage("story", [{ type: STEP_TYPE.OPTIONS, value: option.id }]);
     lstorage("storyAuthor", "");
-    lstorage("storyTitle", "");
     router.push("/aminhahistoria");
   }
 

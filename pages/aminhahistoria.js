@@ -5,50 +5,32 @@ import { plots, STEP_TYPE } from "../constants/story_constants";
 import styles from "../styles/MyStoryPage.module.css";
 import StoryOptions from "../components/StoryOptions";
 import StoryResume from "../components/StoryResume";
-import Story from "../components/Story";
-import { createStoryLine, getCurrentStoryStep } from "../helpers/story_helpers";
+import { getCurrentStoryStep } from "../helpers/story_helpers";
+import { Line } from "rc-progress";
 
 export default function MyStoryPage() {
-  const defaultStoryTitle = "A Chiclete de Cereja";
   const router = useRouter();
   const [currentStory, setCurrentStory] = useState([]);
   const [authorName, setAuthorName] = useState("");
   const [authorEmail, setAuthorEmail] = useState("");
-  const [submitStoryStep, setSubmitStoryStep] = useState(false);
-  const [storyTitle, setStoryTitle] = useState(defaultStoryTitle);
 
   useEffect(() => {
     const selectedStoryPlot = lstorage("story");
     const author = lstorage("storyAuthor");
     const email = lstorage("storyEmail");
-    const title = lstorage("storyTitle");
-    setAuthorName(author || "Anónimo");
+    setAuthorName(author || "");
     setAuthorEmail(email || "");
-    setStoryTitle(title || defaultStoryTitle);
 
     setCurrentStory(selectedStoryPlot || []);
   }, []);
 
   const currentStep = getCurrentStoryStep(currentStory, plots);
-  const storyLine = createStoryLine(currentStory, plots);
   const finishedStory = currentStep && !currentStep.options;
 
   function selectOption(option, i) {
     const newStory = [
       ...currentStory,
       { type: STEP_TYPE.OPTIONS, value: option.id },
-    ];
-
-    saveCurrentStory(newStory);
-  }
-
-  function selectText(inputValue, option) {
-    if (!inputValue) {
-      return;
-    }
-    const newStory = [
-      ...currentStory,
-      { type: STEP_TYPE.INPUT, value: inputValue + "." },
     ];
 
     saveCurrentStory(newStory);
@@ -68,98 +50,76 @@ export default function MyStoryPage() {
     setCurrentStory(newStory);
   }
 
-  function saveAuthorAndTitle() {
-    if (!authorName || !storyTitle) {
+  function saveStory() {
+    if (!authorEmail) {
       return;
     }
-    lstorage("storyAuthor", authorName);
-    lstorage("storyTitle", storyTitle);
+
+    lstorage("storyAuthor", authorName || "Anónimo");
+    lstorage("storyAuthorEmail", authorEmail);
 
     router.push("/aminhahistoria_fim");
   }
-
+  const percentage = (currentStory.length * 100) / 3;
   return (
     <div className="pageWidthAlign">
-      {!submitStoryStep && (
-        <div>
-          <h2>Criar história</h2>
+      <div>
+        <h2>As tuas personagens</h2>
+        <Line percent={percentage} strokeWidth="1" strokeColor="#2f3996" />
+        <div className={styles.percentage}>{currentStory.length}/3</div>
 
-          <StoryResume
-            selectedStoryPlot={currentStory}
-            plots={plots}
-          ></StoryResume>
+        <StoryResume
+          selectedStoryPlot={currentStory}
+          plots={plots}
+        ></StoryResume>
+        <br></br>
+        <br></br>
+        {currentStep.options && (
+          <StoryOptions
+            currenOption={currentStep}
+            onOptionClick={selectOption}
+          ></StoryOptions>
+        )}
 
-          {currentStep.options && (
-            <StoryOptions
-              currenOption={currentStep}
-              onOptionClick={selectOption}
-            ></StoryOptions>
-          )}
+        {currentStory.length != 0 && !finishedStory && (
+          <div className={styles.editStoryFooter}>
+            <div onClick={goPreviousStep}>Anterior</div>
+            <div onClick={resetStory}>Reiniciar História</div>
+          </div>
+        )}
 
-          {currentStory.length != 0 && !finishedStory && (
-            <div className={styles.editStoryFooter}>
-              <div onClick={goPreviousStep}>Anterior</div>
-              <div onClick={resetStory}>Reiniciar História</div>
-            </div>
-          )}
-
-          {finishedStory && (
-            <div>
-              <div>Fizeste uma ótima escolha.</div>
-              <button onClick={() => setSubmitStoryStep(true)}>
-                Gerar História
-              </button>
-            </div>
-          )}
-        </div>
-      )}
-      {finishedStory && submitStoryStep && (
-        <div>
-          <h1>A tua história foi gerada.</h1>
-          <br />
-          <h2>{storyTitle}</h2>
-          <Story
-            story={storyLine}
-            selectedStoryPlot={currentStory}
-            plots={plots}
-          ></Story>
-          <h1>Gostaste?</h1>
+        {finishedStory && (
           <div>
-            Dá um título a esta história e partilha o teu nome com as crianças
-            da Casa Damião. Elas vão adorar saber que as suas personagens ganharam vida.
-            <br />
+            <h1>Fizeste uma ótima escolha.</h1>
+            <div>
+              Como último passo, partilha o teu nome com as crianças da Casa
+              Damião, elas vão adorar saber que as suas personagens ganharam
+              vida.
+            </div>
+            <div className={styles.storyDetailsContainer}>
+              <div>
+                Autor:
+                <br />
+                <input
+                  type="text"
+                  value={authorName}
+                  onChange={(e) => setAuthorName(e.target.value)}
+                />
+              </div>
+              <div>
+                Email: *Obrigatório
+                <br />
+                <input
+                  type="text"
+                  value={authorEmail}
+                  onChange={(e) => setAuthorEmail(e.target.value)}
+                />
+              </div>
+            </div>
+            <button onClick={saveStory}>Ver história</button>
           </div>
-          <div className={styles.storyDetailsContainer}>
-            <div>
-              Título da História: <br />
-              <input
-                type="text"
-                value={storyTitle}
-                onChange={(e) => setStoryTitle(e.target.value)}
-              />
-            </div>
-            <div>
-              Autor:
-              <br />
-              <input
-                type="text"
-                value={authorName}
-                onChange={(e) => setAuthorName(e.target.value)}
-              />
-            </div>
-            <div>
-              Email:
-              <br />
-              <input
-                type="text"
-                value={authorEmail}
-                onChange={(e) => setAuthorEmail(e.target.value)}
-              />
-            </div>
-          </div>
-          <button onClick={saveAuthorAndTitle}>Finalizar</button>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

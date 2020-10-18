@@ -1,0 +1,30 @@
+.option {
+  padding: 8px 10px;
+  margin: 10px 0;
+  margin-right: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 200px;
+  flex: 0 0 auto;
+  border: 1px solid #bbbbbb;
+  height: 230px;
+}
+
+.option img {
+  max-height: 100px;
+  margin-bottom: 20px;
+}
+
+.readOnly {
+  border: 0;
+  padding: 2px;
+  height: 150px;
+  width: 100px;
+}

@@ -1,4 +1,5 @@
-.image {
-  max-width: 100px;
-  margin-bottom: 20px;
+.container {
+  display: flex;
+  overflow: scroll;
+  width: 100%;
 }
