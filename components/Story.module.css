@@ -8,6 +8,10 @@
   font-size: 24px;
 }
 .author {
-  text-align: right;
-  margin-top: 20px;
+  color: gray;
+  font-size: 14px;
+}
+
+.authorName {
+  font-weight: bold;
 }

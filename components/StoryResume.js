@@ -1,5 +1,6 @@
 import styles from "./StoryResume.module.css";
 import { STEP_TYPE } from "../constants/story_constants";
+import StoryOption from "../components/StoryOption";
 
 export default function StoryResume({ selectedStoryPlot, plots }) {
   let currentOption = plots;
@@ -13,7 +14,11 @@ export default function StoryResume({ selectedStoryPlot, plots }) {
 
       text = [
         ...text,
-        <img className={styles.image} src="/images/icon-placeholder.png"></img>,
+        <StoryOption
+          image="/images/icon-placeholder.png"
+          text={option.text}
+          readOnly={true}
+        ></StoryOption>,
       ];
 
       currentOption = option;
@@ -23,5 +28,5 @@ export default function StoryResume({ selectedStoryPlot, plots }) {
     return text;
   }, []);
 
-  return [story];
+  return <div className={styles.container}>{story}</div>;
 }

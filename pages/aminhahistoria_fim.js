@@ -9,14 +9,12 @@ export default function MyStoryEndPage() {
   const router = useRouter();
   const [currentStory, setCurrentStory] = useState([]);
   const [authorName, setAuthorName] = useState("");
-  const [storyTitle, setStoryTitle] = useState("");
+  const storyTitle = "A Formiga atleta e o Pintassilgo"
 
   useEffect(() => {
     const selectedStoryPlot = lstorage("story");
     const author = lstorage("storyAuthor");
-    const title = lstorage("storyTitle");
     setAuthorName(author || "");
-    setStoryTitle(title || "");
 
     setCurrentStory(selectedStoryPlot || []);
   }, []);
@@ -27,8 +25,8 @@ export default function MyStoryEndPage() {
     <div className="pageWidthAlign">
       <Story story={storyLine} title={storyTitle} author={authorName}></Story>
 
-      <h2>A tua história está pronta e fantástica.</h2>
-      <div>Ajuda a casa damião a partilhar histórias</div>
+      <h2>Gostaste da história?</h2>
+      <div>Ajuda a casa damião e partilha</div>
       <br></br>
       <button>Partilhar</button>
 

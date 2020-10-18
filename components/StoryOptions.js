@@ -1,5 +1,5 @@
 import styles from "./StoryOptions.module.css";
-import shuffleArray from "shuffle-array";
+import StoryOption from "./StoryOption";
 
 export default function StoryOptions({
   currenOption,
@@ -14,13 +14,12 @@ export default function StoryOptions({
       <div className={styles.caroussel}>
         {currenOption.options.map((option, i) => {
           return (
-            <div
-              key={i}
-              onClick={() => onOptionClick(option, i)}
-              className={`${styles.option}`}
-            >
-              <img src="/images/icon-placeholder.png"></img>
-              <div>{option.text}</div>
+            <div key={i}>
+              <StoryOption
+                onClick={() => onOptionClick(option, i)}
+                image="/images/icon-placeholder.png"
+                text={option.text}
+              ></StoryOption>
             </div>
           );
         })}
