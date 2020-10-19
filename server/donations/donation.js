@@ -1,5 +1,6 @@
 import stripe from 'stripe';
 import axios from 'axios';
+import isEmpty from 'lodash/isEmpty';
 import { query } from '../query';
 import { send } from './notifications';
 
@@ -10,7 +11,7 @@ const handlers = {
 
 
     },
-    iban: () => ({
+    iban: () => Promise.resolve({
         intentid: '',
         method: 'iban',
         site: 'iban',
@@ -38,25 +39,29 @@ const handlers = {
             },
             timeout: 60 * 1000,
         }).then(result => {
-            console.log(result);
             return result;
         }).catch(err => {
             console.error('error > ', err);
+            return {}
         });
     },
-    mb: () => {
-        send('mquintal88@gmail.com', 10, '12312312', '123123123');
-
-        return {}
+    mb: (name, amount, email, phone, entity, reference, paymentId) => {
+        return send(email, amount, entity, reference).then(() => ({
+            intentid: paymentId,
+            method: 'multibanco',
+            site: 'stripe',
+        }));
     },
 }
 
-export const create = (provider, name, amount, email, phone, anonym = 0) => {
-    const { intentid, method, site } = handlers[provider](name, amount, email, phone);
+export const create = (provider, name, amount, email, phone, entity, reference, paymentId) => {
+    const anonym = isEmpty(name) ? 1 : 0;
 
-    return query(`INSERT INTO donations 
-        (donor_name, total_amount, email, payment_id, payment_method, from_site, notes,  anonym, payed) 
-        VALUES 
-        ('${name}', '${amount * 100}', '${email}', '${intentid}', '${method}', '${site}', '', '${anonym}', '0')`
-    ).then(results => query(`SELECT * FROM donations WHERE id=${results.insertId}`));
+    return handlers[provider](name, amount, email, phone, entity, reference, paymentId)
+        .then(({ intentid, method, site }) => query(`INSERT INTO donations 
+                (donor_name, total_amount, email, payment_id, payment_method, from_site, notes,  anonym, payed) 
+                VALUES 
+                ('${name}', '${amount * 100}', '${email}', '${intentid}', '${method}', '${site}', '', '${anonym}', '0')`
+        ))
+        .then(results => query(`SELECT * FROM donations WHERE id=${results.insertId}`));
 };
