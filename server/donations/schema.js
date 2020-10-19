@@ -8,7 +8,7 @@ const schema = {
     properties: {
         provider: {
             type: 'string',
-            enum: ['stripe', 'iban', 'mb', 'mbway']
+            enum: ['stripe', 'iban', 'mb', 'mbway'],
         }, 
         name: {
             type: 'string'
@@ -18,7 +18,7 @@ const schema = {
            format: 'email'
         },
         amount: {
-            type: 'string'
+            type: 'number'
         },
         phone: {
             type: 'string',

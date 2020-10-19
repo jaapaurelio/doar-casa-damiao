@@ -13,11 +13,16 @@ export default function handler(req, res) {
         } else {
             const { provider, name, email, amount, phone, entity, reference, paymentId } = req.body
 
-            create(provider, name, amount, email, phone, entity, reference, paymentId).then((results) => {
-                res.status(200);
-                res.setHeader('Content-Type', 'application/json')
-                res.end(JSON.stringify({ status: 'success', data: results }));
-            });
+            create(provider, name, amount, email, phone, entity, reference, paymentId)
+                .then(results => {
+                    res.status(200);
+                    res.setHeader('Content-Type', 'application/json')
+                    res.end(JSON.stringify({ status: 'success', data: results }));
+                })
+                .catch(error => {
+                    res.status(500);
+                    res.end(JSON.stringify({ status: 'error', data: error }));
+                });
         }
     }
 }
