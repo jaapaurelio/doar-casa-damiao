@@ -1,7 +1,7 @@
 import stripe from 'stripe';
 import isEmpty from 'lodash/isEmpty';
 import { query } from '../query';
-import { sendMBMMail, submitMBway } from './providers';
+import { sendMBMMail, submitMBway, loadMBwayPaymentUpdate } from './providers';
 
 
 const handlers = {
@@ -39,3 +39,8 @@ export const create = (provider, name, amount, email, phone, entity, reference, 
         ))
         .then(results => query(`SELECT * FROM donations WHERE id=${results.insertId}`));
 };
+
+export const updatePayment = (notificationId) => {
+    return loadMBwayPaymentUpdate(notificationId)
+        .then((result) => query(`UPDATE donations SET payed=1, updated_at=NOW() WHERE payment_id="${result.id}"`))
+}

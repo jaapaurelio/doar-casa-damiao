@@ -1,2 +1,2 @@
 export { validate } from './schema';
-export * from './donation';
+export * from './operations';

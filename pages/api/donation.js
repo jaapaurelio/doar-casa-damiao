@@ -1,4 +1,4 @@
-import { validate, create } from '../../server/donations';
+import { validate, create } from '../../server/donation';
 
 
 
@@ -9,7 +9,7 @@ export default function handler(req, res) {
         if(!check.valid) {
             res.status(400);
             res.setHeader('Content-Type', 'application/json')
-            res.end(JSON.stringify({ status: 'error', data: check }));
+            res.end(JSON.stringify({ status: 'error', data: check.toString() }));
         } else {
             const { provider, name, email, amount, phone, entity, reference, paymentId } = req.body
 
