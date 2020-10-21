@@ -26,7 +26,6 @@ export const sendMBMMail = (to, amount, entity, reference) => {
     return send(data);
 }
 
-
 export const submitMBway = (name, amount, email, phone) => axios({
         method: 'post',
         url: `${process.env.EASY_PAY_URL}/single`,

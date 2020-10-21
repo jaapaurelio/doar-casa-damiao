@@ -39,7 +39,7 @@ export const create = (provider, name, amount, email, phone, entity, reference, 
                 VALUES 
                 ('${name}', '${amount * 100}', '${email}', '${intentid}', '${method}', '${site}', '', '${anonym}', '0')`
         ))
-        .then(results => query(`SELECT * FROM donations WHERE id=${results.insertId}`));
+        .then(results => query(`SELECT donor_name, total_amount, email, payment_id, payment_method, from_site, anonym, payed FROM donations WHERE id=${results.insertId}`));
 };
 
 export const updatePayment = (notificationId) => {

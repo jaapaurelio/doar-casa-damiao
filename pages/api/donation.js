@@ -1,28 +1,21 @@
 import { validate, create } from '../../server/donation';
-
+import { createResponse } from '../../server/helpers';
 
 
 export default function handler(req, res) {
+    const response = createResponse(res);
+
     if(req.method === 'POST') {
-        const check = validate(req.body);
+        const check = validate(req.body);    
 
         if(!check.valid) {
-            res.status(400);
-            res.setHeader('Content-Type', 'application/json')
-            res.end(JSON.stringify({ status: 'error', data: check.toString() }));
+            response(check.toString(), 400);
         } else {
             const { provider, name, email, amount, phone, entity, reference, paymentId } = req.body
 
             create(provider, name, amount, email, phone, entity, reference, paymentId)
-                .then(results => {
-                    res.status(200);
-                    res.setHeader('Content-Type', 'application/json')
-                    res.end(JSON.stringify({ status: 'success', data: results }));
-                })
-                .catch(error => {
-                    res.status(500);
-                    res.end(JSON.stringify({ status: 'error', data: error }));
-                });
+                .then(results => response(results))
+                .catch(error => response(error, 500));
         }
     }
 }
