@@ -1,13 +1,15 @@
-import stripe from 'stripe';
 import isEmpty from 'lodash/isEmpty';
 import { query } from '../query';
-import { sendMBMMail, submitMBway, loadMBwayPaymentUpdate } from './providers';
+import { sendMBMMail, submitMBway, loadMBwayPaymentUpdate, createPaymentIntent } from './providers';
 
 
 const handlers = {
-    stripe: (name, amount, email) => {
-        const instance = stripe(process.env.STRIPE_API_KEY);
-    },
+    stripe: (name, amount, email) => createPaymentIntent(amount, email)
+        .then((paymentIntent) => ({
+            intentid: paymentIntent.client_secret,
+            method: 'card',
+            site: 'stripe',
+        })),
     iban: () => Promise.resolve({
         intentid: '',
         method: 'iban',

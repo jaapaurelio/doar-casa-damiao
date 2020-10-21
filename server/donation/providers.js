@@ -1,8 +1,9 @@
 import axios from 'axios';
+import stripe from 'stripe';
 import { send } from '../mail';
 import get from 'lodash/get';
 
-
+const stripeInst = stripe(process.env.STRIPE_API_KEY);
 const mbWayHeaders = {
     AccountId: process.env.EASY_PAY_ACCOUNT_ID,
     ApiKey: process.env.EASY_PAY_KEY,
@@ -52,3 +53,9 @@ export const loadMBwayPaymentUpdate = notificationId => axios({
         headers: mbWayHeaders
     })
     .then((results) => get(results, 'data.data[0]', {}));
+
+export const createPaymentIntent = (amount, email) => stripeInst.paymentIntents.create({
+    amount: amount * 100,
+    currency: 'eur',
+    receipt_email: email,
+  })
