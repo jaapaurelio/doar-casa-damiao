@@ -12,7 +12,7 @@ export default function PageFooter() {
   return (
     <div className={styles.container}>
       {links.map(function (link) {
-        return <div className={styles.link}>{link.label}</div>;
+        return <div key={link.label} className={styles.link}>{link.label}</div>;
       })}
       <div className={styles.trademark}>
       Casa Damião @2020
