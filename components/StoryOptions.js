@@ -8,19 +8,16 @@ export default function StoryOptions({
 }) {
   return (
     <div>
-      {showQuestion && (
-        <div className={styles.question}>{currenOption.question}</div>
-      )}
+      {showQuestion && <h2>{currenOption.question}</h2>}
       <div className={styles.caroussel}>
         {currenOption.options.map((option, i) => {
           return (
-            <div key={i}>
-              <StoryOption
-                onClick={() => onOptionClick(option, i)}
-                image="/images/icon-placeholder.png"
-                text={option.text}
-              ></StoryOption>
-            </div>
+            <StoryOption
+              key={i}
+              onClick={() => onOptionClick(option, i)}
+              image="/images/icon-placeholder.png"
+              text={option.text}
+            ></StoryOption>
           );
         })}
       </div>

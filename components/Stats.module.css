@@ -1,0 +1,26 @@
+.container {
+  background: #2f3a96;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  border-radius: 8px;
+  min-height: 400px;
+}
+
+.lineContainer {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.line {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.strong {
+  font-weight: bold;
+}

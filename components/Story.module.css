@@ -1,12 +1,9 @@
 .mainStory {
-  margin: 20px 0;
   font-size: 20px;
   line-height: 1.4;
   padding: 14px;
 }
-.mainStory h1 {
-  font-size: 24px;
-}
+
 .author {
   color: gray;
   font-size: 14px;
