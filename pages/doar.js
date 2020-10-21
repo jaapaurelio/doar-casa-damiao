@@ -83,7 +83,7 @@ export default function DonatePage() {
           ).then((response) => {
             if (response.ok) {
               router.push(
-                `/multibanco?entity=${dataMb.multibanco.entity}&reference=${dataMb.multibanco.reference}&amount=${amountEuro}&donor=${donorName}`
+                `/pagamento?type=mb&&entity=${dataMb.multibanco.entity}&reference=${dataMb.multibanco.reference}&amount=${amountEuro}&donor=${donorName}`
               );
             } else {
               setErrorMessage(
