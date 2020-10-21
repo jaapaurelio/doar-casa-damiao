@@ -60,10 +60,10 @@ const plots = {
   options: [
     {
       id: 1,
-      text: "Um chiclete de cereja",
+      text: "uma chiclete de cereja",
 
       image: "/images/icon-placeholder.png",
-      question: "A chiclete tinha um sonho. Qual era?",
+      question: "Qual era o sonho da chiclete?",
       options: [
         {
           id: 1,
@@ -88,7 +88,7 @@ const plots = {
     },
     {
       id: 2,
-      text: "Uma Peúga",
+      text: "uma peúga exploradora",
       question: "A peúga queria fazer amizade com quem?",
       options: [
         {
@@ -110,7 +110,7 @@ const plots = {
     },
     {
       id: 3,
-      text: "Uma formiga.",
+      text: "uma formiga corajosa",
       question: "Quem era o seu melhor amigo?",
 
       options: [

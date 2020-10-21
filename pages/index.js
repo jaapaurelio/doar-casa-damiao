@@ -9,8 +9,10 @@ import StoryOptions from "../components/StoryOptions";
 import Story from "../components/Story";
 
 import AboutChildren from "../components/AboutChildren";
-import AboutTheProject from "../components/AboutTheProject";
+import Stats from "../components/Stats";
+import Title from "../components/Title";
 import AboutCasaDamiao from "../components/AboutCasaDamiao";
+import AboutProject from "../components/AboutProject";
 
 export default function Home() {
   const router = useRouter();
@@ -41,17 +43,18 @@ export default function Home() {
     <div>
       <main className={styles.main}>
         <div className="pageWidthAlign">
-          <div className={styles.mainTitle}>Todas as crianças</div>
-          <div className={styles.mainTitleSub}>
-            merecem uma história de Natal
-          </div>
+          <Title
+            mainText="Todas as crianças"
+            subText="merecem uma história de Natal"
+          ></Title>
+
           <div className={styles.splitMessageDonate}>
             <div className={styles.splitMessageMessage}>
               Ao ajudar está a garantir e a acrescentar longevidade e dignidade
               à vida humana.
             </div>
             <Link href="/doar">
-              <button className="btn-doar">Doar</button>
+              <button className="btn-primary">Doar</button>
             </Link>
           </div>
           <div className={styles.createYourStory}>
@@ -65,44 +68,27 @@ export default function Home() {
           currenOption={storyBeginning}
           onOptionClick={startHistory}
         ></StoryOptions>
+
         <div className="pageWidthAlign">
-          <div className={styles.mainStatus}>
-            132 histórias criadas. 57 doações. 1.134€ angariados.
+          <div className="spacing-section">
+            <AboutProject></AboutProject>
           </div>
-          <div className={styles.center}>
-            <Link href="/doar">
-              <button className="btn-doar">Fazer Doação</button>
-            </Link>
-          </div>
-          <div className={styles.userStory}>
-            <div className={styles.userStoryPre}>História em destaque</div>A
-            aventura da peúga Valentina.
-            <div className={styles.userStoryAfter}> José Silva</div>
-          </div>
-          <div className={`${styles.intro} ${showAll ? styles.showAll : ""}`}>
-            <Story story={mStory}></Story>
-          </div>
-          {!showAll && (
-            <div
-              onClick={() => {
-                setShowAll(true);
-              }}
-              className={styles.ler}
-            >
-              Ler História
+          <div className="spacing-section">
+            <div className={styles.userStory}>
+              <h2>História em destaque</h2>
+              <div className={styles.storyTitle}>
+                A aventura da peúga Valentina.
+              </div>
+              <div className={styles.userStoryAfter}> José Silva</div>
             </div>
-          )}
-          {showAll && (
-            <div
-              onClick={() => {
-                hideStory();
-              }}
-              className={styles.ler}
-            >
-              Esconder História
-            </div>
-          )}
+            <div className={styles.ler}>Ler História</div>
+            <button className="btn-secondary btn-full">Ver todas as histórias</button>
+          </div>
+          <div className=" spacing-section">
+            <Stats></Stats>
+          </div>
         </div>
+
         <div className={styles.section}>
           <AboutChildren></AboutChildren>
         </div>

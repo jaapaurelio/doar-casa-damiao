@@ -4,7 +4,7 @@ export default function AboutChildren() {
   return (
     <div>
       <div className="pageWidthAlign">
-        <h1>Quem Somos?</h1>
+        <h2>Quem Somos?</h2>
         <div>
           <Image src="/images/logo_casa_damiao.jpg"></Image>
         </div>

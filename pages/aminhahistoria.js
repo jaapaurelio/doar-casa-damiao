@@ -90,7 +90,7 @@ export default function MyStoryPage() {
 
         {finishedStory && (
           <div>
-            <h1>Fizeste uma ótima escolha.</h1>
+            <h2>Fizeste uma ótima escolha.</h2>
             <div>
               Como último passo, partilha o teu nome com as crianças da Casa
               Damião, elas vão adorar saber que as suas personagens ganharam

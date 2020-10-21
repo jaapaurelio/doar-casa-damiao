@@ -1,7 +1,17 @@
 
 .container {
     align-items: center;
-    padding: 20px;
+    padding: 67px 20px;
     margin-top: 60px;
-    text-align: center;
+    background: #2B2B2B;
+    color: #fff;
+}
+
+.link {
+    margin-bottom: 18px;
+}
+
+.trademark {
+    margin-top: 44px;
+    color: #C0C0C0;
 }

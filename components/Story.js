@@ -25,7 +25,7 @@ export default function Story({ selectedStoryPlot, plots, title, author }) {
 
   return (
     <div className={styles.mainStory}>
-      {title != undefined && <h1>{title}</h1>}
+      {title != undefined && <h2>{title}</h2>}
       {author != undefined && (
         <div className={styles.author}>
           Criada pela Casa Damião com ajuda de{" "}
