@@ -13,7 +13,6 @@ export default function StoryOptions({
         {currenOption.options.map((option, i) => {
           return (
             <StoryOption
-              key={i}
               onClick={() => onOptionClick(option, i)}
               image="/images/icon-placeholder.png"
               text={option.text}

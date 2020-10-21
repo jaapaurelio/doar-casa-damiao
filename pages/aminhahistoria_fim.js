@@ -9,7 +9,7 @@ export default function MyStoryEndPage() {
   const router = useRouter();
   const [currentStory, setCurrentStory] = useState([]);
   const [authorName, setAuthorName] = useState("");
-  const storyTitle = "A Formiga atleta e o Pintassilgo"
+  const storyTitle = "A Formiga atleta e o Pintassilgo";
 
   useEffect(() => {
     const selectedStoryPlot = lstorage("story");
@@ -27,18 +27,14 @@ export default function MyStoryEndPage() {
 
       <h2>Gostaste da história?</h2>
       <div>Ajuda a casa damião e partilha</div>
-      <br></br>
       <button>Partilhar</button>
 
       <h2>Doar</h2>
-      <div>As crianças da casa damião precisam da tua ajuda neste natal. <a>Saber mais.</a></div>
-      <br></br>
+      <div>
+        As crianças da casa damião precisam da tua ajuda neste natal.{" "}
+        <a>Saber mais.</a>
+      </div>
       <button>Doar</button>
-      <br></br>
-
-      <br></br>
-      <br></br>
-
     </div>
   );
 }

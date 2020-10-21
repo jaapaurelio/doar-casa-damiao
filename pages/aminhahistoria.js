@@ -72,8 +72,6 @@ export default function MyStoryPage() {
           selectedStoryPlot={currentStory}
           plots={plots}
         ></StoryResume>
-        <br></br>
-        <br></br>
         {currentStep.options && (
           <StoryOptions
             currenOption={currentStep}
@@ -99,7 +97,6 @@ export default function MyStoryPage() {
             <div className={styles.storyDetailsContainer}>
               <div>
                 Autor:
-                <br />
                 <input
                   type="text"
                   value={authorName}
@@ -108,7 +105,6 @@ export default function MyStoryPage() {
               </div>
               <div>
                 Email: *Obrigatório
-                <br />
                 <input
                   type="text"
                   value={authorEmail}
