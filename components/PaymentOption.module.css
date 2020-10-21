@@ -1,0 +1,16 @@
+.paymentMethodSelection {
+    display: inline-block;
+}
+
+.methodIcons {
+  margin-left: 10px;
+}
+
+.methodIcons img {
+  height: 24px;
+}
+
+.clickArea {
+    display: flex;
+    align-items: center;
+}
