@@ -1,0 +1,35 @@
+.amountContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.donationAmountOption {
+    padding: 20px;
+    width: 30%;
+    border-radius: 4px;
+    color: #2B2B2B;
+    font-size: 16px;
+    border: 1px solid gray;
+    text-align: center;
+}
+
+
+.otherDonationAmountOption {
+    width: auto;
+    margin-top: 20px;
+}
+
+.paymentMethodSelection {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.methodIcons {
+    margin-left: 10px;
+}
+
+.methodIcons img {
+    height: 24px;
+}
