@@ -1,5 +1,5 @@
 import { createResponse } from '../../server/helpers';
-import { updateStripePayment } from '../../server/donation'
+import { updateStripePayment, createPaymentCharge } from '../../server/donation'
 
 export default function handler(req, res) {
     const response = createResponse(res);
@@ -10,7 +10,11 @@ export default function handler(req, res) {
         
         if (type === 'charge.succeeded') {
             updateStripePayment(data)
-                .then((e) => response())
+                .then(() => response())
+                .catch(() => response({}, 500));
+        } else if(type === 'source.chargeable') {
+            createPaymentCharge(data)
+                .then(() => response())
                 .catch(() => response({}, 500));
         } else {
             response();

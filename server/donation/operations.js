@@ -5,6 +5,7 @@ import {
     submitMBway,
     loadMBwayPaymentUpdate,
     createPaymentIntent,
+    createCharge,
     sendStripeMail,
     sendGeneralEmail
 } from './providers';
@@ -74,3 +75,5 @@ export const updateStripePayment = (data) => {
         .then(() => sendGeneralEmail(billing_details.email, amount / 100))
         
 }
+
+export const createPaymentCharge = (data) => createCharge(data.id, data.amount, data.currency)

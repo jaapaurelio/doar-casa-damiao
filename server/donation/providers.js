@@ -87,3 +87,9 @@ export const createPaymentIntent = (amount, email) => stripeInst.paymentIntents.
     currency: 'eur',
     receipt_email: email,
   })
+
+export const createCharge = (id, amount, currency) => stripeInst.charges.create({
+    amount,
+    currency,
+    source: id,
+})
