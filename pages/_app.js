@@ -6,7 +6,7 @@ import PageFooter from "../components/PageFooter";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
-const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

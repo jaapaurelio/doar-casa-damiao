@@ -96,10 +96,9 @@ export default function DonatePage() {
         }
       })
       .catch(() => {
-        /*this.setState({
-          errorMessage:
-            "Ocorreu um erro. Verifique os dados e tente novamente.",
-        });*/
+        setErrorMessage(
+          "Ocorreu um erro. Verifique os dados e tente novamente."
+        );
       })
       .then(() => {
         setLoading(false);
@@ -114,17 +113,16 @@ export default function DonatePage() {
       .then((response) => response.json())
       .then((response) => {
         if (response.status == "error") {
-          //this.setState({ errorMessage: response.message[0] });
+          setErrorMessage(response.message[0]);
           return;
         }
 
         window.location = `/mbway?phone=${donorPhoneNumber}&donor=${donorName}`;
       })
       .catch(() => {
-        /*this.setState({
-          errorMessage:
-            "Ocorreu um erro. Verifique os dados e tente novamente.",
-        });*/
+        setErrorMessage(
+          "Ocorreu um erro. Verifique os dados e tente novamente."
+        );
       })
       .then(() => {
         setLoading(false);
@@ -139,17 +137,17 @@ export default function DonatePage() {
       .then((response) => response.json())
       .then((response) => {
         if (response.status == "error") {
-          //this.setState({ errorMessage: response.message[0] });
+          setErrorMessage(response.message[0]);
+
           return;
         }
 
         window.location = `/iban?amount=${donationValue}&donor=${donorName}`;
       })
       .catch(() => {
-        /*this.setState({
-          errorMessage:
-            "Ocorreu um erro. Verifique os dados e tente novamente.",
-        });*/
+        setErrorMessage(
+          "Ocorreu um erro. Verifique os dados e tente novamente."
+        );
       })
       .then(() => {
         setLoading(false);
@@ -161,7 +159,7 @@ export default function DonatePage() {
       paymentType: activePaymentMethod,
       provider: "stripe",
       amount: donationValue,
-      donorName,
+      name: donorName,
       email: donorEmail,
     };
 
@@ -176,7 +174,6 @@ export default function DonatePage() {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log("respone",response )
         const billing_details = {
           email: donorEmail,
         };
@@ -184,7 +181,6 @@ export default function DonatePage() {
         if (donorName) {
           billing_details.name = donorName;
         }
-
         return stripe.confirmCardPayment(response.data.donationData.intentid, {
           payment_method: {
             card: elements.getElement("card"),
@@ -194,22 +190,20 @@ export default function DonatePage() {
       })
       .then((response) => {
         if (response.error) {
-          //this.setState({ errorMessage: response.error.message });
+          setErrorMessage(response.error.message);
         }
 
         if (
           response.paymentIntent &&
           response.paymentIntent.status === "succeeded"
         ) {
-          window.location = `/?donorName=${donorName}&itsOwner=true`;
+          window.location = `/obrigado`;
         }
       })
       .catch((e) => {
-        console.error(e);
-        /*this.setState({
-          errorMessage:
-            "Ocorreu um erro. Verifique os dados e tente novamente.",
-        });*/
+        setErrorMessage(
+          "Ocorreu um erro. Verifique os dados e tente novamente."
+        );
       })
       .then(() => {
         setLoading(false);
