@@ -398,12 +398,17 @@ export default function DonatePage() {
         </div>
 
         <div className="spacing-section">
+          <button
+            disabled={loading}
+            type="submit"
+            className="btn-primary btn-full"
+          >
+            {!loading && <span>Doar</span>}
+            {loading && <span>Aguarde</span>}
+          </button>
           {errorMessage != "" && (
             <div className={styles.errorMessage}>{errorMessage}</div>
           )}
-          <button type="submit" className="btn-primary btn-full">
-            Doar
-          </button>
         </div>
       </form>
     </div>

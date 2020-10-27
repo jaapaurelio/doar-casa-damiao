@@ -49,6 +49,10 @@ input[type="number"] {
   min-width: 100px;
 }
 
+.btn-primary:disabled {
+  background: gray;
+}
+
 .btn-secondary {
   width: auto;
   background: #fff;
@@ -60,6 +64,12 @@ input[type="number"] {
   display: inline-block;
   min-width: 100px;
 }
+
+.btn-secondary:disabled {
+  border: 1px solid gray;
+  color: gray;
+}
+
 
 .btn-full {
   display: block;
