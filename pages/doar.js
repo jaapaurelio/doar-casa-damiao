@@ -20,8 +20,11 @@ const formConstants = {
   MB_WAY_PAYMENT: "MB_WAY_PAYMENT",
 };
 
+const constants = {
+  apiEndpoint: `${process.env.NEXT_PUBLIC_HOME_URL}/api`,
+};
+
 export default function DonatePage() {
-  console.log("process.env.NEXT_PUBLIC_HOME_URL", process.env.NEXT_PUBLIC_HOME_URL);
   const router = useRouter();
   const [donorName, setDonorName] = useState("");
   const [donorEmail, setDonorEmail] = useState("dasd@dasd.com");
@@ -77,7 +80,6 @@ export default function DonatePage() {
           const amountEuro = formatNumber.format(
             Math.round(result.source.amount / 100)
           );
-          console.log(process.env);
           return fetch(
             `${process.env.NEXT_PUBLIC_HOME_URL}/api/donation?provider=mb&reference=${dataMb.multibanco.reference}&email=${dataMb.owner.email}&entity=${dataMb.multibanco.entity}&amount=${amount}&paymentId=${dataMb.id}&donor=${donorName}`
           ).then((response) => {
@@ -94,10 +96,10 @@ export default function DonatePage() {
         }
       })
       .catch(() => {
-        this.setState({
+        /*this.setState({
           errorMessage:
             "Ocorreu um erro. Verifique os dados e tente novamente.",
-        });
+        });*/
       })
       .then(() => {
         setLoading(false);
@@ -112,17 +114,17 @@ export default function DonatePage() {
       .then((response) => response.json())
       .then((response) => {
         if (response.status == "error") {
-          this.setState({ errorMessage: response.message[0] });
+          //this.setState({ errorMessage: response.message[0] });
           return;
         }
 
         window.location = `/mbway?phone=${donorPhoneNumber}&donor=${donorName}`;
       })
       .catch(() => {
-        this.setState({
+        /*this.setState({
           errorMessage:
             "Ocorreu um erro. Verifique os dados e tente novamente.",
-        });
+        });*/
       })
       .then(() => {
         setLoading(false);
@@ -137,17 +139,17 @@ export default function DonatePage() {
       .then((response) => response.json())
       .then((response) => {
         if (response.status == "error") {
-          this.setState({ errorMessage: response.message[0] });
+          //this.setState({ errorMessage: response.message[0] });
           return;
         }
 
         window.location = `/iban?amount=${donationValue}&donor=${donorName}`;
       })
       .catch(() => {
-        this.setState({
+        /*this.setState({
           errorMessage:
             "Ocorreu um erro. Verifique os dados e tente novamente.",
-        });
+        });*/
       })
       .then(() => {
         setLoading(false);
@@ -155,14 +157,26 @@ export default function DonatePage() {
   };
 
   const cardPayment = function () {
-    let params = `?paymentType=${activePaymentMethod}`;
-    params += `&amount=${donationValue}`;
-    params += `&donorName=${donorName}`;
-    params += `&email=${donorEmail}`;
+    const body = {
+      paymentType: activePaymentMethod,
+      provider: "stripe",
+      amount: donationValue,
+      donorName,
+      email: donorEmail,
+    };
+
     setLoading(true);
-    return fetch(`${constants.apiEndpoint}/create-donation.php${params}`)
+
+    return fetch(`${constants.apiEndpoint}/donation/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    })
       .then((response) => response.json())
       .then((response) => {
+        console.log("respone",response )
         const billing_details = {
           email: donorEmail,
         };
@@ -171,16 +185,16 @@ export default function DonatePage() {
           billing_details.name = donorName;
         }
 
-        return this.props.stripe.confirmCardPayment(response.client_secret, {
+        return stripe.confirmCardPayment(response.data.donationData.intentid, {
           payment_method: {
-            card: this.props.elements.getElement("card"),
+            card: elements.getElement("card"),
             billing_details,
           },
         });
       })
       .then((response) => {
         if (response.error) {
-          this.setState({ errorMessage: response.error.message });
+          //this.setState({ errorMessage: response.error.message });
         }
 
         if (
@@ -190,11 +204,12 @@ export default function DonatePage() {
           window.location = `/?donorName=${donorName}&itsOwner=true`;
         }
       })
-      .catch(() => {
-        this.setState({
+      .catch((e) => {
+        console.error(e);
+        /*this.setState({
           errorMessage:
             "Ocorreu um erro. Verifique os dados e tente novamente.",
-        });
+        });*/
       })
       .then(() => {
         setLoading(false);

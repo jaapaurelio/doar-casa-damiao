@@ -32,14 +32,24 @@ const handlers = {
 
 export const create = (provider, name, amount, email, phone, entity, reference, paymentId) => {
     const anonym = isEmpty(name) ? 1 : 0;
-
     return handlers[provider](name, amount, email, phone, entity, reference, paymentId)
-        .then(({ intentid, method, site }) => query(`INSERT INTO donations 
-                (donor_name, total_amount, email, payment_id, payment_method, from_site, notes,  anonym, payed) 
-                VALUES 
-                ('${name}', '${amount * 100}', '${email}', '${intentid}', '${method}', '${site}', '', '${anonym}', '0')`
-        ))
-        .then(results => query(`SELECT donor_name, total_amount, email, payment_id, payment_method, from_site, anonym, payed FROM donations WHERE id=${results.insertId}`));
+        .then(({ intentid, method, site }) => {
+            
+            return {
+                results: query(`INSERT INTO donations 
+                    (donor_name, total_amount, email, payment_id, payment_method, from_site, notes,  anonym, payed) 
+                    VALUES 
+                    ('${name}', '${amount * 100}', '${email}', '${intentid}', '${method}', '${site}', '', '${anonym}', '0')`
+                ),
+                donationData: {intentid, method, site}
+            }
+         })
+        .then(({results, donationData})  => {
+            return {
+                donation: query(`SELECT donor_name, total_amount, email, payment_id, payment_method, from_site, anonym, payed FROM donations WHERE id=${results.insertId}`),
+                donationData
+            }
+            });
 };
 
 export const updatePayment = (notificationId) => {

@@ -33,7 +33,7 @@ const schema = {
             type: 'string',
         },
     },
-    required: ['provider', 'email', 'amount', 'phone'],
+    required: ['provider', 'email', 'amount'],
 };
 
 
