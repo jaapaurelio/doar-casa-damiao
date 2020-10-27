@@ -26,6 +26,35 @@ export const sendMBMMail = (to, amount, entity, reference) => {
     return send(data);
 }
 
+export const sendStripeMail = (donor, to, paymentId) => {
+    const data = {
+        from: process.env.EMAIL,
+        to,
+        subject: 'Doação Casa Damião',
+        template: 'success_payment_mail_v2',
+        'h:X-Mailgun-Variables': JSON.stringify({
+            donor, 
+            paymentId,
+        }),
+    };
+    
+    return send(data);
+}
+
+export const sendGeneralEmail = (email, amount) => {
+    const data = {
+        from: process.env.EMAIL,
+        to: process.env.EMAIL,
+        subject: 'Recebemos uma Doação',
+        template: 'payment_notify_geral',
+        'h:X-Mailgun-Variables': JSON.stringify({
+            amount, 
+            email,
+        }),
+    };
+    return send(data);
+}
+
 export const submitMBway = (name, amount, email, phone) => axios({
         method: 'post',
         url: `${process.env.EASY_PAY_URL}/single`,

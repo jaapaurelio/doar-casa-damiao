@@ -1,6 +1,13 @@
 import isEmpty from 'lodash/isEmpty';
 import { query } from '../query';
-import { sendMBMMail, submitMBway, loadMBwayPaymentUpdate, createPaymentIntent } from './providers';
+import { 
+    sendMBMMail,
+    submitMBway,
+    loadMBwayPaymentUpdate,
+    createPaymentIntent,
+    sendStripeMail,
+    sendGeneralEmail
+} from './providers';
 
 
 const handlers = {
@@ -55,4 +62,15 @@ export const create = (provider, name, amount, email, phone, entity, reference, 
 export const updatePayment = (notificationId) => {
     return loadMBwayPaymentUpdate(notificationId)
         .then((result) => query(`UPDATE donations SET payed=1, updated_at=NOW() WHERE payment_id="${result.id}"`))
+}
+
+export const updateStripePayment = (data) => {
+    const { payment_intent, payment_method_details, payment_method, billing_details = {}, amount, id} = data;
+    const paymentId = payment_method_details.type === 'multibanco' ? payment_method : payment_intent;
+
+    return query(`UPDATE donations SET payed=1, updated_at=NOW() WHERE payment_id="${paymentId}"`)
+        .then(() => query(`SELECT donor_name FROM donations WHERE payment_id="${paymentId}"`))
+        .then(({ donor_name }) => sendStripeMail(donor_name, billing_details.email, id))
+        .then(() => sendGeneralEmail(billing_details.email, amount / 100))
+        
 }
