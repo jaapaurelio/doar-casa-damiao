@@ -155,7 +155,7 @@ const plots = {
     },
     {
       id: 3,
-      text: "uma formiga corajosa",
+      text: "uma opçao que falta aqui",
       question: "Quem era o seu melhor amigo?",
       character: CHARACTERS.ANT,
       options: [

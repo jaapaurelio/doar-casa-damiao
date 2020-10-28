@@ -9,6 +9,7 @@ export default function StoryOption({ image, text, backgroundColor, textColor, o
     <div onClick={onClick} className={`${styles.option} ${readOnlyClass}`} style={{ background, color: textColor }}>
       <img src={image}></img>
       <div className={styles.text}>{text}</div>
+      {!readOnly && <div className={styles.smallInfo}>Selecionar</div>}
     </div>
   );
 }
