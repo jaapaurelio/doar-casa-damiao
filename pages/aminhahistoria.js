@@ -64,6 +64,13 @@ export default function MyStoryPage() {
   return (
     <div className="pageWidthAlign">
       <div>
+        {currentStep.options && (
+          <StoryOptions
+            currenOption={currentStep}
+            onOptionClick={selectOption}
+          ></StoryOptions>
+        )}
+
         <h2>As tuas personagens</h2>
         <Line percent={percentage} strokeWidth="1" strokeColor="#2f3996" />
         <div className={styles.percentage}>{currentStory.length}/3</div>
@@ -72,12 +79,6 @@ export default function MyStoryPage() {
           selectedStoryPlot={currentStory}
           plots={plots}
         ></StoryResume>
-        {currentStep.options && (
-          <StoryOptions
-            currenOption={currentStep}
-            onOptionClick={selectOption}
-          ></StoryOptions>
-        )}
 
         {currentStory.length != 0 && !finishedStory && (
           <div className={styles.editStoryFooter}>
