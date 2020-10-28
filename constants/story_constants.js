@@ -7,10 +7,11 @@ const CHARACTERS = {
   SQUIREL: "esquilo",
   DAWG: "rafeiro",
   BIRD: "pintassilgo",
-  UNDERWEAR: "cueca",
+  UNDERWEAR: "cuecas",
   CLOTHESLINE: "estendal",
   WASHING_MACHINE: "maquina-lavar",
   DUST: "po",
+  ATHLETE: "atleta",
 };
 
 const gumStory = [
@@ -82,6 +83,7 @@ const plots = {
         {
           id: 1,
           text: "Ser atleta.",
+          character: CHARACTERS.ATHLETE,
           ...gumFriendsOptions,
         },
         {

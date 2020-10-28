@@ -9,7 +9,7 @@ export default function Story({ selectedStoryPlot, plots, title, author }) {
       const option = currentOption.options.find(
         (option) => option.id === selectedOption.value
       );
-
+        console.log("option", option);
       text = [
         ...text,
         <img className={styles.image} src="/images/icon-placeholder.png"></img>,
