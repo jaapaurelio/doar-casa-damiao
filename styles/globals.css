@@ -28,6 +28,11 @@ input[type="number"] {
   margin: 10px 0;
 }
 
+.page-container {
+  max-width: 800px;
+  margin:0 auto;
+}
+
 .pageWidthAlign {
   margin: 0 20px;
 }

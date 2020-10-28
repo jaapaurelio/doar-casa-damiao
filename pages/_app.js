@@ -18,11 +18,14 @@ function MyApp({ Component, pageProps }) {
   });
 
   return (
-    <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+    <div>
       <PageHeader></PageHeader>
-      <Elements stripe={stripePromise}>
-        <Component {...pageProps} />
-      </Elements>
+      <div className="page-container">
+        <Elements stripe={stripePromise}>
+          <Component {...pageProps} />
+        </Elements>
+      </div>
+
       <PageFooter></PageFooter>
     </div>
   );
