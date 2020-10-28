@@ -13,7 +13,7 @@ export default function handler(req, res) {
         } else {
             const { provider, name, email, amount, phone, entity, reference, paymentId } = req.body
 
-            create(provider, name, amount, email, phone, entity, reference, paymentId)
+            return create(provider, name, amount, email, phone, entity, reference, paymentId)
                 .then(results => response(results))
                 .catch(error => response(error, 500));
         }
