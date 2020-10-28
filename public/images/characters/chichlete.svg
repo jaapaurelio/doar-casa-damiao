@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="116px" height="86px" viewBox="0 0 116 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>chichlete</title>
+    <g id="casa-damiao" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="chiclete" transform="translate(-61.000000, -90.000000)">
+            <g id="chichlete" transform="translate(63.000000, 90.000000)">
+                <circle id="Oval" fill="#DC3A14" cx="56.2325501" cy="42.9767442" r="42.9767442"></circle>
+                <path d="M38.7352956,38.7554504 C45.6460096,43.5844952 46.5760658,49.2949364 41.525464,55.886774" id="Path" stroke="#000000" stroke-width="1.95348837"></path>
+                <line x1="44.7243485" y1="45.8390617" x2="68.942622" y2="42.9767442" id="Path-2" stroke="#000000" stroke-width="1.95348837"></line>
+                <path d="M73.2459003,35.2472924 C67.4460771,40.456297 67.7494238,46.2873522 74.1559404,52.7404579" id="Path-3" stroke="#000000" stroke-width="1.95348837"></path>
+                <path d="M41.729822,31.3451978 C46.0940888,34.9988173 49.4350825,34.2806552 51.7528032,29.1907115" id="Path-4" stroke="#000000" stroke-width="1.95348837"></path>
+                <path d="M58.4207363,27.8950173 C60.9607041,32.2923366 64.4679994,32.2923366 68.942622,27.8950173" id="Path-5" stroke="#000000" stroke-width="1.95348837"></path>
+                <circle id="Oval" fill="#000000" cx="78.372085" cy="38.4186047" r="1.30232558"></circle>
+                <circle id="Oval-Copy" fill="#000000" cx="84.2325501" cy="42.3255814" r="1.30232558"></circle>
+                <circle id="Oval-Copy-2" fill="#000000" cx="79.0232478" cy="48.1860465" r="1.30232558"></circle>
+                <circle id="Oval-Copy-3" fill="#000000" cx="73.8139455" cy="43.627907" r="1.30232558"></circle>
+                <circle id="Oval-Copy-4" fill="#000000" cx="33.4418524" cy="43.627907" r="1.30232558"></circle>
+                <circle id="Oval-Copy-5" fill="#000000" cx="29.5348757" cy="49.4883721" r="1.30232558"></circle>
+                <circle id="Oval-Copy-6" fill="#000000" cx="36.6976664" cy="52.744186" r="1.30232558"></circle>
+                <circle id="Oval-Copy-7" fill="#000000" cx="39.3023175" cy="46.8837209" r="1.30232558"></circle>
+                <path d="M57.842364,5.58748663 C66.2149461,17.8086385 78.2978502,22.7947836 94.0910762,20.5459219" id="Path-6" stroke="#000000" stroke-width="1.95348837"></path>
+                <path d="M13.3235321,11.1465783 C23.1003912,24.9693028 35.384421,29.5808959 50.1756214,24.9813576" id="Path-6-Copy" stroke="#000000" stroke-width="1.95348837" transform="translate(31.749577, 18.925253) scale(-1, 1) rotate(15.000000) translate(-31.749577, -18.925253) "></path>
+                <path d="M64.8445749,4.76076707 C70.6288445,12.0202629 78.8525709,15.2631482 89.5157542,14.4894229" id="Path-7" stroke="#000000" stroke-width="1.95348837"></path>
+                <path d="M16.9311611,22.7401594 C29.9887179,21.8393192 38.0777709,16.3070529 41.1983202,6.1433604" id="Path-8" stroke="#000000" stroke-width="1.95348837"></path>
+                <polyline id="Path-9" stroke="#000000" stroke-width="1.95348837" points="18.0270074 36.4876526 0 48.1860465 21.3290202 62.7936725 10.6645101 69.6744186"></polyline>
+                <polyline id="Path-10" stroke="#000000" stroke-width="1.95348837" points="106.733715 58.4949808 95.1476651 54.0465116 111.594694 35.2472924 91.19201 27.8950173"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

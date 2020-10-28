@@ -1,3 +1,18 @@
+const CHARACTERS = {
+  GUM: "chichlete",
+  SOCK: "meia",
+  ANT: "formiga",
+  PILLOW: "almofada",
+  SWEATSHIRT: "camisola",
+  SQUIREL: "esquilo",
+  DAWG: "rafeiro",
+  BIRD: "pintassilgo",
+  UNDERWEAR: "cueca",
+  CLOTHESLINE: "estendal",
+  WASHING_MACHINE: "maquina-lavar",
+  DUST: "po",
+};
+
 const gumStory = [
   "Era uma vez uma Chiclete de Cereja que sonhava ser atleta. Todos as outras chicletes da caixa gozavam do seu sonho pois o único propósito de uma chiclete era ser mascada e deitada fora. Elas aceitavam bem esse facto, foram criadas para isso.",
   { src: "/images/icon-placeholder.png" },
@@ -18,17 +33,17 @@ const gumFriendsOptions = {
     {
       id: 1,
       text: "O Pintassilgo",
-      image: "/images/icon-placeholder.png",
+      character: CHARACTERS.BIRD,
     },
     {
       id: 2,
       text: "O Cão Rafeiro",
-      image: "/images/icon-placeholder.png",
+      character: CHARACTERS.DAWG,
     },
     {
       id: 3,
       text: "O Esquilo-vermelho",
-      image: "/images/icon-placeholder.png",
+      character: CHARACTERS.SQUIREL,
     },
   ],
 };
@@ -39,17 +54,17 @@ const sockVillainOptions = {
     {
       id: 1,
       text: "A terrível Máquina de Lavar",
-      image: "/images/icon-placeholder.png",
+      character: CHARACTERS.WASHING_MACHINE,
     },
     {
       id: 2,
       text: "O malvado Pó debaixo da cama",
-      image: "/images/icon-placeholder.png",
+      character: CHARACTERS.DUST,
     },
     {
       id: 3,
       text: "O perigoso Estendal das Traseira",
-      image: "/images/icon-placeholder.png",
+      character: CHARACTERS.CLOTHESLINE,
     },
   ],
 };
@@ -61,26 +76,21 @@ const plots = {
     {
       id: 1,
       text: "uma chiclete de cereja",
-
-      image: "/images/icon-placeholder.png",
+      character: CHARACTERS.GUM,
       question: "Qual era o sonho da chiclete?",
       options: [
         {
           id: 1,
           text: "Ser atleta.",
-          image: "/images/icon-placeholder.png",
-
           ...gumFriendsOptions,
         },
         {
           id: 2,
-          image: "/images/icon-placeholder.png",
           text: "Dar a volta ao Mundo",
           ...gumFriendsOptions,
         },
         {
           id: 3,
-          image: "/images/icon-placeholder.png",
           text: "Ser Astronauta",
           ...gumFriendsOptions,
         },
@@ -90,20 +100,24 @@ const plots = {
       id: 2,
       text: "uma peúga exploradora",
       question: "A peúga queria fazer amizade com quem?",
+      character: CHARACTERS.SOCK,
       options: [
         {
           id: 1,
           text: "A sra Almofada",
+          character: CHARACTERS.PILLOW,
           ...sockVillainOptions,
         },
         {
           id: 1,
           text: "A velha Cueca XXL",
+          character: CHARACTERS.UNDERWEAR,
           ...sockVillainOptions,
         },
         {
           id: 1,
           text: "A Camisa Coloridaa",
+          character: CHARACTERS.SWEATSHIRT,
           ...sockVillainOptions,
         },
       ],
@@ -112,7 +126,7 @@ const plots = {
       id: 3,
       text: "uma formiga corajosa",
       question: "Quem era o seu melhor amigo?",
-
+      character: CHARACTERS.ANT,
       options: [
         {
           id: 1,

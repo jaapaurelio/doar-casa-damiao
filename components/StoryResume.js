@@ -15,7 +15,7 @@ export default function StoryResume({ selectedStoryPlot, plots }) {
       text = [
         ...text,
         <StoryOption
-          image="/images/icon-placeholder.png"
+          image={`/images/characters/${option.character}.svg`}
           text={option.text}
           readOnly={true}
         ></StoryOption>,

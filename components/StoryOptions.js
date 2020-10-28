@@ -4,7 +4,7 @@ import StoryOption from "./StoryOption";
 export default function StoryOptions({
   currenOption,
   onOptionClick,
-  showQuestion = true,
+  showQuestion = true
 }) {
   return (
     <div>
@@ -14,7 +14,7 @@ export default function StoryOptions({
           return (
             <StoryOption
               onClick={() => onOptionClick(option, i)}
-              image="/images/icon-placeholder.png"
+              image={`/images/characters/${option.character}.svg`}
               text={option.text}
             ></StoryOption>
           );
