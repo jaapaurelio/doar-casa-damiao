@@ -12,6 +12,8 @@ const CHARACTERS = {
   WASHING_MACHINE: "maquina-lavar",
   DUST: "po",
   ATHLETE: "atleta",
+  ASTRONAUT: "astronauta",
+  WORLD: "mundo",
 };
 
 const gumStory = [
@@ -89,11 +91,13 @@ const plots = {
         {
           id: 2,
           text: "Dar a volta ao Mundo",
+          character: CHARACTERS.WORLD,
           ...gumFriendsOptions,
         },
         {
           id: 3,
           text: "Ser Astronauta",
+          character: CHARACTERS.ASTRONAUT,
           ...gumFriendsOptions,
         },
       ],
