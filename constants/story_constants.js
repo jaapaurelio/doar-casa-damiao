@@ -16,6 +16,31 @@ const CHARACTERS = {
   WORLD: "mundo",
 };
 
+const CHARACTERS_COLORS = {
+  [CHARACTERS.GUM]: "#FFBB3C",
+  [CHARACTERS.ATHLETE]: "#6349D5",
+  [CHARACTERS.ASTRONAUT]: "#13172E",
+  [CHARACTERS.BIRD]: "#1C6282",
+  [CHARACTERS.DAWG]: "#393981",
+  [CHARACTERS.SQUIREL]: "#5E1B44",
+  [CHARACTERS.SOCK]: "#FFCCCC",
+  [CHARACTERS.PILLOW]: "#74CFD8",
+  [CHARACTERS.UNDERWEAR]: "#E79D4A",
+  [CHARACTERS.SWEATSHIRT]: "#6166DF",
+  [CHARACTERS.CLOTHESLINE]: "#38ADA9",
+  [CHARACTERS.WASHING_MACHINE]: "#74B9FF",
+  [CHARACTERS.WORLD]: "#312C72",
+};
+
+const CHARACTERS_DARK_WHITELIST = [
+  CHARACTERS.ATHLETE,
+  CHARACTERS.WORLD,
+  CHARACTERS.ASTRONAUT,
+  CHARACTERS.BIRD,
+  CHARACTERS.DAWG,
+  CHARACTERS.SQUIREL,
+];
+
 const gumStory = [
   "Era uma vez uma Chiclete de Cereja que sonhava ser atleta. Todos as outras chicletes da caixa gozavam do seu sonho pois o único propósito de uma chiclete era ser mascada e deitada fora. Elas aceitavam bem esse facto, foram criadas para isso.",
   { src: "/images/icon-placeholder.png" },
@@ -172,4 +197,4 @@ const STEP_TYPE = {
   INPUT: "input",
 };
 
-export { plots, STEP_TYPE, gumStory };
+export { plots, STEP_TYPE, gumStory, CHARACTERS_COLORS, CHARACTERS_DARK_WHITELIST };
