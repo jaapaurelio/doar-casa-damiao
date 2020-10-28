@@ -8,7 +8,7 @@ export default function StoryOption({ image, text, backgroundColor, textColor, o
   return (
     <div onClick={onClick} className={`${styles.option} ${readOnlyClass}`} style={{ background, color: textColor }}>
       <img src={image}></img>
-      <div>{text}</div>
+      <div className={styles.text}>{text}</div>
     </div>
   );
 }
