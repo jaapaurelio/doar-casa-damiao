@@ -63,11 +63,13 @@ export default function Home() {
           <div className={styles.createYourStoryBegin}>Era uma vez...</div>
         </div>
 
-        <StoryOptions
-          showQuestion={false}
-          currenOption={storyBeginning}
-          onOptionClick={startHistory}
-        ></StoryOptions>
+        <div className="pageWidthAlign">
+          <StoryOptions
+            showQuestion={false}
+            currenOption={storyBeginning}
+            onOptionClick={startHistory}
+          ></StoryOptions>
+        </div>
 
         <div className="pageWidthAlign">
           <div className="spacing-section">
