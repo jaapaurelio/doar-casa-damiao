@@ -1,4 +1,5 @@
 .option {
+  position: relative;
   padding: 8px 10px;
   margin: 10px 0;
   margin-right: 10px;
@@ -23,6 +24,12 @@
 .option img {
   max-height: 100px;
   margin-bottom: 20px;
+}
+
+.text {
+  position: absolute;
+  margin: 0 16px;
+  bottom: 16px;
 }
 
 .readOnly {
