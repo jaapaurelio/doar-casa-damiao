@@ -62,15 +62,14 @@ export default function MyStoryPage() {
   }
   const percentage = (currentStory.length * 100) / 3;
   return (
-    <div className="pageWidthAlign">
-      <div>
-        {currentStep.options && (
-          <StoryOptions
-            currenOption={currentStep}
-            onOptionClick={selectOption}
-          ></StoryOptions>
-        )}
-
+    <div>
+      {currentStep.options && (
+        <StoryOptions
+          currenOption={currentStep}
+          onOptionClick={selectOption}
+        ></StoryOptions>
+      )}
+      <div className="pageWidthAlign">
         <h2>As tuas personagens</h2>
         <Line percent={percentage} strokeWidth="1" strokeColor="#2f3996" />
         <div className={styles.percentage}>{currentStory.length}/3</div>

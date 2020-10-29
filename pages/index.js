@@ -63,13 +63,11 @@ export default function Home() {
           <div className={styles.createYourStoryBegin}>Era uma vez...</div>
         </div>
 
-        <div className="pageWidthAlign">
-          <StoryOptions
-            showQuestion={false}
-            currenOption={storyBeginning}
-            onOptionClick={startHistory}
-          ></StoryOptions>
-        </div>
+        <StoryOptions
+          showQuestion={false}
+          currenOption={storyBeginning}
+          onOptionClick={startHistory}
+        ></StoryOptions>
 
         <div className="pageWidthAlign">
           <div className="spacing-section">
@@ -84,7 +82,9 @@ export default function Home() {
               <div className={styles.userStoryAfter}> José Silva</div>
             </div>
             <div className={styles.ler}>Ler História</div>
-            <button className="btn-secondary btn-full">Ver todas as histórias</button>
+            <button className="btn-secondary btn-full">
+              Ver todas as histórias
+            </button>
           </div>
           <div className=" spacing-section">
             <Stats></Stats>
