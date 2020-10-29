@@ -1,14 +1,14 @@
 .mainStory {
-  font-size: 20px;
-  line-height: 1.4;
-  padding: 14px;
+    font-size: 20px;
+    line-height: 1.4;
+    padding: 14px;
 }
 
 .author {
-  color: gray;
-  font-size: 14px;
+    color: gray;
+    font-size: 14px;
 }
 
 .authorName {
-  font-weight: bold;
+    font-weight: bold;
 }

@@ -1,17 +1,17 @@
 .editStoryFooter {
-  margin-top: 40px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .storyDetailsContainer {
-  margin-top: 20px;
-  margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .percentage {
-  text-align: right;
-  font-size: 12px;
-  color: gray;
+    text-align: right;
+    font-size: 12px;
+    color: gray;
 }

@@ -2,23 +2,22 @@ import { Validator } from 'jsonschema';
 
 const instance = new Validator();
 
-
 const schema = {
     type: 'object',
     properties: {
         provider: {
             type: 'string',
             enum: ['stripe', 'iban', 'mb', 'mbway'],
-        }, 
+        },
         name: {
-            type: 'string'
+            type: 'string',
         },
         email: {
-           type: 'string',
-           format: 'email'
+            type: 'string',
+            format: 'email',
         },
         amount: {
-            type: 'number'
+            type: 'number',
         },
         phone: {
             type: 'string',
@@ -36,6 +35,4 @@ const schema = {
     required: ['provider', 'email', 'amount'],
 };
 
-
-
-export const validate = obj => instance.validate(obj, schema);
+export const validate = (obj) => instance.validate(obj, schema);

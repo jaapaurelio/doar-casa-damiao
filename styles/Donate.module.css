@@ -1,73 +1,73 @@
 .amountContainer {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .donationAmountOption {
-  padding: 20px;
-  width: 30%;
-  border-radius: 4px;
-  color: #2b2b2b;
-  font-size: 16px;
-  border: 1px solid gray;
-  text-align: center;
+    padding: 20px;
+    width: 30%;
+    border-radius: 4px;
+    color: #2b2b2b;
+    font-size: 16px;
+    border: 1px solid gray;
+    text-align: center;
 }
 
 .otherDonationAmountOption {
-  width: auto;
-  margin-top: 20px;
+    width: auto;
+    margin-top: 20px;
 }
 
 .activeOption {
-  background-color: #ffbb3c;
-  position: relative;
+    background-color: #ffbb3c;
+    position: relative;
 }
 
 .activeOption .otherLabel {
-  position: absolute;
-  left: 10px;
-  top: 10px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
 }
 
 .otherInputContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .otherValueInput {
-  outline: 0;
-  width: auto;
-  text-align: center;
-  border: 0;
-  background: transparent;
-  font-size: 16px;
+    outline: 0;
+    width: auto;
+    text-align: center;
+    border: 0;
+    background: transparent;
+    font-size: 16px;
 }
 
 .paymentOptions {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .paymentOptions > * {
-  margin-bottom: 14px;
+    margin-bottom: 14px;
 }
 
 .cardInput {
-  margin-top: 10px;
-  border: 1px solid #c4c3c3;
-  border-radius: 3px;
-  padding: 20px;
-  font-size: 16px;
-  line-height: 16px;
-  color: #3b3b3b;
-  padding: 10px 8px;
+    margin-top: 10px;
+    border: 1px solid #c4c3c3;
+    border-radius: 3px;
+    padding: 20px;
+    font-size: 16px;
+    line-height: 16px;
+    color: #3b3b3b;
+    padding: 10px 8px;
 }
 
 .spacingCard {
-  margin: 10px 0 30px;
+    margin: 10px 0 30px;
 }
 
 .errorMessage {
-  margin-top: 20px;
+    margin-top: 20px;
 }

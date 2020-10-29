@@ -1,33 +1,33 @@
 .caroussel {
-  /* line them up horizontally */
-  display: flex;
+    /* line them up horizontally */
+    display: flex;
 
-  /* allow for scrolling */
-  overflow-x: auto;
+    /* allow for scrolling */
+    overflow-x: auto;
 
-  /* make it smooth on iOS */
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-points-x: repeat(200px);
-  scroll-snap-type: mandatory;
+    /* make it smooth on iOS */
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-points-x: repeat(200px);
+    scroll-snap-type: mandatory;
 }
 .caroussel::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .button {
-  margin-top: 20px;
-  color: blue;
-  font-weight: bold;
-  font-size: 11px;
+    margin-top: 20px;
+    color: blue;
+    font-weight: bold;
+    font-size: 11px;
 }
 
 .question {
-  font-size: 24px;
-  color: #2B2B2B;
+    font-size: 24px;
+    color: #2b2b2b;
 }
 
-@media (min-width:600px) {
-  .caroussel {
-    justify-content: center;
-  }
+@media (min-width: 600px) {
+    .caroussel {
+        justify-content: center;
+    }
 }

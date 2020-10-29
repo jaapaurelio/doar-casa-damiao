@@ -1,9 +1,9 @@
 .image {
-  width: 100%;
+    width: 100%;
 }
 
 .imageText {
-  text-align: center;
-  font-size: 11px;
-  padding: 4px 10px;
+    text-align: center;
+    font-size: 11px;
+    padding: 4px 10px;
 }

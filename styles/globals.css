@@ -1,94 +1,93 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap');
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: "Work Sans", sans-serif;
-  color: #7a7a7a;
-  font-size: 14px;
-  line-height: 18px;
+    padding: 0;
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+    color: #7a7a7a;
+    font-size: 14px;
+    line-height: 18px;
 }
 
 a {
-  color: blue;
-  text-decoration: none;
+    color: blue;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="number"] {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+input[type='text'],
+input[type='email'],
+input[type='number'] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
 }
 
 .page-container {
-  max-width: 800px;
-  margin:0 auto;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .pageWidthAlign {
-  margin: 0 20px;
+    margin: 0 20px;
 }
 
 .spacing-section {
-  margin-top: 54px;
-  margin-bottom: 54px;
+    margin-top: 54px;
+    margin-bottom: 54px;
 }
 
 .btn-primary {
-  width: auto;
-  background: #b61c58;
-  color: #fff;
-  border-radius: 8px;
-  padding: 14px 30px;
-  border: 0;
-  font-size: 16px;
-  display: inline-block;
-  min-width: 100px;
+    width: auto;
+    background: #b61c58;
+    color: #fff;
+    border-radius: 8px;
+    padding: 14px 30px;
+    border: 0;
+    font-size: 16px;
+    display: inline-block;
+    min-width: 100px;
 }
 
 .btn-primary:disabled {
-  background: gray;
+    background: gray;
 }
 
 .btn-secondary {
-  width: auto;
-  background: #fff;
-  border: 1px solid #b61c58;
-  color: #b61c58;
-  border-radius: 8px;
-  padding: 14px 30px;
-  font-size: 16px;
-  display: inline-block;
-  min-width: 100px;
+    width: auto;
+    background: #fff;
+    border: 1px solid #b61c58;
+    color: #b61c58;
+    border-radius: 8px;
+    padding: 14px 30px;
+    font-size: 16px;
+    display: inline-block;
+    min-width: 100px;
 }
 
 .btn-secondary:disabled {
-  border: 1px solid gray;
-  color: gray;
+    border: 1px solid gray;
+    color: gray;
 }
 
-
 .btn-full {
-  display: block;
-  width: 100%;
-  min-width: auto;
+    display: block;
+    width: 100%;
+    min-width: auto;
 }
 
 h1 {
-  line-height: 32px;
+    line-height: 32px;
 }
 
 h2 {
-  color: #2b2b2b;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 32px;
+    color: #2b2b2b;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
 }

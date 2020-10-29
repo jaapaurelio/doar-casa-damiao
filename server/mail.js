@@ -5,12 +5,13 @@ const mailgun = new Mailgun({
     domain: process.env.MAILGUN_DOMAIN,
 });
 
-export const send = (data) => new Promise((resolve, reject) => mailgun.messages().send(data, (err, body) => {
-        if (err) {
-            reject(err);
-        }
-        else {
-            resolve(body);
-        }
-    })  
-);
+export const send = (data) =>
+    new Promise((resolve, reject) =>
+        mailgun.messages().send(data, (err, body) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(body);
+            }
+        })
+    );

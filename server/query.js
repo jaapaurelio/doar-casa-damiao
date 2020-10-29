@@ -1,6 +1,5 @@
 import { connection } from './connection';
 
-
 export const query = (query) => {
     return new Promise((resolve, reject) => {
         connection.query(query, (error, results) => {
@@ -8,4 +7,4 @@ export const query = (query) => {
             resolve(results);
         });
     });
-}
+};

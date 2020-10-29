@@ -1,105 +1,105 @@
 .splitMessageDonate {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .splitMessageMessage {
-  margin-right: 10px;
-  font-size: 14px;
+    margin-right: 10px;
+    font-size: 14px;
 }
 
 .createYourStory {
-  margin-top: 50px;
+    margin-top: 50px;
 }
 
 .createYourStoryBegin {
-  font-size: 24px;
-  font-weight: 500;
-  color: #2b2b2b;
-  margin-bottom: 15px;
-  line-height: 34px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #2b2b2b;
+    margin-bottom: 15px;
+    line-height: 34px;
 }
 
 .intro {
-  max-height: 0px;
-  overflow: hidden;
+    max-height: 0px;
+    overflow: hidden;
 }
 
 .intro.showAll {
-  max-height: 1000px;
-  padding: 10px 0;
+    max-height: 1000px;
+    padding: 10px 0;
 }
 
 .intro.showAll:after {
-  background: none;
+    background: none;
 }
 
 .once {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .ler {
-  text-align: right;
-  background: #fff;
-  margin-bottom: 40px;
-  font-size: 12px;
+    text-align: right;
+    background: #fff;
+    margin-bottom: 40px;
+    font-size: 12px;
 }
 
 .info {
-  margin-top: 40px;
-  margin-bottom: 20px;
-  font-size: 14px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 14px;
 }
 
 .mainIntro {
-  font-size: 14px;
-  margin-top: 10px;
+    font-size: 14px;
+    margin-top: 10px;
 }
 
 .userStory {
-  margin-top: 20px;
-  font-size: 20px;
+    margin-top: 20px;
+    font-size: 20px;
 }
 
 .storyTitle {
-  color: #2b2b2b;
-  font-size: 14px;;
+    color: #2b2b2b;
+    font-size: 14px;
 }
 
 .userStoryAfter {
-  font-size: 11px;
+    font-size: 11px;
 }
 
 .continuebtn {
-  display: block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  width: 100%;
-  margin-bottom: 20px;
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .inputform {
-  padding: 10px 20px;
-  display: block;
-  width: 100%;
+    padding: 10px 20px;
+    display: block;
+    width: 100%;
 }
 
 .knowmore {
-  text-align: center;
-  margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .section {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 .mainStatus {
-  margin-top: 40px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
+    margin-top: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .center {
-  text-align: center;
+    text-align: center;
 }
