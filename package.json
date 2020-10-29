@@ -6,6 +6,9 @@
         "{components,constants,helpers,pages,public,server,styles}/**/*.{js,jsx,ts,tsx,md,json}": [
             "npm run lint:fix",
             "npm run format"
+        ],
+        "{components,constants,helpers,pages,public,server,styles}/**/*.css": [
+            "npm run format"
         ]
     },
     "husky": {
