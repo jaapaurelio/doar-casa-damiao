@@ -8,7 +8,7 @@ export default function MyStoryEndPage() {
     const [currentStory, setCurrentStory] = useState([]);
     const [authorName, setAuthorName] = useState('');
     const storyTitle = 'A Formiga atleta e o Pintassilgo';
-
+    console.log('teste');
     useEffect(() => {
         const selectedStoryPlot = lstorage('story');
         const author = lstorage('storyAuthor');
