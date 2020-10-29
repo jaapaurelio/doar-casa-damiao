@@ -1,3 +1,9 @@
+.topLine {
+    height: 10px;
+    width: 100%;
+    background: #1d368d;
+}
+
 .container {
     display: flex;
     justify-content: space-around;
@@ -9,4 +15,5 @@
 
 .logo {
     width: 200px;
+    cursor: pointer;
 }
