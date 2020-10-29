@@ -4,9 +4,7 @@
     "private": true,
     "lint-staged": {
         "{components,constants,helpers,pages,public,server,styles}/**/*.{js,jsx,ts,tsx,md,json}": [
-            "npm run lint:fix"
-        ],
-        "{components,constants,helpers,pages,public,server,styles}/**/*.{js,jsx,ts,tsx,md,json,css}": [
+            "npm run lint:fix",
             "npm run format"
         ]
     },
