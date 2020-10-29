@@ -8,7 +8,7 @@ export default function handler(req, res) {
         const check = validate(req.body);
 
         if (!check.valid) {
-            response(check.toString(), 400);
+            return response(check.toString(), 400);
         } else {
             const { provider, name, email, amount, phone, entity, reference, paymentId } = req.body;
 
@@ -17,6 +17,7 @@ export default function handler(req, res) {
                 .catch((error) => response(error, 500));
         }
     }
+    return response('not found', 404);
 }
 
 export const config = {

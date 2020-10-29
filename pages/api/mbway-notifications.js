@@ -9,11 +9,11 @@ export default function handler(req, res) {
 
         console.log('mbway notification > ', type, status, id);
         if (type === 'capture' && status === 'success') {
-            updatePayment(id)
+            return updatePayment(id)
                 .then((results) => response(results))
                 .catch((e) => response(e, 500));
         }
-    } else {
-        response('error', 404);
+        return response('error', 400);
     }
+    return response('not found', 404);
 }
