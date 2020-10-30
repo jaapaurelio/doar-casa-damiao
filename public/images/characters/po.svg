@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="116px" height="103px" viewBox="0 0 116 103" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 44</title>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="peuga" transform="translate(-261.000000, -568.000000)">
+            <g id="Group-44" transform="translate(263.000000, 568.000000)">
+                <g id="noun_Evil-idea_1037633-Copy">
+                    <polyline id="Path-110" stroke="#000000" stroke-width="2" points="55 87 61.1412725 101 56 101"></polyline>
+                    <polyline id="Path-111" stroke="#000000" stroke-width="2" points="70.1156576 101 64.9445008 101 64.9445008 97.2482535 64.9445008 83.0695204"></polyline>
+                    <path d="M44,0 C55.6292612,0 65.3266788,8.2712051 67.5303507,19.251713 C70.3755279,17.8113284 73.593016,17 77,17 C88.5979797,17 98,26.4020203 98,38 C98,42.3684422 96.6661418,46.4253451 94.3834873,49.7856467 C100.221818,54.1629252 104,61.1402417 104,69 C104,82.254834 93.254834,93 80,93 C70.1112773,93 61.6193992,87.0193975 57.9440623,78.4778891 C57.981672,78.9801406 58,79.4879299 58,80 C58,91.5979797 48.5979797,101 37,101 C25.4020203,101 16,91.5979797 16,80 C16,76.5030534 16.8547409,73.2057422 18.3666997,70.3055895 C12.2421638,67.4343972 8,61.2126038 8,54 C8,44.9669212 14.6538786,37.4879391 23.3276805,36.197009 C21.2129957,32.6236057 20,28.453458 20,24 C20,10.745166 30.745166,0 44,0 Z" id="Combined-Shape" fill="#F1F2F6"></path>
+                    <polyline id="Path-9" stroke="#000000" stroke-width="1.95348837" points="18.0270074 51.5926353 -8.52651283e-14 63.2910292 21.3290202 77.8986552 10.6645101 84.7794013"></polyline>
+                    <polyline id="Path-10" stroke="#000000" stroke-width="1.95348837" points="106.733715 73.5999635 95.1476651 69.1514943 111.594694 50.352275 91.19201 43"></polyline>
+                </g>
+                <g id="Group-43" transform="translate(39.000000, 40.000000)">
+                    <circle id="Oval" fill="#000000" cx="27.7598377" cy="8.68511493" r="4"></circle>
+                    <circle id="Oval-Copy-58" fill="#000000" cx="11.7598377" cy="8.68511493" r="4"></circle>
+                    <path d="M5.12109079,0 C14.8823386,8.57169644 24.7619208,8.57169644 34.7598377,0" id="Path-99" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M-2.27373675e-13,21.4909698 C2.50655845,26.7759554 7.09317101,30.1740038 13.7598377,31.6851149" id="Path-102" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

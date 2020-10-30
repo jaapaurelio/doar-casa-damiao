@@ -1,4 +1,10 @@
+import Link from 'next/link';
 import styles from './MultibancoPayment.module.css';
+
+function formatMBReference(reference) {
+    var parts = reference.match(/.{1,3}/g);
+    return parts.join(' ');
+}
 
 export default function MultibancoPayment({ entity, reference, amount }) {
     return (
@@ -6,13 +12,13 @@ export default function MultibancoPayment({ entity, reference, amount }) {
             <div className={styles.pageLogo}>
                 <img src="/images/icons/multibanco.png"></img>
             </div>
+
             <div className={styles.pageText}>
                 Confirme a sua doação utilizando os seguintes dados num terminal Multibanco ou no
                 seu Home Banking.
             </div>
             <div className={styles.pageText}>
-                Após confirmar o seu donativo, o seu nome ficará gravado e visível para todos no
-                coração.
+                Desde já agradecemos o seu contributo na vida destas crianças.
             </div>
 
             <div className={styles.mbData}>
@@ -24,7 +30,7 @@ export default function MultibancoPayment({ entity, reference, amount }) {
                         </tr>
                         <tr>
                             <td className={styles.mbTitles}>Referêcia:</td>
-                            <td>{reference}</td>
+                            <td>{formatMBReference(reference)}</td>
                         </tr>
                         <tr>
                             <td className={styles.mbTitles}>Valor:</td>
@@ -34,9 +40,11 @@ export default function MultibancoPayment({ entity, reference, amount }) {
                 </table>
             </div>
             <div className={styles.buttonContainer}>
-                <button className="btn-primary">
-                    <span>Concluir</span>
-                </button>
+                <Link href="/">
+                    <button className="btn-primary">
+                        <span>Concluir</span>
+                    </button>
+                </Link>
             </div>
         </div>
     );

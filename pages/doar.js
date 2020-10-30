@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import Title from '../components/Title';
 import PaymentOption from '../components/PaymentOption';
+import { callDonationApi } from '../helpers/utils';
 
 const donationValues = [2, 5, 10];
 const formConstants = {
@@ -22,7 +23,7 @@ const constants = {
 export default function DonatePage() {
     const router = useRouter();
     const [donorName, setDonorName] = useState('');
-    const [donorEmail, setDonorEmail] = useState('dasd@dasd.com');
+    const [donorEmail, setDonorEmail] = useState('jaapaurelio@gmail.com');
     const [donationValue, setDonationValue] = useState(donationValues[0]);
     const [showOtherAmount, setShowOtherAmount] = useState(false);
     const [donorPhoneNumber /*, setDonorPhoneNumber*/] = useState('');
@@ -34,7 +35,17 @@ export default function DonatePage() {
     const elements = useElements();
     const customAmountInputRef = React.useRef();
 
-    const multibancoPayment = function () {
+    function createDonationPayload(provider) {
+        return {
+            paymentType: activePaymentMethod,
+            provider,
+            amount: donationValue,
+            name: donorName,
+            email: donorEmail,
+        };
+    }
+
+    async function multibancoPayment() {
         const owner = {
             email: donorEmail,
         };
@@ -45,8 +56,8 @@ export default function DonatePage() {
 
         setLoading(true);
 
-        stripe
-            .createSource({
+        try {
+            const result = await stripe.createSource({
                 type: 'multibanco',
                 amount: Math.round(donationValue * 100),
                 currency: 'eur',
@@ -54,47 +65,50 @@ export default function DonatePage() {
                 redirect: {
                     return_url: process.env.NEXT_PUBLIC_HOME_URL,
                 },
-            })
-            .then((result) => {
-                if (
-                    result.source &&
-                    result.source.amount &&
-                    result.source.multibanco &&
-                    result.source.multibanco.reference
-                ) {
-                    const dataMb = result.source;
-                    var formatNumber = new Intl.NumberFormat('de-DE', {
-                        style: 'currency',
-                        currency: 'EUR',
-                        minimumFractionDigits: 0,
-                    });
-
-                    const amount = result.source.amount;
-                    const amountEuro = formatNumber.format(Math.round(result.source.amount / 100));
-                    return fetch(
-                        `${process.env.NEXT_PUBLIC_HOME_URL}/api/donation?provider=mb&reference=${dataMb.multibanco.reference}&email=${dataMb.owner.email}&entity=${dataMb.multibanco.entity}&amount=${amount}&paymentId=${dataMb.id}&donor=${donorName}`
-                    ).then((response) => {
-                        if (response.ok) {
-                            router.push(
-                                `/pagamento?type=mb&&entity=${dataMb.multibanco.entity}&reference=${dataMb.multibanco.reference}&amount=${amountEuro}&donor=${donorName}`
-                            );
-                        } else {
-                            setErrorMessage(
-                                'Ocorreu um erro. Verifique os dados e tente novamente.'
-                            );
-                        }
-                    });
-                }
-            })
-            .catch(() => {
-                setErrorMessage('Ocorreu um erro. Verifique os dados e tente novamente.');
-            })
-            .then(() => {
-                setLoading(false);
             });
-    };
 
-    const mbWayPayment = function () {
+            if (
+                result &&
+                result.source &&
+                result.source.multibanco &&
+                result.source.multibanco.reference
+            ) {
+                const dataMb = result.source;
+                var formatNumber = new Intl.NumberFormat('de-DE', {
+                    style: 'currency',
+                    currency: 'EUR',
+                    minimumFractionDigits: 0,
+                });
+
+                const amountEuro = formatNumber.format(Math.round(result.source.amount / 100));
+
+                const body = {
+                    ...createDonationPayload('mb'),
+                    reference: dataMb.multibanco.reference,
+                    entity: dataMb.multibanco.entity,
+                    paymentId: dataMb.id,
+                };
+
+                const response = await callDonationApi(body);
+
+                if (response.status == 'success') {
+                    router.push(
+                        `/pagamento?type=mb&&entity=${dataMb.multibanco.entity}&reference=${dataMb.multibanco.reference}&amount=${amountEuro}&donor=${donorName}`
+                    );
+
+                    return;
+                }
+
+                setErrorMessage('Ocorreu um erro. Verifique os dados e tente novamente.');
+            }
+        } catch (e) {
+            setErrorMessage('Ocorreu um erro. Verifique os dados e tente novamente.');
+        }
+
+        setLoading(false);
+    }
+
+    function mbWayPayment() {
         setLoading(true);
         fetch(
             `${constants.apiEndpoint}/create-donation-mbway.php?amount=${donationValue}&phone=${donorPhoneNumber}&email=${donorEmail}&name=${donorName}`
@@ -114,9 +128,9 @@ export default function DonatePage() {
             .then(() => {
                 setLoading(false);
             });
-    };
+    }
 
-    const ibanPayment = function () {
+    function ibanPayment() {
         setLoading(true);
         return fetch(
             `${constants.apiEndpoint}/create-donation_iban.php?amount=${donationValue}&email=${donorEmail}&name=${donorName}`
@@ -137,61 +151,60 @@ export default function DonatePage() {
             .then(() => {
                 setLoading(false);
             });
-    };
+    }
 
-    const cardPayment = function () {
-        const body = {
-            paymentType: activePaymentMethod,
-            provider: 'stripe',
-            amount: donationValue,
-            name: donorName,
-            email: donorEmail,
-        };
+    async function cardPayment() {
+        const body = createDonationPayload('stripe');
 
         setLoading(true);
 
-        return fetch(`${constants.apiEndpoint}/donation/`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(body),
-        })
-            .then((response) => response.json())
-            .then((response) => {
-                const billing_details = {
-                    email: donorEmail,
-                };
+        try {
+            const response = await callDonationApi(body);
+            const name = donorName || undefined;
 
-                if (donorName) {
-                    billing_details.name = donorName;
-                }
-                return stripe.confirmCardPayment(response.data.donationData.intentid, {
+            const billingDetails = {
+                email: donorEmail,
+                name,
+            };
+
+            const stripeResponse = await stripe.confirmCardPayment(
+                response.data.donationData.intentid,
+                {
                     payment_method: {
                         card: elements.getElement('card'),
-                        billing_details,
+                        billing_details: billingDetails,
                     },
-                });
-            })
-            .then((response) => {
-                if (response.error) {
-                    setErrorMessage(response.error.message);
                 }
+            );
 
-                if (response.paymentIntent && response.paymentIntent.status === 'succeeded') {
-                    window.location = `/obrigado`;
-                }
-            })
-            .catch(() => {
-                setErrorMessage('Ocorreu um erro. Verifique os dados e tente novamente.');
-            })
-            .then(() => {
-                setLoading(false);
-            });
-    };
+            if (stripeResponse.error) {
+                setErrorMessage(response.error.message);
+            }
+
+            if (
+                stripeResponse &&
+                stripeResponse.paymentIntent &&
+                stripeResponse.paymentIntent.status === 'succeeded'
+            ) {
+                window.location = `/obrigado`;
+            }
+        } catch (e) {
+            setErrorMessage('Ocorreu um erro. Verifique os dados e tente novamente.');
+        }
+
+        setLoading(false);
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        const submitStrategy = {
+            MULTIBANCO_PAYMENT: multibancoPayment,
+            CARD_PAYMENT: cardPayment,
+            IBAN_PAYMENT: ibanPayment,
+            MB_WAY_PAYMENT: mbWayPayment,
+        };
+
         setErrorMessage('');
 
         if (activePaymentMethod === formConstants.NONE_PAYMENT) {
@@ -199,21 +212,7 @@ export default function DonatePage() {
             return;
         }
 
-        if (activePaymentMethod === formConstants.CARD_PAYMENT) {
-            return cardPayment();
-        }
-
-        if (activePaymentMethod === formConstants.MULTIBANCO_PAYMENT) {
-            return multibancoPayment();
-        }
-
-        if (activePaymentMethod === formConstants.MB_WAY_PAYMENT) {
-            return mbWayPayment();
-        }
-
-        if (activePaymentMethod === formConstants.IBAN_PAYMENT) {
-            return ibanPayment();
-        }
+        return submitStrategy[activePaymentMethod]();
     };
 
     const setPaymentMethod = function (paymentMethod) {
@@ -301,7 +300,7 @@ export default function DonatePage() {
                                 type="number"
                                 value={donationValue}
                                 onChange={(e) => {
-                                    setDonationValue(e.target.value);
+                                    setDonationValue(Number(e.target.value));
                                 }}></input>
                             <span>€</span>
                         </div>
