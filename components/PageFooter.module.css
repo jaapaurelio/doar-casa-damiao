@@ -3,7 +3,6 @@
     padding: 67px 20px;
     margin-top: 60px;
     background: #2b2b2b;
-    color: #fff;
 }
 
 .contentContainer {
@@ -12,7 +11,18 @@
 }
 
 .link {
+    display: block;
     margin-bottom: 18px;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.title {
+    color: #fff;
+    margin-bottom: 18px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .trademark {
