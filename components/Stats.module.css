@@ -1,10 +1,16 @@
 .container {
-    background: #2f3a96;
-    padding: 10px;
     display: flex;
+    justify-content: center;
+}
+
+.containerCard {
+    display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: #2f3a96;
+    padding: 10px;
     max-width: 400px;
     border-radius: 8px;
     min-height: 400px;
