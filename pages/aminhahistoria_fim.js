@@ -6,13 +6,15 @@ import Story from '../components/Story';
 
 export default function MyStoryEndPage() {
     const [currentStory, setCurrentStory] = useState([]);
-    const [authorName, setAuthorName] = useState('');
+    const [authorName, setAuthorName] = useState('Anónimo');
     const storyTitle = 'A Formiga atleta e o Pintassilgo';
 
     useEffect(() => {
         const selectedStoryPlot = lstorage('story');
         const author = lstorage('storyAuthor');
-        setAuthorName(author || '');
+        if (author) {
+            setAuthorName(author);
+        }
 
         setCurrentStory(selectedStoryPlot || []);
     }, []);

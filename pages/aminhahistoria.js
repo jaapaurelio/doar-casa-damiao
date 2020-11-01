@@ -59,7 +59,7 @@ export default function MyStoryPage() {
             return;
         }
 
-        lstorage('storyAuthor', authorName || 'Anónimo');
+        lstorage('storyAuthor', authorName);
         lstorage('storyAuthorEmail', authorEmail);
 
         await axios({
