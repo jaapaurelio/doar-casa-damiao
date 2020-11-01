@@ -7,6 +7,7 @@ import StoryOptions from '../components/StoryOptions';
 import StoryResume from '../components/StoryResume';
 import { getCurrentStoryStep } from '../helpers/story_helpers';
 import { Line } from 'rc-progress';
+import axios from 'axios';
 
 export default function MyStoryPage() {
     const router = useRouter();
@@ -53,13 +54,25 @@ export default function MyStoryPage() {
         setCurrentStory(newStory);
     }
 
-    function saveStory() {
+    async function saveStory() {
         if (!authorEmail) {
             return;
         }
 
         lstorage('storyAuthor', authorName || 'Anónimo');
         lstorage('storyAuthorEmail', authorEmail);
+
+        await axios({
+            method: 'POST',
+            url: '/api/story',
+            data: {
+                name: authorName,
+                email: authorEmail,
+                characters: currentStory.map((option) => option.value.toString()),
+            },
+        }).catch((err) => {
+            console.error('saveStory error', err);
+        });
 
         router.push('/aminhahistoria_fim');
     }
