@@ -7,7 +7,7 @@
 #
 # Host: lhcp1130.webapps.net (MySQL 5.6.36-cll-lve)
 # Database: fw3bjoi6_donations_site
-# Generation Time: 2020-10-17 18:08:21 +0000
+# Generation Time: 2020-11-01 15:26:41 +0000
 # ************************************************************
 
 
@@ -22,6 +22,8 @@
 
 # Dump of table donations
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `donations`;
 
 CREATE TABLE `donations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -219,7 +221,16 @@ VALUES
 	(249,'m','iban','iban',NULL,'100',NULL,'m@asd.com ',0,0,'2020-08-03 15:55:08','2020-08-03 15:55:08'),
 	(250,'m','stripe','src_1HC48FEnkgw3vohvlG8BAwrR','multibanco','100','','m@asd.com',0,0,'2020-08-03 15:55:16','2020-08-03 15:55:16'),
 	(251,'','stripe','pi_1HDYBrEnkgw3vohv3ICgPLmb','card','10000','','sofiaranchordas@gmail.com',1,1,'2020-08-07 18:13:07','2020-08-07 18:13:12'),
-	(252,'','stripe','src_1HZIjDEnkgw3vohvyDkzd8fj','multibanco','500','','jaapaurelio@gmail.com',1,0,'2020-10-06 18:09:28','2020-10-06 18:09:28');
+	(252,'','stripe','src_1HZIjDEnkgw3vohvyDkzd8fj','multibanco','500','','jaapaurelio@gmail.com',1,0,'2020-10-06 18:09:28','2020-10-06 18:09:28'),
+	(253,'teste email','stripe','src_1HdxJmEnkgw3vohvaJVy6aB0','multibanco','100','','jaapaurelio@gmail.com',0,0,'2020-10-19 14:18:28','2020-10-19 14:18:28'),
+	(254,'as','stripe','src_1HeeK1Enkgw3vohv0tGXxfwg','multibanco','100','','asd@asd.com',0,0,'2020-10-21 12:13:35','2020-10-21 12:13:35'),
+	(255,'as','stripe','src_1HeeL9Enkgw3vohvzevbixO4','multibanco','100','','asd@asd.com',0,0,'2020-10-21 12:14:44','2020-10-21 12:14:44'),
+	(256,'asd','stripe','src_1HekWyEnkgw3vohvXDrS7bMZ','multibanco','800','','jaapaurelio@gmail.com',0,0,'2020-10-21 18:51:21','2020-10-21 18:51:21'),
+	(257,'sad','stripe','pi_1HemBvEnkgw3vohvlZbTUqPs','card','100','','jaapaurelio@gmail.com',0,0,'2020-10-21 20:37:43','2020-10-21 20:37:43'),
+	(258,'sad','iban','iban',NULL,'100',NULL,'jaapaurelio@gmail.com ',0,0,'2020-10-21 20:44:01','2020-10-21 20:44:01'),
+	(259,'sad','iban','iban',NULL,'100',NULL,'jaapaurelio@gmail.com ',0,0,'2020-10-21 20:44:10','2020-10-21 20:44:10'),
+	(260,'sa','iban','iban',NULL,'100',NULL,'jaapaurelio@gmail.com ',0,0,'2020-10-21 20:44:39','2020-10-21 20:44:39'),
+	(261,'','stripe','pi_1Hgsa3Enkgw3vohvPNkvHlEW','card','100','','jaapaurelio@gmail.com',1,0,'2020-10-27 14:51:19','2020-10-27 14:51:19');
 
 /*!40000 ALTER TABLE `donations` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -227,6 +238,8 @@ UNLOCK TABLES;
 
 # Dump of table donators
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `donators`;
 
 CREATE TABLE `donators` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -395,6 +408,8 @@ UNLOCK TABLES;
 
 # Dump of table logs
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `logs`;
 
 CREATE TABLE `logs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1108,7 +1123,15 @@ VALUES
 	(808,'webwooks: event type: charge.succeeded','2020-08-07 18:13:12'),
 	(809,'webwooks: event type: source.canceled','2020-08-10 15:55:19'),
 	(810,'create donation mb:  src_1HZIjDEnkgw3vohvyDkzd8fj','2020-10-06 18:09:28'),
-	(811,'webwooks: event type: source.canceled','2020-10-13 18:09:31');
+	(811,'webwooks: event type: source.canceled','2020-10-13 18:09:31'),
+	(812,'create donation mb: teste email src_1HdxJmEnkgw3vohvaJVy6aB0','2020-10-19 14:18:28'),
+	(813,'create donation mb: as src_1HeeK1Enkgw3vohv0tGXxfwg','2020-10-21 12:13:35'),
+	(814,'create donation mb: as src_1HeeL9Enkgw3vohvzevbixO4','2020-10-21 12:14:44'),
+	(815,'create donation mb: asd src_1HekWyEnkgw3vohvXDrS7bMZ','2020-10-21 18:51:21'),
+	(816,'webwooks: event type: source.canceled','2020-10-26 13:18:37'),
+	(817,'webwooks: event type: source.canceled','2020-10-28 11:13:42'),
+	(818,'webwooks: event type: source.canceled','2020-10-28 11:14:59'),
+	(819,'webwooks: event type: source.canceled','2020-10-28 17:51:23');
 
 /*!40000 ALTER TABLE `logs` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1116,6 +1139,8 @@ UNLOCK TABLES;
 
 # Dump of table messages
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `messages`;
 
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1158,6 +1183,8 @@ UNLOCK TABLES;
 # Dump of table sponsors
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `sponsors`;
+
 CREATE TABLE `sponsors` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sponsors` text NOT NULL,
@@ -1174,6 +1201,22 @@ VALUES
 
 /*!40000 ALTER TABLE `sponsors` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+# Dump of table story
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `story`;
+
+CREATE TABLE `story` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `characters` text NOT NULL,
+  `email` text,
+  `name` text,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 
 
 
