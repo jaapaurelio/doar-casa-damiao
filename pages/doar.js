@@ -22,10 +22,6 @@ var formatNumber = new Intl.NumberFormat('de-DE', {
     minimumFractionDigits: 0,
 });
 
-const constants = {
-    apiEndpoint: `${process.env.NEXT_PUBLIC_HOME_URL}/api`,
-};
-
 export default function DonatePage() {
     const router = useRouter();
     const [donorName, setDonorName] = useState('');
@@ -134,27 +130,28 @@ export default function DonatePage() {
         setLoading(false);
     }
 
-    function ibanPayment() {
+    async function ibanPayment() {
         setLoading(true);
-        return fetch(
-            `${constants.apiEndpoint}/create-donation_iban.php?amount=${donationValue}&email=${donorEmail}&name=${donorName}`
-        )
-            .then((response) => response.json())
-            .then((response) => {
-                if (response.status == 'error') {
-                    setErrorMessage(response.message[0]);
 
-                    return;
-                }
+        const body = {
+            ...createDonationPayload('iban'),
+        };
 
-                window.location = `/iban?amount=${donationValue}&donor=${donorName}`;
-            })
-            .catch(() => {
-                setErrorMessage('Ocorreu um erro. Verifique os dados e tente novamente.');
-            })
-            .then(() => {
-                setLoading(false);
-            });
+        const amountEuro = formatNumber.format(Math.round(body.amount));
+
+        try {
+            const response = await callDonationApi(body);
+
+            if (response.status == 'success') {
+                window.location = `/pagamento?type=iban&amount=${amountEuro}`;
+            }
+
+            setErrorMessage(response.data.message);
+        } catch (e) {
+            setErrorMessage('Ocorreu um erro. Verifique os dados e tente novamente.');
+        }
+
+        setLoading(false);
     }
 
     async function cardPayment() {

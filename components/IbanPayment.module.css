@@ -1,0 +1,29 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pageLogo img {
+    max-width: 100%;
+    width: 140px;
+}
+
+.pageText {
+    margin-bottom: 20px;
+}
+
+.buttonContainer {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.mbwayData {
+    text-align: left;
+}
+
+.mbTitles {
+    margin-top: 20px;
+    font-weight: bold;
+}

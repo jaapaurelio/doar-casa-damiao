@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 
 import MultibancoPayment from '../components/MultibancoPayment';
 import MBWayPayment from '../components/MBWayPayment';
+import IbanPayment from '../components/IbanPayment';
 
 export default function PaymentPage() {
     const router = useRouter();
@@ -17,6 +18,7 @@ export default function PaymentPage() {
                     amount={amount}></MultibancoPayment>
             )}
             {type == 'mbway' && <MBWayPayment phone={phone} amount={amount}></MBWayPayment>}
+            {type == 'iban' && <IbanPayment amount={amount}></IbanPayment>}
         </div>
     );
 }
