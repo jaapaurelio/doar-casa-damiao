@@ -14,6 +14,12 @@ const CHARACTERS = {
     ATHLETE: 'atleta',
     ASTRONAUT: 'astronauta',
     WORLD: 'mundo',
+    URCHIN: 'ourico',
+    KOALA: 'coala',
+    BOAR: 'javali',
+    RIVER: 'rio',
+    LAKE: 'lago',
+    MOUNTAIN: 'montanha',
 };
 
 const CHARACTERS_COLORS = {
@@ -30,6 +36,13 @@ const CHARACTERS_COLORS = {
     [CHARACTERS.CLOTHESLINE]: '#38ADA9',
     [CHARACTERS.WASHING_MACHINE]: '#74B9FF',
     [CHARACTERS.WORLD]: '#312C72',
+    [CHARACTERS.ANT]: '#F6D285',
+    [CHARACTERS.URCHIN]: '#C0CE88',
+    [CHARACTERS.KOALA]: '#8DCFEA',
+    [CHARACTERS.BOAR]: '#62566C',
+    [CHARACTERS.RIVER]: '#F4D087',
+    [CHARACTERS.LAKE]: '#DCE1E5',
+    [CHARACTERS.MOUNTAIN]: '#E4D3C4',
 };
 
 const CHARACTERS_DARK_WHITELIST = [
@@ -39,6 +52,7 @@ const CHARACTERS_DARK_WHITELIST = [
     CHARACTERS.BIRD,
     CHARACTERS.DAWG,
     CHARACTERS.SQUIREL,
+    CHARACTERS.BOAR,
 ];
 
 const gumStory = [
@@ -103,6 +117,27 @@ const sockVillainOptions = {
     ],
 };
 
+const antPlaceOptions = {
+    question: 'Esta história acontece onde?',
+    options: [
+        {
+            id: 1,
+            text: 'no grande lago',
+            character: CHARACTERS.LAKE,
+        },
+        {
+            id: 2,
+            text: 'no rio azul',
+            character: CHARACTERS.RIVER,
+        },
+        {
+            id: 3,
+            text: 'na alta montanha',
+            character: CHARACTERS.MOUNTAIN,
+        },
+    ],
+};
+
 const plots = {
     text: '',
     question: 'Era uma vez',
@@ -161,37 +196,28 @@ const plots = {
         },
         {
             id: 3,
-            text: 'uma opçao que falta aqui',
-            question: 'Quem era o seu melhor amigo?',
+            text: 'uma formiga corajosa',
             character: CHARACTERS.ANT,
+            question: 'Quem era o seu melhor amigo?',
             options: [
                 {
                     id: 1,
-                    text: 'O Elefante',
+                    text: 'O ouriço cacheiro',
 
-                    question: 'A formiga fez algo inacreditável. A quem contou?',
-                    options: [
-                        {
-                            id: 1,
-                            text: 'Irmão mais velho',
-                        },
-                        {
-                            id: 1,
-                            text: 'Mãe',
-                        },
-                        {
-                            id: 1,
-                            text: 'Tio',
-                        },
-                    ],
+                    character: CHARACTERS.URCHIN,
+                    ...antPlaceOptions,
                 },
                 {
                     id: 2,
+                    character: CHARACTERS.BOAR,
                     text: 'A Javali',
+                    ...antPlaceOptions,
                 },
                 {
                     id: 3,
+                    character: CHARACTERS.KOALA,
                     text: 'O Coala',
+                    ...antPlaceOptions,
                 },
             ],
         },

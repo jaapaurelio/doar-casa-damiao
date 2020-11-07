@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="69px" viewBox="0 0 120 69" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>rio</title>
+    <g id="casa-damiao" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="formiga" transform="translate(-79.000000, -603.000000)">
+            <g id="rio" transform="translate(79.000000, 603.000000)">
+                <ellipse id="Oval" fill="#47A477" cx="60" cy="34.5" rx="60" ry="34.5"></ellipse>
+                <path d="M8,51.8062577 C8.75581033,42.9964847 21.297463,36.1913941 45.6249581,31.3909859 C58.0206474,28.0021786 64.9621055,25.4525314 53.9708637,23.9744517 C42.9796219,22.4963721 29.0511173,20.3958584 29.6193747,14.9362921 C29.9982129,11.2965812 38.1153759,6.31781717 53.9708637,0 L60.7783554,0 C45.5277825,7.53480696 40.7684435,11.7095267 46.5003384,12.5241593 C55.0981808,13.7461082 90.642461,19.8128291 85.4925534,26.6017022 C82.0592816,31.1276175 69.5468216,37.0741138 47.9551733,44.441191 C35.1087971,50.2612972 31.897203,57.7809002 38.3203912,67 C26.1278289,64.310731 16.0210319,59.2461502 8,51.8062577 Z" id="Path-164" fill="#54DBFF"></path>
+                <g id="Group-59" transform="translate(76.000000, 27.000000)" stroke="#000000" stroke-width="2.20000005">
+                    <circle id="Oval" cx="11.0000002" cy="11.0000002" r="9.90000021"></circle>
+                    <line x1="10.5935422" y1="27.7061774" x2="10.5935422" y2="8.94218178" id="Path-166" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <polyline id="Path-167" stroke-linecap="round" stroke-linejoin="round" points="5.66392477 12.1000003 10.5935422 16.8296992 15.7181669 12.1000003"></polyline>
+                </g>
+                <g id="Group-59-Copy-2" transform="translate(2.000000, 12.000000)" stroke="#000000" stroke-width="2">
+                    <circle id="Oval" cx="10" cy="10" r="9"></circle>
+                    <line x1="9.63049274" y1="25.1874335" x2="9.63049274" y2="8.12925599" id="Path-166" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <polyline id="Path-167" stroke-linecap="round" stroke-linejoin="round" points="5.1490224 11 9.63049274 15.2997263 14.2892423 11"></polyline>
+                </g>
+                <g id="Group-59-Copy" transform="translate(96.000000, 19.000000)" stroke="#000000" stroke-width="2.20000005">
+                    <circle id="Oval" cx="11.0000002" cy="11.0000002" r="9.90000021"></circle>
+                    <line x1="10.5935422" y1="27.7061774" x2="10.5935422" y2="8.94218178" id="Path-166" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <polyline id="Path-167" stroke-linecap="round" stroke-linejoin="round" points="5.66392477 12.1000003 10.5935422 16.8296992 15.7181669 12.1000003"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="97px" viewBox="0 0 120 97" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>montanha</title>
+    <g id="casa-damiao" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="formiga" transform="translate(-437.000000, -575.000000)">
+            <g id="montanha" transform="translate(437.000000, 575.000000)">
+                <ellipse id="Oval" fill="#43705B" cx="60" cy="62.5" rx="60" ry="34.5"></ellipse>
+                <polygon id="Path-168" fill="#DFBBA3" points="12 68 87 68 52.481213 0 30.5407014 48.2026609 33.9156176 36.3107227 30.5407014 28.3866504"></polygon>
+                <polygon id="Path-169" fill="#FFFFFF" points="41 24.5703638 46.8364167 32.2974666 49.444251 23.5022502 55.1726725 36 63 21.5376869 52.4587466 3.99680289e-15"></polygon>
+                <polygon id="Path-170" fill="#CBA29E" points="66 28.1901006 75.6017067 12 107 67.5658152 86.6457674 68"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
