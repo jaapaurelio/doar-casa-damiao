@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './PageFooter.module.css';
 const links = [
     {
-        label: 'Quem somos',
-        href: '//casadamiao.pt/quem-somos',
+        label: 'Sobre nós',
+        href: '//casadamiao.pt/acasadamiao/',
     },
     {
         label: 'Visão, Missão, Valores',
@@ -26,7 +26,6 @@ export default function PageFooter() {
     return (
         <div className={styles.container}>
             <div className={styles.contentContainer}>
-                <div className={styles.title}>Sobre nós</div>
                 {links.map(function (link) {
                     return (
                         <a key={link.label} href={link.href} className={styles.link}>
