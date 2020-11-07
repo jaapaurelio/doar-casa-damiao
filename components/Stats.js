@@ -7,7 +7,7 @@ const formatter = new Intl.NumberFormat('pt-PT', {
     currency: 'EUR',
 });
 
-export default function Stats() {
+export default function Stats({ showDonate = true }) {
     const [data, setData] = useState({ nStories: 0, nDonations: 0, totalDonated: 0 });
 
     useEffect(() => {
@@ -41,11 +41,13 @@ export default function Stats() {
                         angariados.
                     </div>
                 </div>
-                <div className={styles.actionButton}>
-                    <Link href="/doar">
-                        <button className="btn-primary">Doar</button>
-                    </Link>
-                </div>
+                {showDonate && (
+                    <div className={styles.actionButton}>
+                        <Link href="/doar">
+                            <button className="btn-primary">Doar</button>
+                        </Link>
+                    </div>
+                )}
             </div>
         </div>
     );
