@@ -178,17 +178,16 @@ export default function DonatePage() {
                 }
             );
 
-            if (stripeResponse.error) {
-                setErrorMessage(response.error.message);
-            }
-
             if (
                 stripeResponse &&
                 stripeResponse.paymentIntent &&
                 stripeResponse.paymentIntent.status === 'succeeded'
             ) {
                 window.location = `/obrigado`;
+                return;
             }
+
+            setErrorMessage(response.error.message);
         } catch (e) {
             setErrorMessage('Ocorreu um erro. Verifique os dados e tente novamente.');
         }
@@ -233,17 +232,25 @@ export default function DonatePage() {
                     <input
                         type="text"
                         value={!isAnonymous ? donorName : 'Anónimo'}
-                        disabled={isAnonymous}
+                        disabled={isAnonymous || loading}
                         onChange={(e) => setDonorName(e.target.value)}
                     />
                 </div>
 
                 <div
+                    className={styles.stayAnonymous}
                     onClick={() => {
+                        if (loading) {
+                            return;
+                        }
                         setDonorName('');
                         setIsAnonymous(!isAnonymous);
                     }}>
-                    <input readOnly type="checkbox" checked={isAnonymous}></input>
+                    <input
+                        disabled={loading}
+                        readOnly
+                        type="checkbox"
+                        checked={isAnonymous}></input>
                     Quero ser anónimo
                 </div>
                 <br></br>
@@ -251,6 +258,7 @@ export default function DonatePage() {
                 <div>Email</div>
                 <div>
                     <input
+                        disabled={loading}
                         type="email"
                         value={donorEmail}
                         onChange={(e) => setDonorEmail(e.target.value)}
@@ -265,6 +273,9 @@ export default function DonatePage() {
                         return (
                             <div
                                 onClick={() => {
+                                    if (loading) {
+                                        return;
+                                    }
                                     setDonationValue(amount);
                                     setShowOtherAmount(false);
                                 }}
@@ -277,6 +288,9 @@ export default function DonatePage() {
                 </div>
                 <div
                     onClick={() => {
+                        if (loading) {
+                            return;
+                        }
                         if (!showOtherAmount) {
                             setShowOtherAmount(true);
                             setDonationValue('');
@@ -295,6 +309,7 @@ export default function DonatePage() {
                     {showOtherAmount && (
                         <div className={styles.otherInputContainer}>
                             <input
+                                disabled={loading}
                                 ref={customAmountInputRef}
                                 className={styles.otherValueInput}
                                 autoFocus
@@ -315,6 +330,9 @@ export default function DonatePage() {
                         label="Cartão de crédito/débito"
                         selected={formConstants.CARD_PAYMENT == activePaymentMethod}
                         onClick={() => {
+                            if (loading) {
+                                return;
+                            }
                             setPaymentMethod(formConstants.CARD_PAYMENT);
                         }}
                         icons={[
@@ -327,7 +345,7 @@ export default function DonatePage() {
                         <div className={styles.spacingCard}>
                             Cartão
                             <div className={styles.cardInput}>
-                                <CardElement />
+                                <CardElement options={{ disabled: loading }} />
                             </div>
                         </div>
                     )}
@@ -336,6 +354,9 @@ export default function DonatePage() {
                         label="MB Way"
                         selected={formConstants.MB_WAY_PAYMENT == activePaymentMethod}
                         onClick={() => {
+                            if (loading) {
+                                return;
+                            }
                             setPaymentMethod(formConstants.MB_WAY_PAYMENT);
                         }}
                         icons={['/images/icons/mbway.png']}></PaymentOption>
@@ -344,6 +365,7 @@ export default function DonatePage() {
                         <div className={styles.spacingCard}>
                             Nº de telemóvel associado à conta MB WAY
                             <input
+                                disabled={loading}
                                 className={styles.cardInput}
                                 value={donorPhoneNumber}
                                 type="number"
@@ -358,6 +380,9 @@ export default function DonatePage() {
                         label="Multibanco"
                         selected={formConstants.MULTIBANCO_PAYMENT == activePaymentMethod}
                         onClick={() => {
+                            if (loading) {
+                                return;
+                            }
                             setPaymentMethod(formConstants.MULTIBANCO_PAYMENT);
                         }}
                         icons={['/images/icons/multibanco.png']}></PaymentOption>
@@ -366,6 +391,9 @@ export default function DonatePage() {
                         label="Transferência Bancária"
                         selected={formConstants.IBAN_PAYMENT == activePaymentMethod}
                         onClick={() => {
+                            if (loading) {
+                                return;
+                            }
                             setPaymentMethod(formConstants.IBAN_PAYMENT);
                         }}
                         icons={['']}></PaymentOption>
