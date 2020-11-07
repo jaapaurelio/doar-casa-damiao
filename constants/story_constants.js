@@ -9,7 +9,7 @@ const CHARACTERS = {
     BIRD: 'pintassilgo',
     UNDERWEAR: 'cuecas',
     CLOTHESLINE: 'estendal',
-    WASHING_MACHINE: 'maquina-lavar',
+    WASHING_MACHINE: 'maquinalavar',
     DUST: 'po',
     ATHLETE: 'atleta',
     ASTRONAUT: 'astronauta',
