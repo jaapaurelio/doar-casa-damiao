@@ -16,16 +16,14 @@ export default function MyStoryPage() {
     const [authorEmail, setAuthorEmail] = useState('');
 
     useEffect(() => {
-        if (!router.query.characters) {
-            return;
-        }
-        const selectedStoryPlot = router.query.characters.split(',');
+        const chars = router.query.characters || '';
+        const selectedStoryPlot = chars.length > 0 ? chars.split(',') : undefined;
         const author = lstorage('storyAuthor');
         const email = lstorage('storyEmail');
         setAuthorName(author || '');
         setAuthorEmail(email || '');
         setCurrentStory(selectedStoryPlot || []);
-    }, [router]);
+    }, [router.query.characters]);
 
     const currentStep = getCurrentStoryStep(currentStory, plots);
     const finishedStory = currentStep && !currentStep.options;

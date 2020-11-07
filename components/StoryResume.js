@@ -11,16 +11,15 @@ export default function StoryResume({ selectedStoryPlot, plots }) {
     const onChangeCharacter = useCallback(
         (character) => {
             const characterPos = selectedStoryPlot.indexOf(character);
-            if (characterPos > 0 && characterPos < selectedStoryPlot.length) {
+            if (characterPos >= 0 && characterPos < selectedStoryPlot.length) {
                 const nStory = selectedStoryPlot.slice(0, characterPos);
+                console.log('nStory', nStory);
                 router.push({
                     pathname: '/aminhahistoria',
                     query: {
                         characters: nStory.join(','),
                     },
                 });
-            } else {
-                router.push('/');
             }
         },
         [selectedStoryPlot, plots]
