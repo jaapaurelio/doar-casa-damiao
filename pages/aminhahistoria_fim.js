@@ -1,10 +1,6 @@
 import React from 'react';
-import GumAthleteBird from '../components/stories/GumAthleteBird';
+import GumAthleteBird from '../components/GumAthleteBird';
 import Head from 'next/head';
-
-const STORY_MAP = {
-    'chichlete,atleta,pintassilgo': GumAthleteBird,
-};
 
 const STORY_TITLE = {
     'chichlete,atleta,pintassilgo': 'A chiclete atleta e o Pintassilgo',
@@ -13,7 +9,6 @@ const STORY_TITLE = {
 };
 
 export default function MyStoryEndPage({ story, author }) {
-    const StoryComponent = STORY_MAP[story];
     const title = STORY_TITLE[story];
     return (
         <div className="pageWidthAlign">
@@ -31,7 +26,7 @@ export default function MyStoryEndPage({ story, author }) {
             </Head>
             {title && <h1>{title}</h1>}
             {author && <div>Autor Casa Damião e {author}.</div>}
-            {StoryComponent && <StoryComponent></StoryComponent>}
+            <GumAthleteBird></GumAthleteBird>
             <h2>Gostaste da história?</h2>
             <div>Ajuda a casa damião e partilha</div>
             <button>Partilhar</button>
