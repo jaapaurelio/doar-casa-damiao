@@ -12,7 +12,7 @@ export default function GumAthleteBird() {
                     da caixa gozavam do seu sonho pois o único propósito de uma chiclete era ser mascada
                     e deitada fora. Elas aceitavam bem esse facto, foram criadas para isso."></meta>
                 <meta property="og:title" content="Com a sua ajuda, criamos histórias de Natal" />
-                <meta property="og:image" content="/images/characters/chichlete.svg" />
+                <meta property="og:image" content="/images/storylines/chiclete.png" />
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <p>

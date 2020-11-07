@@ -1,5 +1,5 @@
 import React from 'react';
-import GumAthleteBird from '../components/GumAthleteBird';
+import GumAthleteBird from '../components/storylines/GumAthleteBird';
 
 const STORY_MAP = {
     'chichlete,atleta,pintassilgo': GumAthleteBird,
