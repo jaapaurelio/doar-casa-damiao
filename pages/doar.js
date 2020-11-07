@@ -223,6 +223,10 @@ export default function DonatePage() {
         <div className="pageWidthAlign">
             <form onSubmit={handleSubmit}>
                 <Title mainText="Doar"></Title>
+                <p>
+                    Ao doar está a impactar positivamente a vida das crianças da Casa Damião. Desde
+                    já, o nosso obrigado.
+                </p>
                 <h2>Os seus dados</h2>
 
                 <div>
@@ -348,7 +352,11 @@ export default function DonatePage() {
 
                 <div className="spacing-section">
                     <button disabled={loading} type="submit" className="btn-primary btn-full">
-                        {!loading && <span>Doar</span>}
+                        {!loading && (
+                            <span>
+                                Doar {!!donationValue && formatNumber.format(donationValue)}
+                            </span>
+                        )}
                         {loading && <span>Aguarde</span>}
                     </button>
                     {errorMessage != '' && (
