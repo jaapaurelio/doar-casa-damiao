@@ -1,9 +1,30 @@
 import styles from './StoryResume.module.css';
 import StoryOption from '../components/StoryOption';
+import { useCallback } from 'react';
+import { useRouter } from 'next/router';
 
 export default function StoryResume({ selectedStoryPlot, plots }) {
+    const router = useRouter();
     let currentOption = plots;
     const a = [...selectedStoryPlot];
+
+    const onChangeCharacter = useCallback(
+        (character) => {
+            const characterPos = selectedStoryPlot.indexOf(character);
+            if (characterPos > 0 && characterPos < selectedStoryPlot.length) {
+                const nStory = selectedStoryPlot.slice(0, characterPos);
+                router.push({
+                    pathname: '/aminhahistoria',
+                    query: {
+                        characters: nStory.join(','),
+                    },
+                });
+            } else {
+                router.push('/');
+            }
+        },
+        [selectedStoryPlot, plots]
+    );
 
     const story = a.reduce((text, selectedOption, i) => {
         const option = currentOption.options.find((option) => option.character === selectedOption);
@@ -14,7 +35,8 @@ export default function StoryResume({ selectedStoryPlot, plots }) {
                 <StoryOption
                     image={`/images/characters/${option.character}.svg`}
                     text={option.text}
-                    readOnly={true}></StoryOption>
+                    readOnly={true}
+                    onClick={() => onChangeCharacter(option.character)}></StoryOption>
             </div>,
         ];
 

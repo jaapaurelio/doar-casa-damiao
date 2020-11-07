@@ -19,9 +19,13 @@ export default function Home() {
     const storyBeginning = plots;
 
     function startHistory(option) {
-        lstorage('story', [option.character]);
         lstorage('storyAuthor', '');
-        router.push('/aminhahistoria');
+        router.push({
+            pathname: '/aminhahistoria',
+            query: {
+                characters: option.character,
+            },
+        });
     }
 
     return (

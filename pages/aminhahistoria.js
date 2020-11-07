@@ -16,14 +16,16 @@ export default function MyStoryPage() {
     const [authorEmail, setAuthorEmail] = useState('');
 
     useEffect(() => {
-        const selectedStoryPlot = lstorage('story');
+        if (!router.query.characters) {
+            return;
+        }
+        const selectedStoryPlot = router.query.characters.split(',');
         const author = lstorage('storyAuthor');
         const email = lstorage('storyEmail');
         setAuthorName(author || '');
         setAuthorEmail(email || '');
-        console.log('selectedStoryPlot', selectedStoryPlot);
         setCurrentStory(selectedStoryPlot || []);
-    }, []);
+    }, [router]);
 
     const currentStep = getCurrentStoryStep(currentStory, plots);
     const finishedStory = currentStep && !currentStep.options;
@@ -43,8 +45,12 @@ export default function MyStoryPage() {
     }
 
     function saveCurrentStory(newStory) {
-        lstorage('story', newStory);
-        setCurrentStory(newStory);
+        router.push({
+            pathname: '/aminhahistoria',
+            query: {
+                characters: newStory.join(','),
+            },
+        });
     }
 
     async function saveStory() {
@@ -67,7 +73,10 @@ export default function MyStoryPage() {
             console.error('saveStory error', err);
         });
 
-        router.push('/aminhahistoria_fim');
+        router.push({
+            pathname: '/aminhahistoria_fim',
+            query: router.query,
+        });
     }
     const percentage = (currentStory.length * 100) / 3;
     return (
