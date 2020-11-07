@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as lstorage from 'local-storage';
-import { plots, STEP_TYPE } from '../constants/story_constants';
+import { plots } from '../constants/story_constants';
 import styles from './aminhahistoria.module.css';
 import StoryOptions from '../components/StoryOptions';
 import StoryResume from '../components/StoryResume';
@@ -21,7 +21,7 @@ export default function MyStoryPage() {
         const email = lstorage('storyEmail');
         setAuthorName(author || '');
         setAuthorEmail(email || '');
-
+        console.log('selectedStoryPlot', selectedStoryPlot);
         setCurrentStory(selectedStoryPlot || []);
     }, []);
 
@@ -29,14 +29,7 @@ export default function MyStoryPage() {
     const finishedStory = currentStep && !currentStep.options;
 
     function selectOption(option) {
-        const newStory = [
-            ...currentStory,
-            {
-                type: STEP_TYPE.OPTIONS,
-                value: option.id,
-            },
-        ];
-
+        const newStory = [...currentStory, option.character];
         saveCurrentStory(newStory);
     }
 
@@ -68,7 +61,7 @@ export default function MyStoryPage() {
             data: {
                 name: authorName,
                 email: authorEmail,
-                characters: currentStory.map((option) => option.value.toString()),
+                characters: currentStory,
             },
         }).catch((err) => {
             console.error('saveStory error', err);

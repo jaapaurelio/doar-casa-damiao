@@ -79,17 +79,14 @@ const gumFriendsOptions = {
     question: 'A chiclete fez um amigo, quem?',
     options: [
         {
-            id: 1,
             text: 'O Pintassilgo',
             character: CHARACTERS.BIRD,
         },
         {
-            id: 2,
             text: 'O Cão Rafeiro',
             character: CHARACTERS.DAWG,
         },
         {
-            id: 3,
             text: 'O Esquilo-vermelho',
             character: CHARACTERS.SQUIREL,
         },
@@ -100,17 +97,14 @@ const sockVillainOptions = {
     question: 'Esta história tem um vilão. Quem era?',
     options: [
         {
-            id: 1,
             text: 'A terrível Máquina de Lavar',
             character: CHARACTERS.WASHING_MACHINE,
         },
         {
-            id: 2,
             text: 'O malvado Pó debaixo da cama',
             character: CHARACTERS.DUST,
         },
         {
-            id: 3,
             text: 'O perigoso Estendal das Traseira',
             character: CHARACTERS.CLOTHESLINE,
         },
@@ -121,17 +115,14 @@ const antPlaceOptions = {
     question: 'Esta história acontece onde?',
     options: [
         {
-            id: 1,
             text: 'no grande lago',
             character: CHARACTERS.LAKE,
         },
         {
-            id: 2,
             text: 'no rio azul',
             character: CHARACTERS.RIVER,
         },
         {
-            id: 3,
             text: 'na alta montanha',
             character: CHARACTERS.MOUNTAIN,
         },
@@ -143,25 +134,21 @@ const plots = {
     question: 'Era uma vez',
     options: [
         {
-            id: 1,
             text: 'uma chiclete de cereja',
             character: CHARACTERS.GUM,
             question: 'Qual era o sonho da chiclete?',
             options: [
                 {
-                    id: 1,
                     text: 'Ser atleta.',
                     character: CHARACTERS.ATHLETE,
                     ...gumFriendsOptions,
                 },
                 {
-                    id: 2,
                     text: 'Dar a volta ao Mundo',
                     character: CHARACTERS.WORLD,
                     ...gumFriendsOptions,
                 },
                 {
-                    id: 3,
                     text: 'Ser Astronauta',
                     character: CHARACTERS.ASTRONAUT,
                     ...gumFriendsOptions,
@@ -169,25 +156,21 @@ const plots = {
             ],
         },
         {
-            id: 2,
             text: 'uma peúga exploradora',
             question: 'A peúga queria fazer amizade com quem?',
             character: CHARACTERS.SOCK,
             options: [
                 {
-                    id: 1,
                     text: 'A sra Almofada',
                     character: CHARACTERS.PILLOW,
                     ...sockVillainOptions,
                 },
                 {
-                    id: 1,
                     text: 'A velha Cueca XXL',
                     character: CHARACTERS.UNDERWEAR,
                     ...sockVillainOptions,
                 },
                 {
-                    id: 1,
                     text: 'A Camisa Coloridaa',
                     character: CHARACTERS.SWEATSHIRT,
                     ...sockVillainOptions,
@@ -195,26 +178,22 @@ const plots = {
             ],
         },
         {
-            id: 3,
             text: 'uma formiga corajosa',
             character: CHARACTERS.ANT,
             question: 'Quem era o seu melhor amigo?',
             options: [
                 {
-                    id: 1,
                     text: 'O ouriço cacheiro',
 
                     character: CHARACTERS.URCHIN,
                     ...antPlaceOptions,
                 },
                 {
-                    id: 2,
                     character: CHARACTERS.BOAR,
                     text: 'A Javali',
                     ...antPlaceOptions,
                 },
                 {
-                    id: 3,
                     character: CHARACTERS.KOALA,
                     text: 'O Coala',
                     ...antPlaceOptions,
@@ -224,9 +203,4 @@ const plots = {
     ],
 };
 
-const STEP_TYPE = {
-    OPTIONS: 'options',
-    INPUT: 'input',
-};
-
-export { plots, STEP_TYPE, gumStory, CHARACTERS_COLORS, CHARACTERS_DARK_WHITELIST };
+export { plots, gumStory, CHARACTERS_COLORS, CHARACTERS_DARK_WHITELIST };

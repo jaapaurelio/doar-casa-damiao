@@ -17,7 +17,7 @@ const formConstants = {
     MB_WAY_PAYMENT: 'MB_WAY_PAYMENT',
 };
 
-var formatNumber = new Intl.NumberFormat('de-DE', {
+var formatNumber = new Intl.NumberFormat('pt-PT', {
     style: 'currency',
     currency: 'EUR',
     minimumFractionDigits: 0,

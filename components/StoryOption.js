@@ -21,8 +21,9 @@ export default function StoryOption({
                 color: textColor,
             }}>
             <img src={image}></img>
-            <div className={styles.text}>{text}</div>
+            {!readOnly && <div className={styles.text}>{text}</div>}
             {!readOnly && <div className={styles.smallInfo}>Selecionar</div>}
+            {readOnly && <div className={styles.smallInfoChange}>Alterar</div>}
         </div>
     );
 }

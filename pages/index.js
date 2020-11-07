@@ -4,7 +4,7 @@ import Link from 'next/link';
 import * as lstorage from 'local-storage';
 
 import styles from './index.module.css';
-import { plots, STEP_TYPE } from '../constants/story_constants';
+import { plots } from '../constants/story_constants';
 import StoryOptions from '../components/StoryOptions';
 
 import AboutChildren from '../components/AboutChildren';
@@ -19,12 +19,7 @@ export default function Home() {
     const storyBeginning = plots;
 
     function startHistory(option) {
-        lstorage('story', [
-            {
-                type: STEP_TYPE.OPTIONS,
-                value: option.id,
-            },
-        ]);
+        lstorage('story', [option.character]);
         lstorage('storyAuthor', '');
         router.push('/aminhahistoria');
     }
