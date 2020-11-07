@@ -169,7 +169,7 @@ export default function DonatePage() {
             };
 
             const stripeResponse = await stripe.confirmCardPayment(
-                response.data.donationData.intentid,
+                response.data.donationData.clientSecret,
                 {
                     payment_method: {
                         card: elements.getElement('card'),

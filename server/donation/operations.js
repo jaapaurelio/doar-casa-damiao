@@ -13,7 +13,8 @@ import {
 const handlers = {
     stripe: (name, amount, email) =>
         createPaymentIntent(amount, email).then((paymentIntent) => ({
-            intentid: paymentIntent.client_secret,
+            intentid: paymentIntent.id,
+            clientSecret: paymentIntent.client_secret,
             method: 'card',
             site: 'stripe',
         })),
@@ -41,7 +42,7 @@ const handlers = {
 export const create = (provider, name, amount, email, phone, entity, reference, paymentId) => {
     const anonym = isEmpty(name) ? 1 : 0;
     return handlers[provider](name, amount, email, phone, entity, reference, paymentId)
-        .then(async ({ intentid, method, site }) => {
+        .then(async ({ intentid, method, site, clientSecret }) => {
             const results = await query(`INSERT INTO donations 
                     (donor_name, total_amount, email, payment_id, payment_method, from_site, notes,  anonym, payed) 
                     VALUES 
@@ -52,6 +53,7 @@ export const create = (provider, name, amount, email, phone, entity, reference, 
             return {
                 results,
                 donationData: {
+                    clientSecret,
                     intentid,
                     method,
                     site,
