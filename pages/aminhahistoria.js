@@ -53,7 +53,8 @@ export default function MyStoryPage() {
         });
     }
 
-    async function saveStory() {
+    async function saveStory(e) {
+        e.preventDefault();
         if (!authorEmail) {
             return;
         }
@@ -110,25 +111,28 @@ export default function MyStoryPage() {
                             Como último passo, partilha o teu nome com as crianças da Casa Damião,
                             elas vão adorar saber que as suas personagens ganharam vida.
                         </div>
-                        <div className={styles.storyDetailsContainer}>
-                            <div>
-                                Autor:
-                                <input
-                                    type="text"
-                                    value={authorName}
-                                    onChange={(e) => setAuthorName(e.target.value)}
-                                />
+                        <form onSubmit={(e) => saveStory(e)}>
+                            <div className={styles.storyDetailsContainer}>
+                                <div>
+                                    Autor:
+                                    <input
+                                        type="text"
+                                        value={authorName}
+                                        onChange={(e) => setAuthorName(e.target.value)}
+                                    />
+                                </div>
+                                <div>
+                                    Email: *Obrigatório
+                                    <input
+                                        type="email"
+                                        required={true}
+                                        value={authorEmail}
+                                        onChange={(e) => setAuthorEmail(e.target.value)}
+                                    />
+                                </div>
                             </div>
-                            <div>
-                                Email: *Obrigatório
-                                <input
-                                    type="text"
-                                    value={authorEmail}
-                                    onChange={(e) => setAuthorEmail(e.target.value)}
-                                />
-                            </div>
-                        </div>
-                        <button onClick={saveStory}>Ver história</button>
+                            <button type="submit">Ver história</button>
+                        </form>
                     </div>
                 )}
             </div>
