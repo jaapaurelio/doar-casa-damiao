@@ -14,7 +14,7 @@ export default function MultibancoPayment({ entity, reference, amount }) {
                 seu Home Banking.
             </div>
             <div className={styles.pageText}>
-                Desde já agradecemos o seu contributo na vida destas crianças.
+                Desde já agradecemos o seu contributo na vida das crianças da Casa Damião.
             </div>
 
             <div className={styles.mbData}>

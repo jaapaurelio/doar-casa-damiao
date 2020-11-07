@@ -8,7 +8,7 @@ export default function MBWayPayment({ amount }) {
 
             <div className={styles.pageText}>Faça a sua doação utilizando os seguintes dados.</div>
             <div className={styles.pageText}>
-                Desde já agradecemos o seu contributo na vida destas crianças.
+                Desde já agradecemos o seu contributo na vida das crianças da Casa Damião.
             </div>
             <div className={styles.mbwayData}>
                 <div className={styles.mbTitles}>Nome:</div>

@@ -13,7 +13,7 @@ export default function MBWayPayment({ phone, amount }) {
                 Confirme a sua doação na aplicação do MB Way do seu telemóvel.
             </div>
             <div className={styles.pageText}>
-                Desde já agradecemos o seu contributo na vida destas crianças.
+                Desde já agradecemos o seu contributo na vida das crianças da Casa Damião.
             </div>
 
             <div className={styles.mbwayData}>
