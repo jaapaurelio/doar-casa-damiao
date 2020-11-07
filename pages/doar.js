@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../styles/Donate.module.css';
+import styles from './doar.module.css';
 import { useRouter } from 'next/router';
 
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';

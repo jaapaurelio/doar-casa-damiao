@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import * as lstorage from 'local-storage';
 
-import styles from '../styles/Home.module.css';
+import styles from './index.module.css';
 import { plots, STEP_TYPE } from '../constants/story_constants';
 import StoryOptions from '../components/StoryOptions';
 
