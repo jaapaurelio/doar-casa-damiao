@@ -1,30 +1,32 @@
-import { createStoryLine } from '../helpers/story_helpers';
-import React, { useState, useEffect } from 'react';
-import * as lstorage from 'local-storage';
-import { plots } from '../constants/story_constants';
-import Story from '../components/Story';
+import React from 'react';
+import GumAthleteBird from '../components/GumAthleteBird';
+import Head from 'next/head';
 
-export default function MyStoryEndPage() {
-    const [currentStory, setCurrentStory] = useState([]);
-    const [authorName, setAuthorName] = useState('Anónimo');
-    const storyTitle = 'A Formiga atleta e o Pintassilgo';
+const STORY_TITLE = {
+    'chichlete,atleta,pintassilgo': 'A chiclete atleta e o Pintassilgo',
 
-    useEffect(() => {
-        const selectedStoryPlot = lstorage('story');
-        const author = lstorage('storyAuthor');
-        if (author) {
-            setAuthorName(author);
-        }
+    'formiga,javali,lago': 'A Formiga e a Javali',
+};
 
-        setCurrentStory(selectedStoryPlot || []);
-    }, []);
-
-    const storyLine = createStoryLine(currentStory, plots);
-
+export default function MyStoryEndPage({ story, author }) {
+    const title = STORY_TITLE[story];
     return (
         <div className="pageWidthAlign">
-            <Story story={storyLine} title={storyTitle} author={authorName}></Story>
-
+            <Head>
+                <title>A Chiclete Atleta</title>
+                <meta
+                    name="description"
+                    property="og:description"
+                    content="Era uma vez uma Chiclete de Cereja que sonhava ser atleta. Todos as outras chicletes
+                    da caixa gozavam do seu sonho pois o único propósito de uma chiclete era ser mascada
+                    e deitada fora. Elas aceitavam bem esse facto, foram criadas para isso."></meta>
+                <meta property="og:title" content="Com a sua ajuda, criamos histórias de Natal" />
+                <meta property="og:image" content="/images/characters/chichlete.svg" />
+                <meta name="twitter:card" content="summary_large_image" />
+            </Head>
+            {title && <h1>{title}</h1>}
+            {author && <div>Autor Casa Damião e {author}.</div>}
+            <GumAthleteBird></GumAthleteBird>
             <h2>Gostaste da história?</h2>
             <div>Ajuda a casa damião e partilha</div>
             <button>Partilhar</button>
@@ -36,4 +38,10 @@ export default function MyStoryEndPage() {
             <button>Doar</button>
         </div>
     );
+}
+
+export async function getServerSideProps({ query }) {
+    const story = query.characters || '';
+    const author = query.author || 'Anónimo';
+    return { props: { story, author } };
 }
