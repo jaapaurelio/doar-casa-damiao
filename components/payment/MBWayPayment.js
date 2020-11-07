@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from './MBWayPayment.module.css';
-import { formatNumberSpace } from '../helpers/utils';
+import { formatNumberSpace } from '../../helpers/utils';
 
 export default function MBWayPayment({ phone, amount }) {
     return (

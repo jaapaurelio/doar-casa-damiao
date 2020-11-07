@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './pagamento.module.css';
 import { useRouter } from 'next/router';
 
-import MultibancoPayment from '../components/MultibancoPayment';
-import MBWayPayment from '../components/MBWayPayment';
-import IbanPayment from '../components/IbanPayment';
+import MultibancoPayment from '../components/payment/MultibancoPayment';
+import MBWayPayment from '../components/payment/MBWayPayment';
+import IbanPayment from '../components/payment/IbanPayment';
 
 export default function PaymentPage() {
     const router = useRouter();

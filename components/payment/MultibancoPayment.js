@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from './MultibancoPayment.module.css';
-import { formatNumberSpace } from '../helpers/utils';
+import { formatNumberSpace } from '../../helpers/utils';
 
 export default function MultibancoPayment({ entity, reference, amount }) {
     return (
