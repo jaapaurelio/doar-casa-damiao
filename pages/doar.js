@@ -222,11 +222,12 @@ export default function DonatePage() {
     return (
         <div className="pageWidthAlign">
             <form onSubmit={handleSubmit}>
-                <Title mainText="Doar"></Title>
+                <Title mainText="Fazer doação"></Title>
                 <p>
-                    Ao doar está a impactar positivamente a vida das crianças da Casa Damião. Desde
-                    já, o nosso obrigado.
+                    Ao fazer uma doação está a impactar positivamente a vida das crianças da Casa
+                    Damião. Desde já, o nosso obrigado.
                 </p>
+
                 <h2>Os seus dados</h2>
 
                 <div>
@@ -273,7 +274,6 @@ export default function DonatePage() {
                     donationValues={donationValues}
                     donationValue={donationValue}
                     disabled={loading}></DonationAmount>
-
                 <h2>Pagamento</h2>
 
                 <div className={styles.paymentOptions}>
