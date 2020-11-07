@@ -15,4 +15,4 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 # Todo
-[ ] Teste
+https://trello.com/b/orgEtXpG/casa-dami%C3%A3o

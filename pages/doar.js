@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import Title from '../components/Title';
 import PaymentOption from '../components/PaymentOption';
-import { callDonationApi } from '../helpers/utils';
+import { callDonationApi } from '../helpers/http';
 
 const donationValues = [2, 5, 10];
 const formConstants = {
@@ -15,6 +15,12 @@ const formConstants = {
     MULTIBANCO_PAYMENT: 'MULTIBANCO_PAYMENT',
     MB_WAY_PAYMENT: 'MB_WAY_PAYMENT',
 };
+
+var formatNumber = new Intl.NumberFormat('de-DE', {
+    style: 'currency',
+    currency: 'EUR',
+    minimumFractionDigits: 0,
+});
 
 const constants = {
     apiEndpoint: `${process.env.NEXT_PUBLIC_HOME_URL}/api`,
@@ -26,7 +32,7 @@ export default function DonatePage() {
     const [donorEmail, setDonorEmail] = useState('jaapaurelio@gmail.com');
     const [donationValue, setDonationValue] = useState(donationValues[0]);
     const [showOtherAmount, setShowOtherAmount] = useState(false);
-    const [donorPhoneNumber /*, setDonorPhoneNumber*/] = useState('');
+    const [donorPhoneNumber, setDonorPhoneNumber] = useState('');
     const [isAnonymous, setIsAnonymous] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [loading, setLoading] = useState(false);
@@ -42,6 +48,7 @@ export default function DonatePage() {
             amount: donationValue,
             name: donorName,
             email: donorEmail,
+            phone: donorPhoneNumber,
         };
     }
 
@@ -74,11 +81,6 @@ export default function DonatePage() {
                 result.source.multibanco.reference
             ) {
                 const dataMb = result.source;
-                var formatNumber = new Intl.NumberFormat('de-DE', {
-                    style: 'currency',
-                    currency: 'EUR',
-                    minimumFractionDigits: 0,
-                });
 
                 const amountEuro = formatNumber.format(Math.round(result.source.amount / 100));
 
@@ -108,26 +110,28 @@ export default function DonatePage() {
         setLoading(false);
     }
 
-    function mbWayPayment() {
+    async function mbWayPayment() {
         setLoading(true);
-        fetch(
-            `${constants.apiEndpoint}/create-donation-mbway.php?amount=${donationValue}&phone=${donorPhoneNumber}&email=${donorEmail}&name=${donorName}`
-        )
-            .then((response) => response.json())
-            .then((response) => {
-                if (response.status == 'error') {
-                    setErrorMessage(response.message[0]);
-                    return;
-                }
 
-                window.location = `/mbway?phone=${donorPhoneNumber}&donor=${donorName}`;
-            })
-            .catch(() => {
-                setErrorMessage('Ocorreu um erro. Verifique os dados e tente novamente.');
-            })
-            .then(() => {
-                setLoading(false);
-            });
+        const body = {
+            ...createDonationPayload('mbway'),
+        };
+        const amountEuro = formatNumber.format(Math.round(body.amount));
+
+        try {
+            const response = await callDonationApi(body);
+
+            if (response.status == 'success') {
+                window.location = `/pagamento?type=mbway&phone=${body.phone}&amount=${amountEuro}`;
+                return;
+            }
+
+            setErrorMessage(response.data.message);
+        } catch (e) {
+            setErrorMessage('Ocorreu um erro. Verifique os dados e tente novamente.');
+        }
+
+        setLoading(false);
     }
 
     function ibanPayment() {
@@ -239,6 +243,7 @@ export default function DonatePage() {
 
                 <div
                     onClick={() => {
+                        setDonorName('');
                         setIsAnonymous(!isAnonymous);
                     }}>
                     <input readOnly type="checkbox" checked={isAnonymous}></input>
@@ -341,7 +346,14 @@ export default function DonatePage() {
                     {activePaymentMethod === formConstants.MB_WAY_PAYMENT && (
                         <div className={styles.spacingCard}>
                             Nº de telemóvel associado à conta MB WAY
-                            <input className={styles.cardInput} type="number" required></input>
+                            <input
+                                className={styles.cardInput}
+                                value={donorPhoneNumber}
+                                type="number"
+                                onChange={(e) => {
+                                    setDonorPhoneNumber(e.target.value);
+                                }}
+                                required></input>
                         </div>
                     )}
 

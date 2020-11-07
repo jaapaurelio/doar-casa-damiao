@@ -17,7 +17,7 @@
         }
     },
     "scripts": {
-        "dev": "next dev",
+        "dev": "NODE_OPTIONS='--inspect' next",
         "build": "next build",
         "start": "next start",
         "lint": "eslint . --ext .js",

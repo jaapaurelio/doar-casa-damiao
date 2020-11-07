@@ -15,8 +15,8 @@ const schema = {
         characters: {
             type: 'array',
             items: {
-                type: "string"
-            }
+                type: 'string',
+            },
         },
     },
     required: ['email', 'characters'],

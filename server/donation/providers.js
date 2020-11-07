@@ -73,7 +73,11 @@ export const submitMBway = (name, amount, email, phone) =>
         },
         headers: mbWayHeaders,
         timeout: 60 * 1000,
-    }).then((response) => response.data);
+    })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw { message: error.response.data.message[0] };
+        });
 
 export const loadMBwayPaymentUpdate = (notificationId) =>
     axios({

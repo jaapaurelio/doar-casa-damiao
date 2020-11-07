@@ -16,10 +16,10 @@ export default (req, res) => {
                 .then((story) => response({ ...story, characters: story.characters.split(';') }))
                 .catch(() => response('', 500));
         }
-    } else if(req.method.toLowerCase() === 'get') {
+    } else if (req.method.toLowerCase() === 'get') {
         return list()
-            .then(resp => response(resp))
-            .catch(() => response('', 500))
+            .then((resp) => response(resp))
+            .catch(() => response('', 500));
     }
 
     return response('not found', 404);

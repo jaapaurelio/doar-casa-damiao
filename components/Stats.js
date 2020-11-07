@@ -2,29 +2,28 @@ import React, { useEffect, useState } from 'react';
 import styles from './Stats.module.css';
 import Link from 'next/link';
 
-
 const formatter = new Intl.NumberFormat('pt-PT', {
     style: 'currency',
     currency: 'EUR',
 });
 
 export default function Stats() {
-    const [ data, setData ] = useState({ nStories: 0, nDonations: 0, totalDonated: 0 })
-    
+    const [data, setData] = useState({ nStories: 0, nDonations: 0, totalDonated: 0 });
+
     useEffect(() => {
         fetch('/api/stats')
             .then((response) => response.json())
-            .then(response => {
+            .then((response) => {
                 const { status, data } = response;
-                if(status !== 'error') {
+                if (status !== 'error') {
                     setData({
                         nDonations: data.n_donations,
                         nStories: data.n_stories,
                         totalDonated: data.total_donated ? data.total_donated / 100 : 0,
-                    })
+                    });
                 }
-            })
-    }, [])
+            });
+    }, []);
 
     return (
         <div className={styles.container}>
@@ -38,7 +37,8 @@ export default function Stats() {
                         <span className={styles.strong}>{data.nDonations}</span> doações.
                     </div>
                     <div className={styles.line}>
-                        <span className={styles.strong}>{formatter.format(data.totalDonated)}</span> angariados.
+                        <span className={styles.strong}>{formatter.format(data.totalDonated)}</span>{' '}
+                        angariados.
                     </div>
                 </div>
                 <div className={styles.actionButton}>

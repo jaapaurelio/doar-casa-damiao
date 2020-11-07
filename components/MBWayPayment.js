@@ -1,32 +1,27 @@
 import Link from 'next/link';
-import styles from './MultibancoPayment.module.css';
+import styles from './MBWayPayment.module.css';
 import { formatNumberSpace } from '../helpers/utils';
 
-export default function MultibancoPayment({ entity, reference, amount }) {
+export default function MBWayPayment({ phone, amount }) {
     return (
-        <div className={styles.pageConainer}>
+        <div className={styles.pageContainer}>
             <div className={styles.pageLogo}>
-                <img src="/images/icons/multibanco.png"></img>
+                <img src="/images/icons/mbway.png"></img>
             </div>
 
             <div className={styles.pageText}>
-                Confirme a sua doação utilizando os seguintes dados num terminal Multibanco ou no
-                seu Home Banking.
+                Confirme a sua doação na aplicação do MB Way do seu telemóvel.
             </div>
             <div className={styles.pageText}>
                 Desde já agradecemos o seu contributo na vida destas crianças.
             </div>
 
-            <div className={styles.mbData}>
+            <div className={styles.mbwayData}>
                 <table>
                     <tbody>
                         <tr>
-                            <td className={styles.mbTitles}>Entidade:</td>
-                            <td>{entity}</td>
-                        </tr>
-                        <tr>
-                            <td className={styles.mbTitles}>Referêcia:</td>
-                            <td>{formatNumberSpace(reference)}</td>
+                            <td className={styles.mbTitles}>Telemóvel:</td>
+                            <td>{formatNumberSpace(phone)}</td>
                         </tr>
                         <tr>
                             <td className={styles.mbTitles}>Valor:</td>
@@ -35,6 +30,7 @@ export default function MultibancoPayment({ entity, reference, amount }) {
                     </tbody>
                 </table>
             </div>
+
             <div className={styles.buttonContainer}>
                 <Link href="/">
                     <button className="btn-secondary">
