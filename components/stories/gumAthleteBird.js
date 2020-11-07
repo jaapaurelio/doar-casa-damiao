@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-export default function Story() {
+export default function Story1() {
     return (
         <div>
             <Head>

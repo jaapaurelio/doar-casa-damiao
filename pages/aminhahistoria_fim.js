@@ -1,10 +1,8 @@
 import React from 'react';
-
 import GumAthleteBird from '../components/stories/GumAthleteBird';
 
 const STORY_MAP = {
     'chichlete,atleta,pintassilgo': GumAthleteBird,
-    'formiga,javali,lago': GumAthleteBird,
 };
 
 const STORY_TITLE = {
