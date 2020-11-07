@@ -26,7 +26,7 @@ var formatNumber = new Intl.NumberFormat('de-DE', {
 export default function DonatePage() {
     const router = useRouter();
     const [donorName, setDonorName] = useState('');
-    const [donorEmail, setDonorEmail] = useState('jaapaurelio@gmail.com');
+    const [donorEmail, setDonorEmail] = useState('');
     const [donationValue, setDonationValue] = useState(donationValues[0]);
     const [donorPhoneNumber, setDonorPhoneNumber] = useState('');
     const [isAnonymous, setIsAnonymous] = useState(false);
