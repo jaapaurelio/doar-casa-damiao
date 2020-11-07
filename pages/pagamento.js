@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/Payment.module.css';
+import styles from './pagamento.module.css';
 import { useRouter } from 'next/router';
 
 import MultibancoPayment from '../components/MultibancoPayment';

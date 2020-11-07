@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as lstorage from 'local-storage';
 import { plots, STEP_TYPE } from '../constants/story_constants';
-import styles from '../styles/MyStoryPage.module.css';
+import styles from './aminhahistoria.module.css';
 import StoryOptions from '../components/StoryOptions';
 import StoryResume from '../components/StoryResume';
 import { getCurrentStoryStep } from '../helpers/story_helpers';
