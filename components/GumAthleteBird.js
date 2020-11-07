@@ -1,6 +1,20 @@
+import Head from 'next/head';
+
 export default function GumAthleteBird() {
     return (
         <div>
+            <Head>
+                <title>A Chiclete Atleta</title>
+                <meta
+                    name="description"
+                    property="og:description"
+                    content="Era uma vez uma Chiclete de Cereja que sonhava ser atleta. Todos as outras chicletes
+                    da caixa gozavam do seu sonho pois o único propósito de uma chiclete era ser mascada
+                    e deitada fora. Elas aceitavam bem esse facto, foram criadas para isso."></meta>
+                <meta property="og:title" content="Com a sua ajuda, criamos histórias de Natal" />
+                <meta property="og:image" content="/images/characters/chichlete.svg" />
+                <meta name="twitter:card" content="summary_large_image" />
+            </Head>
             <p>
                 Era uma vez uma Chiclete de Cereja que sonhava ser atleta. Todos as outras chicletes
                 da caixa gozavam do seu sonho pois o único propósito de uma chiclete era ser mascada
