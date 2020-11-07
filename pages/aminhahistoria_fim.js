@@ -1,30 +1,26 @@
-import { createStoryLine } from '../helpers/story_helpers';
-import React, { useState, useEffect } from 'react';
-import * as lstorage from 'local-storage';
-import { plots } from '../constants/story_constants';
-import Story from '../components/Story';
+import React from 'react';
 
-export default function MyStoryEndPage() {
-    const [currentStory, setCurrentStory] = useState([]);
-    const [authorName, setAuthorName] = useState('Anónimo');
-    const storyTitle = 'A Formiga atleta e o Pintassilgo';
+import GumAthleteBird from '../components/stories/GumAthleteBird';
 
-    useEffect(() => {
-        const selectedStoryPlot = lstorage('story');
-        const author = lstorage('storyAuthor');
-        if (author) {
-            setAuthorName(author);
-        }
+const STORY_MAP = {
+    'chichlete,atleta,pintassilgo': GumAthleteBird,
+    'formiga,javali,lago': GumAthleteBird,
+};
 
-        setCurrentStory(selectedStoryPlot || []);
-    }, []);
+const STORY_TITLE = {
+    'chichlete,atleta,pintassilgo': 'A chiclete atleta e o Pintassilgo',
 
-    const storyLine = createStoryLine(currentStory, plots);
+    'formiga,javali,lago': 'A Formiga e a Javali',
+};
 
+export default function MyStoryEndPage({ story, author }) {
+    const StoryComponent = STORY_MAP[story];
+    const title = STORY_TITLE[story];
     return (
         <div className="pageWidthAlign">
-            <Story story={storyLine} title={storyTitle} author={authorName}></Story>
-
+            {title && <h1>{title}</h1>}
+            {author && <div>Autor Casa Damião e {author}.</div>}
+            {StoryComponent && <StoryComponent></StoryComponent>}
             <h2>Gostaste da história?</h2>
             <div>Ajuda a casa damião e partilha</div>
             <button>Partilhar</button>
@@ -36,4 +32,10 @@ export default function MyStoryEndPage() {
             <button>Doar</button>
         </div>
     );
+}
+
+export async function getServerSideProps({ query }) {
+    const story = query.characters || '';
+    const author = query.author || 'Anónimo';
+    return { props: { story, author } };
 }
