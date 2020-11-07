@@ -5,9 +5,10 @@ import { useRouter } from 'next/router';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import Title from '../components/Title';
 import PaymentOption from '../components/PaymentOption';
+import DonationAmount from '../components/DonationAmount';
 import { callDonationApi } from '../helpers/http';
 
-const donationValues = [2, 5, 10];
+const donationValues = [5, 10, 20];
 const formConstants = {
     NONE_PAYMENT: 'NONE_PAYMENT',
     CARD_PAYMENT: 'CARD_PAYMENT',
@@ -27,7 +28,6 @@ export default function DonatePage() {
     const [donorName, setDonorName] = useState('');
     const [donorEmail, setDonorEmail] = useState('jaapaurelio@gmail.com');
     const [donationValue, setDonationValue] = useState(donationValues[0]);
-    const [showOtherAmount, setShowOtherAmount] = useState(false);
     const [donorPhoneNumber, setDonorPhoneNumber] = useState('');
     const [isAnonymous, setIsAnonymous] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -35,7 +35,6 @@ export default function DonatePage() {
     const [activePaymentMethod, setActivePaymentMethod] = useState(formConstants.NONE_PAYMENT);
     const stripe = useStripe();
     const elements = useElements();
-    const customAmountInputRef = React.useRef();
 
     function createDonationPayload(provider) {
         return {
@@ -220,7 +219,6 @@ export default function DonatePage() {
         setErrorMessage('');
     };
 
-    const otherAmountClass = showOtherAmount ? styles.activeOption : '';
     return (
         <div className="pageWidthAlign">
             <form onSubmit={handleSubmit}>
@@ -266,63 +264,12 @@ export default function DonatePage() {
                     />
                 </div>
                 <h2>Quanto quer doar?</h2>
-                <div className={styles.amountContainer}>
-                    {donationValues.map(function (amount) {
-                        const activeClass =
-                            amount === donationValue && !showOtherAmount ? styles.activeOption : '';
-                        return (
-                            <div
-                                onClick={() => {
-                                    if (loading) {
-                                        return;
-                                    }
-                                    setDonationValue(amount);
-                                    setShowOtherAmount(false);
-                                }}
-                                className={`${styles.donationAmountOption} ${activeClass}`}
-                                key={amount}>
-                                {amount}€
-                            </div>
-                        );
-                    })}
-                </div>
-                <div
-                    onClick={() => {
-                        if (loading) {
-                            return;
-                        }
-                        if (!showOtherAmount) {
-                            setShowOtherAmount(true);
-                            setDonationValue('');
-                        }
+                <DonationAmount
+                    onChange={setDonationValue}
+                    donationValues={donationValues}
+                    donationValue={donationValue}
+                    disabled={loading}></DonationAmount>
 
-                        setTimeout(() => {
-                            customAmountInputRef.current.focus();
-                        }, 0);
-                    }}
-                    className={`
-            ${styles.donationAmountOption}
-            ${styles.otherDonationAmountOption}
-            ${otherAmountClass}
-          `}>
-                    <div className={styles.otherLabel}>Outro valor</div>
-                    {showOtherAmount && (
-                        <div className={styles.otherInputContainer}>
-                            <input
-                                disabled={loading}
-                                ref={customAmountInputRef}
-                                className={styles.otherValueInput}
-                                autoFocus
-                                required
-                                type="number"
-                                value={donationValue}
-                                onChange={(e) => {
-                                    setDonationValue(Number(e.target.value));
-                                }}></input>
-                            <span>€</span>
-                        </div>
-                    )}
-                </div>
                 <h2>Pagamento</h2>
 
                 <div className={styles.paymentOptions}>

@@ -1,0 +1,61 @@
+.amountContainer {
+    display: flex;
+    border-radius: 4px;
+    border: 1px solid;
+}
+
+.donationAmountOption {
+    flex-grow: 1;
+    padding: 20px;
+    width: 30%;
+    color: #2b2b2b;
+    font-size: 16px;
+    border-left: 1px solid gray;
+    text-align: center;
+    cursor: pointer;
+}
+
+.donationAmountOption:first-child {
+    border-left: 0;
+}
+
+.otherDonationAmountOption {
+    width: auto;
+    margin-top: 20px;
+    border-radius: 4px;
+    border: 1px solid;
+}
+
+.activeOption,
+.activeOtherOption {
+    background-color: #6349d5dd;
+    position: relative;
+    color: #fff;
+}
+
+.activeOtherOption {
+    padding: 0 20px;
+}
+
+.activeOtherOption .otherLabel {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 11px;
+}
+
+.otherInputContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.otherValueInput {
+    outline: 0;
+    width: auto;
+    text-align: center;
+    border: 0;
+    background: transparent;
+    font-size: 16px;
+    color: #fff;
+}
