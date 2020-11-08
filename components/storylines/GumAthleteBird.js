@@ -18,51 +18,56 @@ export default function GumAthleteBird() {
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <p>
-                Era uma vez uma chiclete de cereja que sonhava ser atleta. Todos as outras chicletes
-                da caixa gozavam do seu sonho pois o único propósito de uma chiclete era ser mascada
-                e deitada fora. Elas aceitavam bem esse facto, foram criadas para isso.
+                Vocês sabem que o único destino possível de uma chiclete é ser mascada e deitada
+                fora.
             </p>
+            <p>
+                Mas a chiclete número 4325 do lote 231 sabor cereja, também conhecida como
+                Valentina, tinha um sonho diferente: ser atleta.
+            </p>
+
             <StoryImage
                 image={'/images/characters/chichlete.svg'}
                 backgroundColor={CHARACTERS_COLORS[CHARACTERS.GUM]}></StoryImage>
+
             <p>
-                Mas esta chiclete era diferente, era sonhadora e não se limitava ao que os outros
-                diziam.
+                Todos as outras chicletes da caixa gozavam com ela e a chamavam Valentina a
+                sonhadora.
             </p>
 
             <p>
-                A caixa de chicletes onde vivia foi comprada por um jovem dos subúrbios da cidade.
-                Após ser mascada a Chiclete de Cereja foi atirada ao chão.
+                A caixa de chicletes onde vivia foi comprada por um rapaz que usou a chiclete
+                enquanto falava com a miúda que gostava, para se fazer de fixe, atirando depois a
+                chiclete ao chão.
             </p>
-
             <p>
-                Ali no chão da rua via muita gente passar de um lado para o outro com as suas vidas
-                ocupadas e a ser ignorada. Ficou ali meses. Embora um pouco triste não desistia do
-                seu sonho, tinha que arranjar forma de conseguir ser atleta.
+                Ali no chão da rua, a Valentina via muita gente passar de um lado para o outro com
+                as suas vidas ocupadas e foi ignorada durante meses. Embora um pouco triste não
+                desistia do seu sonho, tinha que arranjar forma de conseguir ser a maior atleta de
+                sempre.
             </p>
             <StoryImage
                 image="/images/characters/pintassilgo.svg"
                 backgroundColor={CHARACTERS_COLORS[CHARACTERS.BIRD]}></StoryImage>
 
             <p>
-                Num dia de primavera apareceu por ali um Pintassilgo, depois de um pouco de
-                desconfiança o Pintassilgo aproximou-se da chiclete e tornaram-se amigos. A Chiclete
-                de Cereja acabou por contar-lhe o seu sonho e este teve a ideia que mudaria a vida
-                da chiclete para sempre. Ele ouviu falar de uma maratona que ia acontecer no próximo
-                fim de semana na cidade e podia levar a chiclete no seu bico até lá.
+                Num dia de primavera apareceu por ali um pintassilgo, e depois de um pouco de
+                desconfiança o pintassilgo aproximou-se da chiclete e tornaram-se amigos. A chiclete
+                de cereja acabou por contar-lhe o seu sonho e este teve a ideia que mudaria a vida
+                da Valentina para sempre. Ele ouviu falar de uma maratona que ia acontecer no
+                próximo fim de semana na cidade e podia levar a chiclete no seu bico até lá.
             </p>
 
             <p>
-                Assim aconteceu, chegou ao fim de semana e uma hora antes da maratona o Pintassilgo
-                levou a chiclete para o ponto de partida. Quando os atletas começaram a chegar, a
-                Chiclete de Cereja colou-se a uma sapatilha e fez de tudo para nunca se largar.
+                Assim aconteceu, chegou ao fim de semana e o pintassilgo levou a chiclete para o
+                ponto de partida. Quando os atletas começaram a chegar, a chiclete de cereja
+                colou-se a uma sapatilha.
             </p>
 
             <p>
-                Ouviu-se a partida, a chiclete estava entre as sapatilhas da frente. Duas horas
-                depois, com muito esforço para que ficasse sempre colada à sapatilha, a chiclete
-                chegou à meta. Tinha participado numa maratona e tinha escolhido a sapatilha certa
-                pois era a do atleta vendedor.
+                Ouviu-se a partida e a chiclete estava entre as sapatilhas da frente. Durante duas
+                horas, Valentina fez de tudo para nunca se largar e chegou à meta. Tinha participado
+                numa maratona e tinha escolhido a sapatilha certa pois era a do atleta vencedor.
             </p>
 
             <StoryImage
@@ -70,12 +75,8 @@ export default function GumAthleteBird() {
                 backgroundColor={CHARACTERS_COLORS[CHARACTERS.ATHLETE]}></StoryImage>
 
             <p>
-                A Chiclete de Cereja estava exausta mas valeu a pena. Mesmo quando ninguém acreditou
-                nela, mesmo após passar meses sozinha no canto da rua, ela tinha acabado de se
-                tornar a primeira chiclete da história a ganhar uma maratona. Ouvindo tal feito, o
-                Pintassilgo foi ter com a chiclete e disse: Tudo o que um sonho precisa é de alguém
-                que o consiga realizar, a força e a persistência nunca decepcionam. Parabéns minha
-                querida chiclete.
+                A chiclete Valentina estava exausta, mas conseguiu. Com muito esforço e um amigo,
+                ela tornou-se a primeira chiclete da história a ganhar uma maratona.
             </p>
         </div>
     );

@@ -77,7 +77,7 @@ const STORY_MAP = {
 };
 
 const STORY_TITLE = {
-    'chichlete,atleta,pintassilgo': 'A chiclete atleta e o Pintassilgo',
+    'chichlete,atleta,pintassilgo': 'A chiclete atleta e o pintassilgo',
     'formiga,javali,lago': 'A Formiga e a Javali',
 };
 
