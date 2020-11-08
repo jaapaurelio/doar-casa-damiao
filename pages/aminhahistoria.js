@@ -12,8 +12,8 @@ import axios from 'axios';
 export default function MyStoryPage() {
     const router = useRouter();
     const [currentStory, setCurrentStory] = useState([]);
-    const [authorName, setAuthorName] = useState('Zefras');
-    const [authorEmail, setAuthorEmail] = useState('zefras@t.com');
+    const [authorName, setAuthorName] = useState('');
+    const [authorEmail, setAuthorEmail] = useState('');
 
     useEffect(() => {
         const chars = router.query.characters || '';
@@ -76,6 +76,13 @@ export default function MyStoryPage() {
     const percentage = (currentStory.length * 100) / 3;
     return (
         <div>
+            <div className="pageWidthAlign">
+                <Line percent={percentage} strokeWidth="1" strokeColor="#8acab7" />
+                <div className={styles.percentage}>
+                    {currentStory.length}
+                    /3
+                </div>
+            </div>
             {currentStep.options && (
                 <StoryOptions
                     currenOption={currentStep}
@@ -83,11 +90,6 @@ export default function MyStoryPage() {
             )}
             <div className="pageWidthAlign">
                 <h2>As tuas personagens</h2>
-                <Line percent={percentage} strokeWidth="1" strokeColor="#2f3996" />
-                <div className={styles.percentage}>
-                    {currentStory.length}
-                    /3
-                </div>
 
                 <StoryResume selectedStoryPlot={currentStory} plots={plots}></StoryResume>
 
@@ -125,7 +127,9 @@ export default function MyStoryPage() {
                                     />
                                 </div>
                             </div>
-                            <button type="submit">Ver história</button>
+                            <button className="btn-secondary" type="submit">
+                                Ver história
+                            </button>
                         </form>
                     </div>
                 )}
