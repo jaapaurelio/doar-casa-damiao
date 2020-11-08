@@ -40,7 +40,7 @@
     padding-left: 8px;
 }
 
-@media only screen and (min-width: 736px) { 
+@media only screen and (min-width: 736px) {
     .stats {
         flex-direction: row;
     }
@@ -51,4 +51,3 @@
         overflow-y: auto;
     }
 }
-
