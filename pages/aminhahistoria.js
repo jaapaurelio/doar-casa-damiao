@@ -12,16 +12,12 @@ import axios from 'axios';
 export default function MyStoryPage() {
     const router = useRouter();
     const [currentStory, setCurrentStory] = useState([]);
-    const [authorName, setAuthorName] = useState('');
-    const [authorEmail, setAuthorEmail] = useState('');
+    const [authorName, setAuthorName] = useState('Zefras');
+    const [authorEmail, setAuthorEmail] = useState('zefras@t.com');
 
     useEffect(() => {
         const chars = router.query.characters || '';
         const selectedStoryPlot = chars.length > 0 ? chars.split(',') : undefined;
-        const author = lstorage('storyAuthor');
-        const email = lstorage('storyEmail');
-        setAuthorName(author || '');
-        setAuthorEmail(email || '');
         setCurrentStory(selectedStoryPlot || []);
     }, [router.query.characters]);
 
@@ -73,7 +69,7 @@ export default function MyStoryPage() {
         });
 
         router.push({
-            pathname: '/aminhahistoria_fim',
+            pathname: '/historia',
             query: router.query,
         });
     }

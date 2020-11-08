@@ -4,7 +4,7 @@ export default function GumAthleteBird() {
     return (
         <div>
             <Head>
-                <title>A Chiclete Atleta</title>
+                <title>A Chiclete Atleta e o Pintassilgo</title>
                 <meta
                     name="description"
                     property="og:description"

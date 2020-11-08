@@ -4,7 +4,7 @@ const CHARACTERS = {
     ANT: 'formiga',
     PILLOW: 'almofada',
     SWEATSHIRT: 'camisola',
-    SQUIREL: 'esquilo',
+    SQUIRREL: 'esquilo',
     DAWG: 'rafeiro',
     BIRD: 'pintassilgo',
     UNDERWEAR: 'cuecas',
@@ -28,7 +28,7 @@ const CHARACTERS_COLORS = {
     [CHARACTERS.ASTRONAUT]: '#13172E',
     [CHARACTERS.BIRD]: '#1C6282',
     [CHARACTERS.DAWG]: '#393981',
-    [CHARACTERS.SQUIREL]: '#5E1B44',
+    [CHARACTERS.SQUIRREL]: '#5E1B44',
     [CHARACTERS.SOCK]: '#FFCCCC',
     [CHARACTERS.PILLOW]: '#74CFD8',
     [CHARACTERS.UNDERWEAR]: '#E79D4A',
@@ -51,7 +51,7 @@ const CHARACTERS_DARK_WHITELIST = [
     CHARACTERS.ASTRONAUT,
     CHARACTERS.BIRD,
     CHARACTERS.DAWG,
-    CHARACTERS.SQUIREL,
+    CHARACTERS.SQUIRREL,
     CHARACTERS.BOAR,
 ];
 
@@ -88,7 +88,7 @@ const gumFriendsOptions = {
         },
         {
             text: 'O Esquilo-vermelho',
-            character: CHARACTERS.SQUIREL,
+            character: CHARACTERS.SQUIRREL,
         },
     ],
 };
@@ -136,7 +136,7 @@ const plots = {
         {
             text: 'uma chiclete de cereja',
             character: CHARACTERS.GUM,
-            question: 'Qual era o sonho da chiclete?',
+            question: 'A chiclete de cereja tinha um sonho, qual?',
             options: [
                 {
                     text: 'Ser atleta.',
@@ -157,7 +157,7 @@ const plots = {
         },
         {
             text: 'uma peúga exploradora',
-            question: 'A peúga queria fazer amizade com quem?',
+            question: 'A peúga queria fazer uma amizade, com quem?',
             character: CHARACTERS.SOCK,
             options: [
                 {
@@ -180,7 +180,7 @@ const plots = {
         {
             text: 'uma formiga corajosa',
             character: CHARACTERS.ANT,
-            question: 'Quem era o seu melhor amigo?',
+            question: 'Quem era o melhor amigo da formiga corajosa?',
             options: [
                 {
                     text: 'O ouriço cacheiro',
