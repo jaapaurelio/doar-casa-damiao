@@ -1,3 +1,3 @@
 export default function SockSweatshirtClothesline() {
-    return <div>meia camisola estendar</div>;
+    return <h1>meia camisola estendar</h1>;
 }

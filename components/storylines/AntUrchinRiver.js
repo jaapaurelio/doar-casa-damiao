@@ -1,3 +1,3 @@
 export default function AntUrchinRiver() {
-    return <div>formiga ouriço rio</div>;
+    return <h1>formiga ouriço rio</h1>;
 }

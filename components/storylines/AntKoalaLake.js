@@ -1,3 +1,3 @@
 export default function AntKoalaLake() {
-    return <div>historia chiclete atleta e rafeito</div>;
+    return <h1>historia chiclete atleta e rafeito</h1>;
 }

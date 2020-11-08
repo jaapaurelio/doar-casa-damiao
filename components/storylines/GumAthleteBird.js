@@ -1,10 +1,12 @@
 import Head from 'next/head';
+import StoryImage from '../StoryImage';
+import { CHARACTERS_COLORS, CHARACTERS } from '../../constants/story_constants';
 
 export default function GumAthleteBird() {
     return (
         <div>
             <Head>
-                <title>A Chiclete Atleta e o Pintassilgo</title>
+                <title>A chiclete Atleta e o pintassilgo</title>
                 <meta
                     name="description"
                     property="og:description"
@@ -16,11 +18,13 @@ export default function GumAthleteBird() {
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <p>
-                Era uma vez uma Chiclete de Cereja que sonhava ser atleta. Todos as outras chicletes
+                Era uma vez uma chiclete de cereja que sonhava ser atleta. Todos as outras chicletes
                 da caixa gozavam do seu sonho pois o único propósito de uma chiclete era ser mascada
                 e deitada fora. Elas aceitavam bem esse facto, foram criadas para isso.
             </p>
-            <img src="/images/characters/chichlete.svg"></img>
+            <StoryImage
+                image={'/images/characters/chichlete.svg'}
+                backgroundColor={CHARACTERS_COLORS[CHARACTERS.GUM]}></StoryImage>
             <p>
                 Mas esta chiclete era diferente, era sonhadora e não se limitava ao que os outros
                 diziam.
@@ -36,6 +40,9 @@ export default function GumAthleteBird() {
                 ocupadas e a ser ignorada. Ficou ali meses. Embora um pouco triste não desistia do
                 seu sonho, tinha que arranjar forma de conseguir ser atleta.
             </p>
+            <StoryImage
+                image="/images/characters/pintassilgo.svg"
+                backgroundColor={CHARACTERS_COLORS[CHARACTERS.BIRD]}></StoryImage>
 
             <p>
                 Num dia de primavera apareceu por ali um Pintassilgo, depois de um pouco de
@@ -57,6 +64,10 @@ export default function GumAthleteBird() {
                 chegou à meta. Tinha participado numa maratona e tinha escolhido a sapatilha certa
                 pois era a do atleta vendedor.
             </p>
+
+            <StoryImage
+                image="/images/characters/atleta.svg"
+                backgroundColor={CHARACTERS_COLORS[CHARACTERS.ATHLETE]}></StoryImage>
 
             <p>
                 A Chiclete de Cereja estava exausta mas valeu a pena. Mesmo quando ninguém acreditou

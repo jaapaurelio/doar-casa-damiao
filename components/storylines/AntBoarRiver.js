@@ -1,3 +1,3 @@
 export default function AntBoarRiver() {
-    return <div>formiga javali rio</div>;
+    return <h1>formiga javali rio</h1>;
 }

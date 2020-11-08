@@ -1,3 +1,3 @@
 export default function GumAthleteSquirrel() {
-    return <div>Historia Chiclete atleta e esquilo</div>;
+    return <h1>Historia Chiclete atleta e esquilo</h1>;
 }

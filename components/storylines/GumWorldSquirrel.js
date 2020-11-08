@@ -1,3 +1,3 @@
 export default function GumWorldSquirrel() {
-    return <div>chiclete mundo esquilo</div>;
+    return <h1>chiclete mundo esquilo</h1>;
 }

@@ -203,4 +203,4 @@ const plots = {
     ],
 };
 
-export { plots, gumStory, CHARACTERS_COLORS, CHARACTERS_DARK_WHITELIST };
+export { plots, gumStory, CHARACTERS_COLORS, CHARACTERS_DARK_WHITELIST, CHARACTERS };

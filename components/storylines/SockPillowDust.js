@@ -1,3 +1,3 @@
 export default function SockPillowDust() {
-    return <div>meia almofada po</div>;
+    return <h1>meia almofada po</h1>;
 }

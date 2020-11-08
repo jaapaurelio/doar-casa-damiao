@@ -1,3 +1,3 @@
 export default function GumAthleteDawg() {
-    return <div>chiclete atleta rafeito</div>;
+    return <h1>chiclete atleta rafeito</h1>;
 }

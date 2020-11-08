@@ -1,3 +1,3 @@
 export default function GumAstronautSquirrel() {
-    return <div>chiclete astronauta esquilo</div>;
+    return <h1>chiclete astronauta esquilo</h1>;
 }

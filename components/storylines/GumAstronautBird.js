@@ -1,3 +1,3 @@
 export default function GumAstronautBird() {
-    return <div>chiclete astronauta pintassilgo</div>;
+    return <h1>chiclete astronauta pintassilgo</h1>;
 }

@@ -1,3 +1,3 @@
 export default function AntKoalaRiver() {
-    return <div>formiga coala rio</div>;
+    return <h1>formiga coala rio</h1>;
 }

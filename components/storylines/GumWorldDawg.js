@@ -1,3 +1,3 @@
 export default function GumWorldDawg() {
-    return <div>chiclete mundo rafeiro</div>;
+    return <h1>chiclete mundo rafeiro</h1>;
 }

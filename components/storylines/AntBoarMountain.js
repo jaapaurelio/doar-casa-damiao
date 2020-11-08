@@ -1,3 +1,3 @@
 export default function AntBoarMountain() {
-    return <div>formiga javali montanha</div>;
+    return <h1>formiga javali montanha</h1>;
 }

@@ -1,3 +1,3 @@
 export default function SockUnderwearDust() {
-    return <div>meia cuecas po</div>;
+    return <h1>meia cuecas po</h1>;
 }

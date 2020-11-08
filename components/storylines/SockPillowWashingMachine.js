@@ -1,3 +1,3 @@
 export default function SockPillowWashingMachine() {
-    return <div>meia almofada maquina de lavar</div>;
+    return <h1>meia almofada maquina de lavar</h1>;
 }

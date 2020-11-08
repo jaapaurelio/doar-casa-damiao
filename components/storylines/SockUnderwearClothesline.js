@@ -1,3 +1,3 @@
 export default function SockUnderwearClothesline() {
-    return <div>meia cuecas estendal</div>;
+    return <h1>meia cuecas estendal</h1>;
 }

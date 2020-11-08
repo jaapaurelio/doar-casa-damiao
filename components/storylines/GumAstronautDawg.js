@@ -1,3 +1,3 @@
 export default function GumAstronautDawg() {
-    return <div>chiclete astronauta rafeiro</div>;
+    return <h1>chiclete astronauta rafeiro</h1>;
 }

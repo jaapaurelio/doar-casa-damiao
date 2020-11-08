@@ -1,3 +1,3 @@
 export default function AntUrchinLake() {
-    return <div>formiga ouriço lago</div>;
+    return <h1>formiga ouriço lago</h1>;
 }

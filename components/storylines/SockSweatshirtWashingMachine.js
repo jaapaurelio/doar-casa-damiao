@@ -1,3 +1,3 @@
 export default function SockSweatshirtWashingMachine() {
-    return <div>meia camisola maquina de lavar</div>;
+    return <h1>meia camisola maquina de lavar</h1>;
 }

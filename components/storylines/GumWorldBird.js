@@ -1,3 +1,3 @@
 export default function GumWorldBird() {
-    return <div>chiclete mundo pintassilgo</div>;
+    return <h1>chiclete mundo pintassilgo</h1>;
 }

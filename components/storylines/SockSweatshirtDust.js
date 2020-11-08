@@ -1,3 +1,3 @@
 export default function SockSweatshirtDust() {
-    return <div>meia camisola po</div>;
+    return <h1>meia camisola po</h1>;
 }

@@ -1,3 +1,3 @@
 export default function SockUnderwearWashingMachine() {
-    return <div>meia cuecas maquina lavar</div>;
+    return <h1>meia cuecas maquina lavar</h1>;
 }

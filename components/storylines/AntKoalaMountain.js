@@ -1,3 +1,3 @@
 export default function AntKoalaMountain() {
-    return <div>formiga coala montanha</div>;
+    return <h1>formiga coala montanha</h1>;
 }

@@ -1,3 +1,3 @@
 export default function AntUrchinMountain() {
-    return <div>formiga ouriço montanha</div>;
+    return <h1>formiga ouriço montanha</h1>;
 }
