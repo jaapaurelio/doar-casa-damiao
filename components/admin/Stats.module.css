@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    color: #2b2b2b;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2b2b2b;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+}
+
+.stats span {
+    display: block;
+}
+
+.stats > div ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stats > div ul li {
+    display: flex;
+}
+
+.stats > div ul li:first-child {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.stats > div ul li span {
+    display: inline-block;
+    min-width: 40px;
+}
+
+.stats > div ul li b {
+    display: inline-block;
+    padding-left: 8px;
+}
+
+@media only screen and (min-width: 736px) { 
+    .stats {
+        flex-direction: row;
+    }
+
+    .stats > div {
+        width: 33%;
+        max-height: 100px;
+        overflow-y: auto;
+    }
+}
+

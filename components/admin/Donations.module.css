@@ -1,0 +1,61 @@
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table thead tr {
+    background-color: #2b2b2b;
+}
+
+.table thead th {
+    text-align: left;
+    height: 32px;
+    color: white;
+    padding: 4px
+}
+
+.table tbody tr:nth-child(2n) {
+    background-color: #f0f0f0;
+}
+
+.table thead th,
+.table tbody td {
+    padding: 2px;
+    max-width: 0;
+    min-width: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table thead tr th:last-child,
+.table tbody tr td:last-child {
+    width: 30px;
+}
+
+.table thead tr th:nth-last-child(2),
+.table tbody tr td:nth-last-child(2) {
+    width: 40px;
+}
+
+.table thead tr th:nth-child(2),
+.table tbody tr td:nth-child(2) {
+    width: 60px;
+}
+
+.details span {
+    display: block;
+}
+
+.payed {
+    color: #3cba4c;
+}
+
+.notPayed {
+    color: #f7332d;
+}
+
+.anonymous {
+    color: #c2834c;
+}

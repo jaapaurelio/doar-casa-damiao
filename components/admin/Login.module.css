@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    margin: 8px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2b2b2b;
+}
+
+.field {
+    margin-right: 16px;
+}
+
+.field label {
+    display: block;
+    padding-left: 4px;
+    margin-bottom: 4px;
+}
+
+.field input[type="password"] {
+    padding: 12px 4px;
+    width: 200px;
+}
