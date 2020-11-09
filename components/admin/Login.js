@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Login.module.css';
 
-export const Login = ({ onSubmit }) => {
-    const [password, setPassword] = useState();
-
+export const Login = ({ password, onChange, onSubmit }) => {
     const onPasswordChnage = (e) => {
-        setPassword(e.target.value);
+        onChange(e.target.value);
     };
 
     const onSubmitHandler = (e) => {

@@ -5,7 +5,7 @@ export const Donations = ({ list, onDelete }) => {
     const onDeleteHandler = (id) => () => onDelete(id);
 
     return (
-        <div>
+        <div className={styles.container}>
             <h3>Lista de Doações</h3>
             <table className={styles.table}>
                 <thead>
@@ -41,7 +41,12 @@ export const Donations = ({ list, onDelete }) => {
                                 )}
                             </td>
                             <td>
-                                <button onClick={onDeleteHandler(donation.id)}>X</button>
+                                <button
+                                    title="Apagar doação"
+                                    className={styles.btDelete}
+                                    onClick={onDeleteHandler(donation.id)}>
+                                    X
+                                </button>
                             </td>
                         </tr>
                     ))}

@@ -34,19 +34,21 @@ export const Stats = ({ stats, list }) => {
             <h3>Stats</h3>
             <div className={styles.stats}>
                 <div>
+                    <h3>Em números</h3>
                     <span>Número Histórias: {stats.n_stories}</span>
                     <span>Número Doações: {stats.n_donations}</span>
                     <span>Total angariado: {stats.total_donated / 100}€</span>
                 </div>
                 <div>
+                    <h3>Formas de pagamento</h3>
                     <span>MB Way: {nMbWay}</span>
                     <span>Multibanco: {nMultibanco}</span>
                     <span>Cartão: {nCard}</span>
                     <span>Manual: {nManual}</span>
                 </div>
                 <div>
+                    <h3>Valor / Número de pagamentos</h3>
                     <ul>
-                        <li>Valor / Número de pagamentos</li>
                         {paymentsByAmount.map((val) => (
                             <li key={val.amount}>
                                 <span>{val.amount / 100}€</span> -&gt; <b>{val.payments}</b>

@@ -1,3 +1,14 @@
+.container {
+    margin-top: 16px;
+}
+
+.container h3 {
+    padding: 0;
+    margin: 0;
+    color: #2b2b2b;
+    padding-bottom: 8px;
+}
+
 .table {
     width: 100%;
     border-collapse: collapse;
@@ -57,4 +68,14 @@
 
 .anonymous {
     color: #c2834c;
+}
+
+.btDelete {
+    font-weight: bold;
+    color: #2b2b2b;
+    cursor: pointer;
+}
+
+.btDelete:hover {
+    color: #f7332d;
 }
