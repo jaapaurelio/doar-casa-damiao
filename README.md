@@ -1,3 +1,8 @@
+# Donation page for Casa Damião.
+Live preview: [https://doar2020.casadamiao.pt](https://doar2020.casadamiao.pt)
+
+![Casa Damiao](public/images/main-image.png?raw=true "Casa Damião")
+
 ## Getting Started
 
 Launch database 
